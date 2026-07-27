@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="MANTIS — shipboard edge compute for ISR data processing."
+    />
+    <title>MANTIS — INITIUM</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="../../assets/lenis-CYZHCgIY.js"></script>
+    <script type="module" crossorigin src="../../assets/product-CLLFcUA9.js"></script>
+    <link rel="stylesheet" crossorigin href="../../assets/lenis-DlOY-KyW.css">
+    <link rel="stylesheet" crossorigin href="../../assets/product-BSM0RD8t.css">
+  </head>
+  <body class="product-page">
+    <!-- Film grain (fixed, non-interactive) -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav is-scrolled" id="nav">
+      <a class="nav__mark" href="/">INITIUM</a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/products/">Products</a>
+        <a href="mailto:contact@initiumindustries.com" class="nav__cta">Contact</a>
+      </nav>
+
+      <button class="nav__burger" id="nav-burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <div class="nav__sheet" id="nav-sheet">
+        <a href="/products/">Products</a>
+        <a href="mailto:contact@initiumindustries.com" class="nav__sheet-contact">Contact</a>
+      </div>
+    </header>
+
+    <main class="pp">
+      <!-- HERO -->
+      <section class="pp-hero">
+        <p class="pp-hero__meta reveal">
+          <span class="pp-hero__product">MANTIS</span>
+          <span class="pp-hero__domain">NAVAL</span>
+        </p>
+        <h1 class="pp-hero__title reveal">Shipboard<br />edge compute.</h1>
+      </section>
+
+      <!-- INTRO COPY -->
+      <section class="pp-copy">
+        <div class="pp-copy__inner">
+          <p class="pp-copy__para reveal">
+            MANTIS is a ruggedized, rack-mounted compute appliance designed to be installed
+            aboard maritime surface combatants and expeditionary platforms: presenting no
+            fixed target and no single point of failure. It ingests
+            standard ISR data formats from any unmanned platform the vessel receives,
+            performs AI inference autonomously on full-motion video, synthetic aperture
+            radar imagery, and signals data, and delivers curated intelligence products to
+            watchstanders and combat systems in near-real time. Raw sensor data is
+            processed where it is collected. Only the compressed intelligence product
+            traverses the satellite link.
+          </p>
+          <p class="pp-copy__para reveal">
+            Time to actionable intelligence compresses from minutes to seconds. The ship
+            retains full exploitation capability in EMCON and denied-communications
+            conditions. Satellite bandwidth previously consumed by raw ISR feeds is freed
+            for voice, command-and-control, and other warfighting functions. A single
+            operator can oversee feeds that would currently require several dedicated
+            watchstanders.
+          </p>
+        </div>
+      </section>
+
+      <!-- FIG 01 — live instrument (browser-rendered, simulated) -->
+      <section class="pp-fig">
+        <p class="pp-fig__label reveal">FIG 01 — AIRBORNE PERCEPTION · SIMULATED</p>
+        <div class="pp-fig__frame reveal">
+          <canvas
+            id="mantis-fig"
+            aria-label="Animated map view. Detections appear over terrain contours, resolve against the terrain, and snap to geolocated points."
+          ></canvas>
+        </div>
+      </section>
+
+      <!-- DESIGN TARGETS -->
+      <section class="pp-specs">
+        <p class="pp-specs__caption reveal">DESIGN STANDARDS</p>
+        <div class="pp-specs__inner reveal">
+          <div class="pp-specs__row">
+            <span class="pp-specs__label">ENVIRONMENTAL QUALIFICATION</span>
+            <span class="pp-specs__value">MIL-STD-810H</span>
+          </div>
+          <div class="pp-specs__row">
+            <span class="pp-specs__label">SHOCK QUALIFICATION</span>
+            <span class="pp-specs__value">MIL-S-901D GRADE A</span>
+          </div>
+          <div class="pp-specs__row">
+            <span class="pp-specs__label">ENCRYPTION</span>
+            <span class="pp-specs__value">NSA TYPE 1 &amp; CNSA 2.0 POST-QUANTUM COMPLIANCE</span>
+          </div>
+          <div class="pp-specs__row">
+            <span class="pp-specs__label">POWER</span>
+            <span class="pp-specs__value">440V THREE-PHASE</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESSING + THERMAL -->
+      <section class="pp-copy">
+        <div class="pp-copy__inner">
+          <p class="pp-copy__para reveal">
+            The processing core is built around commercial AI accelerator hardware:
+            GPU-class inference processors offering high throughput-per-watt for sustained
+            inference workloads. The NVIDIA Jetson AGX Industrial family provides the
+            target performance envelope. These processors support mixed precision
+            inference, enabling efficient execution of the heterogeneous AI workloads
+            MANTIS must handle, from convolutional neural networks for video analysis to
+            transformer-based classifiers for radar imagery.
+          </p>
+          <p class="pp-copy__para reveal">
+            For thermal management, MANTIS uses a closed-loop liquid cooling system
+            designed to interface with the ship's existing chilled-water infrastructure,
+            providing deterministic thermal performance independent of ambient compartment
+            temperature and allowing the processing hardware to operate at sustained
+            maximum throughput without thermal throttling.
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="cta__inner">
+          <h2 class="cta__title reveal">See in real time.</h2>
+          <div class="cta__actions reveal">
+            <a class="btn btn--primary" href="mailto:contact@initiumindustries.com">Contact</a>
+            <a class="btn btn--ghost" href="/products/">All products</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__mark">INITIUM INDUSTRIES, INC.</p>
+      <p class="footer__legal">© 2026 Initium Industries, Inc. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>
