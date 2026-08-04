@@ -17,9 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/main-D6Mv1lRK.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/lenis-DC34kzWe.js">
-    <link rel="stylesheet" crossorigin href="./assets/lenis-C-9-3SW6.css">
+    <script type="module" crossorigin src="./assets/main-htkg3_SR.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/lenis-B2iVyTVT.js">
+    <link rel="stylesheet" crossorigin href="./assets/lenis-DE--KVma.css">
   </head>
   <body>
     <!-- Film grain (fixed, non-interactive; also dithers near-black gradients) -->
@@ -28,7 +28,7 @@
     <!-- Scroll progress (single accent element) -->
     <div class="progress" aria-hidden="true"><div class="progress__bar" id="progress-bar"></div></div>
 
-    <header class="nav" id="nav">
+    <header class="nav is-mark-hidden" id="nav">
       <a class="nav__mark" href="#top">INITIUM</a>
 
       <nav class="nav__links" aria-label="Primary">
@@ -89,7 +89,10 @@
             models failed with them.
           </p>
           <a class="st__media reveal" href="/products/mantis/">
-            <img src="./images/mantis.jpg" alt="MANTIS unit" loading="lazy" />
+            <!-- painted as a CSS background, not an <img>: browsers hang their
+                 own hover control (Lens / visual-search) off <img> elements and
+                 that chip was showing over the top-right corner of the unit. -->
+            <span class="st__media-img st__media-img--mantis" role="img" aria-label="MANTIS unit"></span>
             <span class="st__media-cap">MANTIS · RACK-MOUNTED COMPUTE APPLIANCE</span>
           </a>
         </div>
