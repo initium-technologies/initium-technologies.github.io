@@ -26,6 +26,8 @@
   --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
+  --selection-bg: #edeff2;
+  --selection-ink: #000000;
 }
 [data-theme="light"] {
   --bg: #ffffff;
@@ -33,6 +35,8 @@
   --bg-inverse: #000000;
   --nav-panel: var(--bg-raised);
   --ink: #0a0a0a;
+  --selection-bg: #000000;
+  --selection-ink: #edeff2;
   --ink-muted: #5c5c58;
   --ink-inverse: #f2f2f0;
   --ink-inverse-muted: #9a9a96;

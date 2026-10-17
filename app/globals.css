@@ -4,6 +4,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--bg); color: var(--ink); -webkit-text-size-adjust: 100%; }
 html, body { margin: 0; }
+::selection { background: var(--selection-bg); color: var(--selection-ink); }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
@@ -163,8 +164,10 @@ h1, h2, h3, p { margin: 0; }
 .home-hero__copy { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 var(--margin); text-align: center; }
 /* The original landing wordmark. The negative right margin cancels the tracking after the last letter so the word sits truly centred. */
 .home-hero__mark { font-family: var(--font-wordmark); font-weight: 400; font-size: clamp(44px, 9vw, 128px); line-height: 1.1; letter-spacing: var(--track-wordmark); margin-right: calc(-1 * var(--track-wordmark)); color: var(--ink-inverse); white-space: nowrap; }
-.home-hero__scroll { position: absolute; left: 50%; bottom: var(--space-6); transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--ink-inverse-muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: opacity var(--duration-base); }
-.home-hero__scroll::after { content: ""; width: 1px; height: 24px; background: currentColor; }
+.home-hero__scroll { position: absolute; left: 50%; bottom: var(--space-6); transform: translateX(-50%); color: var(--ink-inverse); opacity: 0.45; transition: opacity var(--duration-base); }
+.home-hero__scroll-line { display: block; width: 1px; height: 48px; background: currentColor; transform-origin: top; animation: scroll-cue 2.8s ease-in-out infinite; }
+/* Grows down from the top, holds, then fades: a slow pulse that reads as "keep going". */
+@keyframes scroll-cue { 0% { transform: scaleY(0); opacity: 0; } 40% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
 .home-hero__scroll.is-gone { opacity: 0; }
 .home-products { padding: var(--space-10) var(--margin); }
 .home-products__label { display: block; padding-bottom: var(--space-4); border-bottom: var(--border-1) solid var(--line); margin-bottom: var(--space-7); }
@@ -176,7 +179,6 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 899px) {
   .home-hero__copy { padding: 0 var(--margin-mobile); }
   .home-hero__mark { --track-wordmark: 0.28em; }
-  .home-hero__scroll { display: none; }
   .home-products { padding: var(--space-8) var(--margin-mobile); }
   .home-grid { grid-template-columns: 1fr; grid-template-areas: "orin" "iris" "mantis" "civ"; }
   .t-orin, .t-iris, .t-mantis, .t-civ { aspect-ratio: 4 / 3; }
@@ -370,5 +372,5 @@ h1, h2, h3, p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .nav, .nav__panel, .nav__panel-inner, .tile__media, .odometer__strip, .plus::before, .plus::after, .nav__product, .arrow-link .icon { transition: none !important; }
   .tile__media, .nav__product, .arrow-link .icon { transform: none !important; }
-  .cursor, .dots::after, .nav__panel-inner.is-switching { animation: none !important; }
+  .cursor, .dots::after, .nav__panel-inner.is-switching, .home-hero__scroll-line { animation: none !important; }
 }

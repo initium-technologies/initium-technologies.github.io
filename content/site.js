@@ -20,7 +20,6 @@ export const menus = {
     categories: [
       { label: 'Land', products: [{ name: 'IRIS', href: '/defense/iris' }] },
       { label: 'Naval', products: [{ name: 'MANTIS', href: '/defense/mantis' }] },
-      { label: 'Space', products: [{ name: 'ORIN', href: '/defense/orin' }] },
     ],
   },
   civilian: {
@@ -30,20 +29,14 @@ export const menus = {
       'The same systems proven with U.S. Special Operations breach teams, now cleared for police response and for the facilities they protect. Provided to responding agencies at no cost.',
     categories: [{ label: 'Police', products: [{ name: 'IRIS CIV', href: '/civilian/iris-civ' }] }],
   },
-  /* Sits between Defense and Civilian on desktop; goes straight to the partner site, same tab. */
-  partners: { label: 'Partner Portal', href: 'https://partner.initiumtechnologies.com/' },
-  /* Right-hand menu on desktop; a group in the mobile sheet. */
-  company: {
-    label: 'Company',
-    title: 'Company',
-    summary: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.',
-    links: [
-      { name: 'Mission', href: '/company' },
-      { name: 'Careers', href: '/company/careers' },
-      { name: 'Events', href: '/company/events' },
-      { name: 'Contact', href: 'mailto:admin@initiumtechnologies.com' },
-    ],
+  space: {
+    label: 'Space',
+    title: 'Space Products',
+    summary: 'Inference in orbit, on the satellite that collects the data.',
+    categories: [{ label: 'Orbit', products: [{ name: 'ORIN', href: '/defense/orin' }] }],
   },
+  /* Top-right corner on desktop; last row of the mobile sheet. Goes straight to the partner site, same tab. */
+  partners: { label: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
 };
 
 export const footer = {

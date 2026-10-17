@@ -4,10 +4,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { menus } from '@/content/site';
-import { Mark, Plus } from './Icons';
+import { Mark } from './Icons';
 
-/* Mobile sheet order: the two product menus, then Company with the Partner Portal link right under it. */
-const ORDER = ['defense', 'civilian', 'company'];
+/* Center menus, left to right (also the mobile sheet order). Partner sits on its own in the top-right corner. */
+const ORDER = ['defense', 'civilian', 'space'];
 
 function PanelContent({ menuKey, pathname }) {
   const m = menus[menuKey];
@@ -26,7 +26,6 @@ function PanelContent({ menuKey, pathname }) {
               {c.products.map((p) => (
                 <Link key={p.name} href={p.href} className={`nav__product ${pathname === p.href ? 'is-current' : ''}`}>
                   <span className="nav__product-name h3">{p.name}</span>
-                  <Plus />
                 </Link>
               ))}
             </div>
@@ -38,12 +37,10 @@ function PanelContent({ menuKey, pathname }) {
             l.href.startsWith('mailto:') ? (
               <a key={l.name} href={l.href} className="nav__product">
                 <span className="nav__product-name h3">{l.name}</span>
-                <Plus />
               </a>
             ) : (
               <Link key={l.name} href={l.href} className={`nav__product ${pathname === l.href ? 'is-current' : ''}`}>
                 <span className="nav__product-name h3">{l.name}</span>
-                <Plus />
               </Link>
             ),
           )}
@@ -94,8 +91,7 @@ export default function Nav({ theme }) {
     if (isOpen && menu === key) close();
     else openMenu(key);
   };
-  /* Partner Portal sits between the two menus: resting on it closes the panel after the same
-     grace period as leaving the nav, so sweeping from Defense to Civilian does not flicker. */
+  /* Resting on Partner closes an open panel after the same grace period as leaving the nav. */
   const onLinkEnter = () => {
     clearTimeout(intent.current);
     clearTimeout(leave.current);
@@ -152,44 +148,24 @@ export default function Nav({ theme }) {
             <Mark />
           </Link>
           <div className="nav__center">
-            <button
-              type="button"
-              className={`nav__item nav-label ${isOpen && menu === 'defense' ? 'is-open' : ''}`}
-              aria-expanded={isOpen && menu === 'defense'}
-              aria-controls="nav-panel"
-              onMouseEnter={() => onItemEnter('defense')}
-              onClick={() => onItemClick('defense')}
-            >
-              <span>{menus.defense.label}</span>
-              <Plus />
-            </button>
+            {ORDER.map((key) => (
+              <button
+                key={key}
+                type="button"
+                className={`nav__item nav-label ${isOpen && menu === key ? 'is-open' : ''}`}
+                aria-expanded={isOpen && menu === key}
+                aria-controls="nav-panel"
+                onMouseEnter={() => onItemEnter(key)}
+                onClick={() => onItemClick(key)}
+              >
+                <span>{menus[key].label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="nav__right">
             <a href={menus.partners.href} className="nav__item nav__link nav-label" onMouseEnter={onLinkEnter}>
               <span>{menus.partners.label}</span>
             </a>
-            <button
-              type="button"
-              className={`nav__item nav-label ${isOpen && menu === 'civilian' ? 'is-open' : ''}`}
-              aria-expanded={isOpen && menu === 'civilian'}
-              aria-controls="nav-panel"
-              onMouseEnter={() => onItemEnter('civilian')}
-              onClick={() => onItemClick('civilian')}
-            >
-              <span>{menus.civilian.label}</span>
-              <Plus />
-            </button>
-          </div>
-          <div className="nav__right">
-            <button
-              type="button"
-              className={`nav__item nav-label ${isOpen && menu === 'company' ? 'is-open' : ''}`}
-              aria-expanded={isOpen && menu === 'company'}
-              aria-controls="nav-panel"
-              onMouseEnter={() => onItemEnter('company')}
-              onClick={() => onItemClick('company')}
-            >
-              <span>{menus.company.label}</span>
-              <Plus />
-            </button>
           </div>
           <button
             type="button"
@@ -199,7 +175,6 @@ export default function Nav({ theme }) {
             onClick={() => setSheet((s) => !s)}
           >
             <span>{sheet ? 'Close' : 'Menu'}</span>
-            <Plus />
           </button>
         </div>
         <div className="nav__panel" id="nav-panel">
@@ -219,7 +194,6 @@ export default function Nav({ theme }) {
             </Link>
             <button type="button" className="nav__item nav-label is-open" onClick={() => setSheet(false)}>
               <span>Close</span>
-              <Plus />
             </button>
           </div>
           {ORDER.map((key) => {
@@ -229,7 +203,6 @@ export default function Nav({ theme }) {
               <div className={`sheet__group ${open ? 'is-open' : ''}`} key={key}>
                 <button type="button" className="sheet__head" aria-expanded={open} onClick={() => setSheetGroup(open ? null : key)}>
                   <span className="h3">{m.label}</span>
-                  <Plus />
                 </button>
                 <div className="sheet__body">
                   {m.categories
