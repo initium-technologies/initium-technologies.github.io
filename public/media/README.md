@@ -18,7 +18,7 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `iris/` | `1`, `2`, `3` | IRIS page, key functions 01–03 | 4:5 |
 | `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
-| `orin/` | — | ORIN's hero is the live NOAA Earth (components/LiveEarth.jsx), no file | — |
+| `orin/` | `hero` | ORIN video (Earth Orin, 35 s): shown on the preview /defense/orin/video/; /defense/orin/ uses the live NOAA Earth | 16:9 |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
 | `company/` | `hero` | About page, full screen behind the headline (empty = plain black; a video is planned) | 16:9 |
 
