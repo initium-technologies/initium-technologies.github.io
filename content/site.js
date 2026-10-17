@@ -30,19 +30,31 @@ export const menus = {
       'The same systems proven with U.S. Special Operations breach teams, now cleared for police response and for the facilities they protect. Provided to responding agencies at no cost.',
     categories: [{ label: 'Police', products: [{ name: 'IRIS CIV', href: '/civilian/iris-civ' }] }],
   },
+  /* Top-right drop-down; the same links make the footer's Company column. */
+  company: {
+    label: 'Company',
+    title: 'Company',
+    summary: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.',
+    links: [
+      { name: 'About', href: '/company' },
+      { name: 'Open Roles', href: '/company/careers' },
+      /* The partner site, same tab. */
+      { name: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
+    ],
+  },
 };
 
+/* Every product in a menu, in menu order, as footer links. */
+const productLinks = (m) => m.categories.flatMap((c) => c.products.map((p) => ({ name: p.name, href: p.href })));
+
+
+
 export const footer = {
+  /* Left to right; Company and Social sit at the right edge. */
   groups: [
-    {
-      title: 'Company',
-      links: [
-        { name: 'About', href: '/company' },
-        { name: 'Open Roles', href: '/company/careers' },
-        /* The partner site, same tab. */
-        { name: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
-      ],
-    },
+    { title: 'Defense', links: productLinks(menus.defense) },
+    { title: 'Civilian', links: productLinks(menus.civilian) },
+    { title: 'Company', links: menus.company.links },
     {
       title: 'Social',
       links: [

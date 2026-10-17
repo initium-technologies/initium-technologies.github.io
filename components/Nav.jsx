@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { menus } from '@/content/site';
 import { Mark } from './Icons';
 
-/* DEFENSE left of the mark, CIVILIAN right of it (also the mobile sheet order). Partner and Company links live in the footer. */
-const ORDER = ['defense', 'civilian'];
+/* Drop-down menus: DEFENSE and CIVILIAN in the centre, COMPANY on the right (also the mobile sheet order). */
+const ORDER = ['defense', 'civilian', 'company'];
 
 function PanelContent({ menuKey, pathname }) {
   const m = menus[menuKey];
@@ -152,15 +152,18 @@ export default function Nav({ theme }) {
         onMouseEnter={onNavEnter}
         onMouseLeave={onNavLeave}
       >
-        {/* Three equal-width parts: DEFENSE · <II> · CIVILIAN. The outer parts are always the same width,
-            so the mark sits at the exact centre of the page, in line with the INITIUM wordmark. */}
+        {/* Three parts: the mark on the left, DEFENSE · CIVILIAN in the centre, COMPANY on the right. The outer parts are
+            always the same width, so the centre pair stays centred on the page. */}
         <div className="nav__bar">
-          <div className="nav__side nav__side--left">{menuButton(ORDER[0])}</div>
           <Link href="/" className="nav__brand" aria-label="Initium home">
             <Mark />
           </Link>
-          <div className="nav__side nav__side--right">
-            {menuButton(ORDER[1])}
+          <div className="nav__center">
+            {menuButton('defense')}
+            {menuButton('civilian')}
+          </div>
+          <div className="nav__side--right">
+            {menuButton('company')}
             <button
               type="button"
               className={`nav__item nav-label nav__menu-button ${sheet ? 'is-open' : ''}`}
@@ -184,7 +187,6 @@ export default function Nav({ theme }) {
       {sheet && (
         <div className="sheet" id="nav-sheet" data-theme={theme} role="dialog" aria-modal="true" aria-label="Menu">
           <div className="sheet__bar">
-            <span aria-hidden="true" />
             <Link href="/" className="nav__brand" aria-label="Initium home">
               <Mark />
             </Link>

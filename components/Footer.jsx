@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Wordmark } from './Icons';
 import { footer, site } from '@/content/site';
 
-/* Grey footer: brand top-left, link columns top-right, copyright + legal bottom-left,
+/* Black footer: brand top-left, then Defense · Civilian · Company · Social spread to the right edge; copyright + legal bottom-left,
    contact bottom-right. */
 export default function Footer() {
   const year = new Date().getFullYear();

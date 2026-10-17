@@ -15,9 +15,12 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Dark backgrounds and the footer are pure black (#000), as on the partner portal. Selected text = white highlight on dark pages.
 - Three themes: dark (home), light (products, company, legal), ops (IRIS CIV). The Site component sets data-theme;
   Nav reads it. The Footer is always dark.
-- Nav: DEFENSE · <II> mark · CIVILIAN, the mark at the exact page centre (in line with the INITIUM wordmark); Defense
-  holds Land IRIS · Naval MANTIS · Space ORIN. Words only (no +/- icons). Phone: mark centred, MENU on the right. It hides on scroll down and returns on scroll up with a slow ease-in-out slide (--duration-nav).
-- Footer: COMPANY (About, Open Roles, Partner) and SOCIAL columns, contact bottom-right, legal bottom-left.
+- Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
+  Defense = Land IRIS · Naval MANTIS · Space ORIN; Civilian = Police IRIS CIV; Company = About · Open Roles · Partner.
+  Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
+  ease-in-out slide (--duration-nav).
+- Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL spread to the right edge (built from the nav menus in
+  content/site.js, so a product added to a menu appears in both); legal bottom-left, contact bottom-right.
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
   (border + `border-image: var(--rule-h)` / `var(--rule-v)`); boxes use a solid `--graphite` border; a fixed film grain
