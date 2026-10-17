@@ -10,7 +10,7 @@ const SHOW_DETAILS = false;
 
 /* Product page (IRIS, MANTIS, ORIN): the hero image fills the screen behind the name, then a short text block.
    Media: public/media/<slug>/ (hero.* behind the name; 1.* 2.* 3.* for the key functions). */
-export default function ProductPage({ product }) {
+export default function ProductPage({ product, backdrop = null }) {
   const items = (product.functions || []).map((it, i) => ({ ...it, media: findMedia(`${product.slug}/${i + 1}`) }));
   return (
     <Site>
@@ -20,6 +20,7 @@ export default function ProductPage({ product }) {
         explainer={product.explainer}
         label={product.heroLabel}
         media={findMedia(`${product.slug}/hero`)}
+        backdrop={backdrop}
         cover
       />
       {product.intro && (
