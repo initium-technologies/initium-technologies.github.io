@@ -41,7 +41,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   components/CivShot.jsx that auto-play until touched;
   never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
-- About (/company): full-screen photo of the office INITIUM sign behind the headline, then the text and contact (no
+- About (/company): full-screen daytime photo of the lit office INITIUM sign (framed from the bottom, deeper shade) behind the headline, then the text and contact (no
   leadership portraits). Careers: one Open roles list (no future roles).
 - Home tiles can zoom their image (`zoom`, `focus` in content/site.js) so the name sits on a calm part of the photo.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.

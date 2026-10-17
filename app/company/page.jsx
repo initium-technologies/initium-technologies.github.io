@@ -10,8 +10,8 @@ export const metadata = company.meta;
 export default function CompanyPage() {
   return (
     <Site>
-      <section className="hero hero--cover">
-        <Media media={findMedia('company/hero')} cover alt={company.heroAlt} />
+      <section className="hero hero--cover hero--about">
+        <Media media={findMedia('company/hero')} cover focus={company.heroFocus} alt={company.heroAlt} />
         <div className="hero__row">
           <h1 className="hero__name h1">{company.headline}</h1>
           <div className="hero__side">

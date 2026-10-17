@@ -1,7 +1,9 @@
 export const company = {
   meta: { title: 'Company | Initium', description: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.' },
   label: 'Initium Technologies · Mountain View, California',
-  heroAlt: 'The INITIUM sign at the office in Mountain View, lit at night',
+  heroAlt: 'The lit INITIUM sign on the brick wall at the office in Mountain View',
+  /* Show the bottom of the photo so the sign sits above the headline, not behind it. */
+  heroFocus: '50% 100%',
   headline: 'Edge compute for mission-critical sensing.',
   argument: [
     'U.S. software capability has outpaced adversaries for a decade. Software requires hardware to run, and that hardware is now the weak link in the kill chain.',
