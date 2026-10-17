@@ -18,12 +18,12 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `iris/` | `1`, `2`, `3` | IRIS page, key functions 01–03 | 4:5 |
 | `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
-| `orin/` | `hero` | ORIN video (Earth Orin, 35 s): shown on the preview /defense/orin/video/; /defense/orin/ uses the live NOAA Earth | 16:9 |
+| `orin/` | `hero` | ORIN page, full screen behind the name (Earth Orin video, 35 s) | 16:9 |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
 | `company/` | `hero` | About page, full screen behind the headline (empty = plain black; a video is planned) | 16:9 |
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `company/hero.jpg`.
 
-In use now: `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
+In use now: `orin/hero.mp4`, `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
 
 Logos are separate, in `public/logo/`.
