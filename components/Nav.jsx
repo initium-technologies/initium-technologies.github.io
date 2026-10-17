@@ -22,7 +22,6 @@ function PanelContent({ menuKey, pathname }) {
         <div className="nav__links">
           {m.categories.map((c) => (
             <div className="nav__cat" key={c.label}>
-              <span className="section-label">{c.label}</span>
               {c.products.map((p) => (
                 <Link key={p.name} href={p.href} className={`nav__product ${pathname === p.href ? 'is-current' : ''}`}>
                   <span className="nav__product-name h3">{p.name}</span>
@@ -50,7 +49,7 @@ function PanelContent({ menuKey, pathname }) {
   );
 }
 
-export default function Nav({ theme }) {
+export default function Nav() {
   const pathname = usePathname();
   const [menu, setMenu] = useState('defense');
   const [isOpen, setIsOpen] = useState(false);
@@ -185,7 +184,7 @@ export default function Nav({ theme }) {
       </nav>
 
       {sheet && (
-        <div className="sheet" id="nav-sheet" data-theme={theme} role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="sheet" id="nav-sheet" role="dialog" aria-modal="true" aria-label="Menu">
           <div className="sheet__bar">
             <Link href="/" className="nav__brand" aria-label="Initium home">
               <Mark />
@@ -206,7 +205,6 @@ export default function Nav({ theme }) {
                   {m.categories
                     ? m.categories.map((c) => (
                         <div key={c.label}>
-                          <span className="section-label">{c.label}</span>
                           {c.products.map((p) => (
                             <Link key={p.name} href={p.href} className="h3">
                               {p.name}

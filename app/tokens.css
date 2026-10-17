@@ -1,142 +1,40 @@
-/* Initium — compiled from the design system's tokens.json (Module A). Do not edit by hand; change tokens.json and recompile. */
+/* Initium design tokens. Originally compiled from the design system's tokens.json; now edited here directly
+   (one black-and-white theme, partner-portal look). */
 
-:root, [data-theme="dark"] {
+:root {
+  /* One theme for every page: black and white only (no colour, no red). Greys are neutral shades of white. */
   --bg: #000000;
-  --bg-raised: #141414;
+  --bg-raised: #000000;
   --terminal-section-bg: #000000;
-  --terminal-bg: #1b1b1b;
+  --terminal-bg: #000000;
   --terminal-line: #333333;
-  --bg-inverse: #141414;
+  --bg-inverse: #000000;
   --nav-panel: var(--bg);
-  --ink: #f2f2f0;
-  --ink-muted: #9a9a96;
-  --ink-inverse: #f2f2f0;
-  --ink-inverse-muted: #9a9a96;
+  --ink: #ffffff;
+  --ink-muted: #9e9e9e;
+  --ink-inverse: #ffffff;
+  --ink-inverse-muted: #9e9e9e;
   --line: #262626;
   --line-inverse: #262626;
-  --accent: #e84a1f;
-  --accent-text: #e84a1f;
+  --accent: #ffffff;
+  --accent-text: #ffffff;
   --focus: var(--accent);
   --footer-bg: #000000;
   --footer-ink: #ffffff;
-  --footer-muted: #9a9a96;
-  --footer-line: #2e2e2e;
-  --placeholder: #1c1c1c;
-  --placeholder-label: #8a8a86;
+  --footer-muted: #9e9e9e;
+  --footer-line: #262626;
+  --placeholder: #000000;
+  --placeholder-label: #8a8a8a;
   --brand-black: #000000;
-  --brand-paper: #f2f2f0;
-  --brand-sand: #cfc9b8;
-  --selection-bg: #edeff2;
+  --brand-paper: #ffffff;
+  --selection-bg: #ffffff;
   --selection-ink: #000000;
   /* Partner-portal look: faint white lines that fade out at both ends, nav words in light grey. */
   --rule: #ffffff1f;
-  --graphite: #26292e;
-  --nav-ink: #b9bdc2;
-  --nav-ink-hover: #edeff2;
+  --graphite: #262626;
+  --nav-ink: #b8b8b8;
+  --nav-ink-hover: #ffffff;
   --nav-scrolled-bg: #000000b8;
-}
-[data-theme="light"] {
-  --bg: #ffffff;
-  --bg-raised: #ececea;
-  --bg-inverse: #000000;
-  --nav-panel: var(--bg-raised);
-  --ink: #0a0a0a;
-  --selection-bg: #000000;
-  --selection-ink: #edeff2;
-  --rule: #0000001f;
-  --graphite: #d4d4d0;
-  --nav-ink: #5c5c58;
-  --nav-ink-hover: #0a0a0a;
-  --nav-scrolled-bg: #ffffffb8;
-  --ink-muted: #5c5c58;
-  --ink-inverse: #f2f2f0;
-  --ink-inverse-muted: #9a9a96;
-  --line: #e1e1de;
-  --line-inverse: #262626;
-  --accent: #e84a1f;
-  --accent-text: #c8390f;
-  --focus: var(--accent);
-  --footer-bg: #000000;
-  --footer-ink: #ffffff;
-  --footer-muted: #9a9a96;
-  --footer-line: #2e2e2e;
-  --placeholder: #e6e6e3;
-  --placeholder-label: #5c5c58;
-  --brand-black: #000000;
-  --brand-paper: #f2f2f0;
-  --brand-sand: #cfc9b8;
-}
-[data-theme="ops"] {
-  --bg: #cfc9b8;
-  --bg-raised: #bdb6a3;
-  --bg-inverse: #0f100d;
-  --nav-panel: var(--bg-raised);
-  --ink: #14150f;
-  --ink-muted: #4e4f45;
-  --ink-inverse: #f2f2f0;
-  --ink-inverse-muted: #9a9a96;
-  --line: #a39c88;
-  --line-inverse: #262626;
-  --accent: #e84a1f;
-  --accent-text: #962708;
-  --focus: var(--accent);
-  --footer-bg: #000000;
-  --footer-ink: #ffffff;
-  --footer-muted: #9a9a96;
-  --footer-line: #2e2e2e;
-  --placeholder: #b8b19e;
-  --placeholder-label: #3a3b33;
-  --brand-black: #000000;
-  --brand-paper: #f2f2f0;
-  --brand-sand: #cfc9b8;
-}
-[data-theme="ops-slate"] {
-  --bg: #2e3238;
-  --bg-raised: #3a3f46;
-  --bg-inverse: #0f1113;
-  --nav-panel: var(--bg-raised);
-  --ink: #e6e8ea;
-  --ink-muted: #a4a9ae;
-  --ink-inverse: #f2f2f0;
-  --ink-inverse-muted: #9a9a96;
-  --line: #4a5058;
-  --line-inverse: #262626;
-  --accent: #e84a1f;
-  --accent-text: #ff7a4d;
-  --focus: var(--accent);
-  --footer-bg: #000000;
-  --footer-ink: #ffffff;
-  --footer-muted: #9a9a96;
-  --footer-line: #2e2e2e;
-  --placeholder: #3c4147;
-  --placeholder-label: #b4b9be;
-  --brand-black: #000000;
-  --brand-paper: #f2f2f0;
-  --brand-sand: #cfc9b8;
-}
-[data-theme="ops-ranger"] {
-  --bg: #3a4034;
-  --bg-raised: #474e40;
-  --bg-inverse: #15180f;
-  --nav-panel: var(--bg-raised);
-  --ink: #e9e7dc;
-  --ink-muted: #b3b2a2;
-  --ink-inverse: #f2f2f0;
-  --ink-inverse-muted: #9a9a96;
-  --line: #58604f;
-  --line-inverse: #262626;
-  --accent: #e84a1f;
-  --accent-text: #ff7a4d;
-  --focus: var(--accent);
-  --footer-bg: #000000;
-  --footer-ink: #ffffff;
-  --footer-muted: #9a9a96;
-  --footer-line: #2e2e2e;
-  --placeholder: #4a5243;
-  --placeholder-label: #c6c5b5;
-  --brand-black: #000000;
-  --brand-paper: #f2f2f0;
-  --brand-sand: #cfc9b8;
 }
 :root {
   /* The INITIUM type system, shared with partner.initiumtechnologies.com: Julius Sans One for the
@@ -161,8 +59,6 @@
   /* Faded 1px lines, as on partner.initiumtechnologies.com. Use with a 1px solid border on the side(s) you want. */
   --rule-h: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
   --rule-v: linear-gradient(transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
-  /* The footer is always dark, so its line is always the dark-page line. */
-  --footer-rule-h: linear-gradient(90deg, transparent, #ffffff1f 20%, #ffffff1f 80%, transparent) 1;
   --radius-0: 0px;
   --radius-input: 2px;
   --columns: 12;

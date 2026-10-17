@@ -1,16 +1,12 @@
 import Nav from './Nav';
 import Footer from './Footer';
 
-/** Page shell: sets the theme on <html> before paint (inline script) and on the wrapper, mounts the nav and footer. */
-export default function Site({ theme = 'dark', children }) {
-  const safe = ['dark', 'light', 'ops'].includes(theme) ? theme : 'dark';
+/** Page shell: the nav, the page and the footer over the film grain. Every page uses the one black theme. */
+export default function Site({ children }) {
   return (
-    <div className="site" data-theme={safe}>
-      <script
-        dangerouslySetInnerHTML={{ __html: `document.documentElement.setAttribute('data-theme','${safe}');` }}
-      />
+    <div className="site">
       <div className="grain" aria-hidden="true" />
-      <Nav theme={safe} />
+      <Nav />
       <main id="main">{children}</main>
       <Footer />
     </div>

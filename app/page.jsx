@@ -12,7 +12,7 @@ export const metadata = {
 /* Media slots: public/media/home-hero.* and public/media/<tile>-tile.* (orin, iris, mantis, iris-civ). */
 export default function HomePage() {
   return (
-    <Site theme="dark">
+    <Site>
       <HomeHero media={findMedia('home-hero')} />
       <section className="home-products" aria-label="Products">
         <span className="home-products__label section-label">Products</span>

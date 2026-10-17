@@ -7,7 +7,7 @@ export const metadata = company.meta;
 
 export default function CompanyPage() {
   return (
-    <Site theme="light">
+    <Site>
       <section className="text-hero">
         <span className="section-label">{company.label}</span>
         <h1 className="h1">{company.headline}</h1>

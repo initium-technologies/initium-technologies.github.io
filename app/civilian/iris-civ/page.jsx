@@ -9,7 +9,7 @@ export const metadata = civ.meta;
 /* Same shape as the defense product pages: name up top, the hero video (public/media/iris-civ-hero.*) underneath. */
 export default function IrisCivPage() {
   return (
-    <Site theme="ops">
+    <Site>
       <ProductHero
         name={civ.name}
         fullName={civ.fullName}

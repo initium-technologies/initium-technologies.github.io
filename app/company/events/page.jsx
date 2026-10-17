@@ -7,7 +7,7 @@ export const metadata = events.meta;
 
 export default function EventsPage() {
   return (
-    <Site theme="light">
+    <Site>
       <section className="text-hero">
         <span className="section-label">{events.label}</span>
         <h1 className="h1">{events.headline}</h1>

@@ -7,7 +7,7 @@ export const metadata = careers.meta;
 
 export default function CareersPage() {
   return (
-    <Site theme="light">
+    <Site>
       <section className="text-hero">
         <span className="section-label">{careers.label}</span>
         <h1 className="h1">{careers.headline}</h1>

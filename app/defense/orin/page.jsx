@@ -9,7 +9,7 @@ export const metadata = orin.meta;
 /* Media slot: public/media/orin-hero.mp4 plays edge to edge behind the name. */
 export default function OrinPage() {
   return (
-    <Site theme="dark">
+    <Site>
       <ProductHero name={orin.name} fullName={orin.fullName} label={orin.heroLabel} media={findMedia('orin-hero')} cover />
       <LocustTerminal terminal={orin.terminal} />
     </Site>

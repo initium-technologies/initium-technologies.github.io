@@ -21,8 +21,7 @@ const FONTS =
 
 export default function RootLayout({ children }) {
   return (
-    // Site sets data-theme on <html> before React starts (light/ops pages), so the attribute differs on purpose.
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

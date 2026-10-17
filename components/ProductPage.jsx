@@ -8,7 +8,7 @@ import { findMedia } from '@/lib/media';
 export default function ProductPage({ product }) {
   const items = product.functions.map((it, i) => ({ ...it, media: findMedia(`${product.slug}-${i + 1}`) }));
   return (
-    <Site theme="light">
+    <Site>
       <ProductHero
         name={product.name}
         fullName={product.fullName}

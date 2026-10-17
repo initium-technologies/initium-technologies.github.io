@@ -4,19 +4,20 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 (the Design System artifact "Initium") and the Initium Website Design Plan in the INITIUM project.
 
 ## Source of truth
-- Design tokens: app/tokens.css, compiled from the design system's tokens.json. Never hard-code a colour, size or
-  duration; add a token there.
+- Design tokens: app/tokens.css (one theme; edited directly now). Never hard-code a colour, size or duration; add a
+  token there.
 - Copy: content/*.js. Never edit copy inside components.
 - Logos: public/logo/ (the <II> mark as SVG). The INITIUM wordmark is set in Julius Sans One (the INITIUM font, as on
   the old site and partner.initiumtechnologies.com), centred on the landing page.
 
 ## Rules
 - Type: Julius Sans One (wordmark + display, weight 400 only), Inter (body), IBM Plex Mono (labels, figures).
-- Dark backgrounds and the footer are pure black (#000), as on the partner portal. Selected text = white highlight on dark pages.
-- Three themes: dark (home), light (products, company, legal), ops (IRIS CIV). The Site component sets data-theme;
-  Nav reads it. The Footer is always dark.
+- Black and white only, on every page: background pure black (#000), text white, neutral greys for muted text and
+  lines. No colour anywhere (no red/orange accent; the accent token is white). One theme, no per-page themes.
+  Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
-  Defense = Land IRIS · Naval MANTIS · Space ORIN; Civilian = Police IRIS CIV; Company = About · Open Roles · Partner.
+  Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = About · Open Roles · Partner. Rows show names only
+  (no Land/Naval/Space/Police labels).
   Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
   ease-in-out slide (--duration-nav).
 - Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL spread to the right edge (built from the nav menus in
