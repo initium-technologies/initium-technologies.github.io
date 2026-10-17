@@ -19,6 +19,7 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | `hero` | ORIN page, full screen behind the name (Earth Orin video, 35 s) | 16:9 |
+| `orin/` | `earth-day`, `earth-night` | Textures for the live satellite globe (NASA Blue Marble / Black Marble, greyscale, 4096×2048) | 2:1 |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
 | `company/` | `hero` | About page, full screen behind the headline (empty = plain black; a video is planned) | 16:9 |
 

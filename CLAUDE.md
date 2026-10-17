@@ -34,7 +34,11 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
   Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locust Terminal.
-  ORIN's hero is the Earth Orin video (public/media/orin/hero.mp4).
+  ORIN's hero is the Earth Orin video (public/media/orin/hero.mp4). Preview /defense/orin/live/ (not linked, noindex)
+  has the live 3D satellite globe instead (components/OrinGlobe.jsx + lib/sat.worker.js, three.js + satellite.js):
+  every active satellite from public/data/satellites.tle, positions computed live (SGP4) in a worker; greyscale NASA
+  Earth (public/media/orin/earth-day.jpg, earth-night.jpg) lit by the real Sun. Refresh the catalogue every few days:
+  `node scripts/update-satellites.mjs` (CelesTrak: max one download per 2 hours). Falls back to the video without WebGL.
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
   components/CivShot.jsx that auto-play until touched;
@@ -53,6 +57,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 
 ## Build and hosting
 - Static export (`output: 'export'` in next.config.mjs): `npm run build` writes plain files to out/ for GitHub Pages.
+  Don't run `npm run build` in this folder while `npm run dev` is running (they share .next and the preview breaks):
+  build a copy elsewhere (rsync without node_modules/.next, symlink node_modules) to check a production build.
   No server features: no redirects/headers in next.config, no API routes, no runtime image optimisation.
 - Work happens on the `new-site` branch; `main` is the live site and is not touched until the new site is ready.
 
