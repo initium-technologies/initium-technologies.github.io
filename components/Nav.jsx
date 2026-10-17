@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { menus } from '@/content/site';
 import { Mark } from './Icons';
 
-/* Center menus, left to right (also the mobile sheet order). Partner sits on its own in the top-right corner. */
-const ORDER = ['defense', 'civilian', 'space'];
+/* Center menus, left to right (also the mobile sheet order). Partner and Company links live in the footer. */
+const ORDER = ['defense', 'civilian'];
 
 function PanelContent({ menuKey, pathname }) {
   const m = menus[menuKey];
@@ -92,12 +92,6 @@ export default function Nav({ theme }) {
     if (isOpen && menu === key) close();
     else openMenu(key);
   };
-  /* Resting on Partner closes an open panel after the same grace period as leaving the nav. */
-  const onLinkEnter = () => {
-    clearTimeout(intent.current);
-    clearTimeout(leave.current);
-    leave.current = setTimeout(close, 150);
-  };
 
   useEffect(() => {
     lastY.current = window.scrollY;
@@ -164,11 +158,8 @@ export default function Nav({ theme }) {
               </button>
             ))}
           </div>
-          <div className="nav__right">
-            <a href={menus.partners.href} className="nav__item nav__link nav__partner nav-label" onMouseEnter={onLinkEnter}>
-              <span>{menus.partners.label}</span>
-            </a>
-          </div>
+          {/* Empty: balances the brand mark so the menus stay centred. */}
+          <div className="nav__right" />
           <button
             type="button"
             className={`nav__item nav-label nav__menu-button ${sheet ? 'is-open' : ''}`}
@@ -233,9 +224,6 @@ export default function Nav({ theme }) {
               </div>
             );
           })}
-          <a href={menus.partners.href} className="sheet__link h3">
-            {menus.partners.label}
-          </a>
         </div>
       )}
     </>

@@ -3,7 +3,7 @@ import { Wordmark } from './Icons';
 import { footer, site } from '@/content/site';
 
 /* Grey footer: brand top-left, link columns top-right, copyright + legal bottom-left,
-   contact bottom-right, product names centered on the last line. */
+   contact bottom-right. */
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -51,14 +51,6 @@ export default function Footer() {
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>
         </div>
-
-        <nav className="footer__products product-line" aria-label="Products">
-          {footer.products.map((p) => (
-            <Link key={p.name} href={p.href}>
-              {p.name}
-            </Link>
-          ))}
-        </nav>
       </div>
     </footer>
   );

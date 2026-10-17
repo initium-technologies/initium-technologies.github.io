@@ -20,6 +20,7 @@ export const menus = {
     categories: [
       { label: 'Land', products: [{ name: 'IRIS', href: '/defense/iris' }] },
       { label: 'Naval', products: [{ name: 'MANTIS', href: '/defense/mantis' }] },
+      { label: 'Space', products: [{ name: 'ORIN', href: '/defense/orin' }] },
     ],
   },
   civilian: {
@@ -29,20 +30,19 @@ export const menus = {
       'The same systems proven with U.S. Special Operations breach teams, now cleared for police response and for the facilities they protect. Provided to responding agencies at no cost.',
     categories: [{ label: 'Police', products: [{ name: 'IRIS CIV', href: '/civilian/iris-civ' }] }],
   },
-  space: {
-    label: 'Space',
-    title: 'Space Products',
-    summary: 'Inference in orbit, on the satellite that collects the data.',
-    categories: [{ label: 'Orbit', products: [{ name: 'ORIN', href: '/defense/orin' }] }],
-  },
-  /* Top-right corner on desktop; last row of the mobile sheet. Goes straight to the partner site, same tab. */
-  partners: { label: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
 };
 
 export const footer = {
   groups: [
-    { title: 'Company', links: [{ name: 'About', href: '/company' }, { name: 'Hackathon', href: '/company/events' }] },
-    { title: 'Work With Us', links: [{ name: 'Open Roles', href: '/company/careers' }, { name: 'Future Roles', href: '/company/careers' }] },
+    {
+      title: 'Company',
+      links: [
+        { name: 'About', href: '/company' },
+        { name: 'Open Roles', href: '/company/careers' },
+        /* The partner site, same tab. */
+        { name: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
+      ],
+    },
     {
       title: 'Social',
       links: [
@@ -55,12 +55,6 @@ export const footer = {
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Use', href: '/terms-of-use' },
     { name: 'Modern Slavery Policy', href: '/modern-slavery-policy' },
-  ],
-  products: [
-    { name: 'ORIN', href: '/defense/orin' },
-    { name: 'MANTIS', href: '/defense/mantis' },
-    { name: 'IRIS', href: '/defense/iris' },
-    { name: 'IRIS CIV', href: '/civilian/iris-civ' },
   ],
 };
 

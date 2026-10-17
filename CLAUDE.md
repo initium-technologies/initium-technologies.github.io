@@ -15,13 +15,14 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Dark backgrounds and the footer are pure black (#000), as on the partner portal. Selected text = white highlight on dark pages.
 - Three themes: dark (home), light (products, company, legal), ops (IRIS CIV). The Site component sets data-theme;
   Nav reads it. The Footer is always dark.
-- Nav: DEFENSE · CIVILIAN · SPACE in the center (each opens a panel), PARTNER in the top-right corner, words only
-  (no +/- icons). Company links live in the footer, not the nav.
+- Nav: DEFENSE (Land IRIS · Naval MANTIS · Space ORIN) and CIVILIAN in the center, words only (no +/- icons), nothing
+  on the right. It hides on scroll down and returns on scroll up with a slow ease-in-out slide (--duration-nav).
+- Footer: COMPANY (About, Open Roles, Partner) and SOCIAL columns, contact bottom-right, legal bottom-left.
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
   (border + `border-image: var(--rule-h)` / `var(--rule-v)`); boxes use a solid `--graphite` border; a fixed film grain
   (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faded line.
-- Nav words: Inter 500, 13px, 0.08em, light grey (`--nav-ink`), white on hover/open. PARTNER is an outlined button.
+- Nav words: Inter 500, 13px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels or page-transition effects. Radius 0 except inputs (2px).
 - Every image and video is a <Placeholder> with its label until a real asset is dropped into public/media/,
   except the landing hero, which stays plain black (no label) until home-hero.mp4 exists.
