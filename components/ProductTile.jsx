@@ -46,7 +46,7 @@ export function scramble(el, text) {
   el._raf = requestAnimationFrame(tick);
 }
 
-export default function ProductTile({ name, category, subtitle, href, label, media = null, className = '' }) {
+export default function ProductTile({ name, subtitle, href, media = null, className = '' }) {
   const tile = useRef(null);
   const sub = useRef(null);
 
@@ -69,10 +69,9 @@ export default function ProductTile({ name, category, subtitle, href, label, med
       onFocus={run}
       aria-label={`${name}: ${subtitle.toLowerCase()}`}
     >
-      <div className="tile__media" data-label={media ? undefined : label} aria-hidden="true">
+      <div className="tile__media" aria-hidden="true">
         {media && (media.video ? <Video src={media.src} className="media is-cover" /> : <img className="media is-cover" src={media.src} alt="" />)}
       </div>
-      <span className="tile__cat mono-label">{category}</span>
       <div className="tile__text">
         <span className="h2">{name}</span>
         <span className="tile__sub scramble" ref={sub} aria-hidden="true">

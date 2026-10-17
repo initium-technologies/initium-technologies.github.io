@@ -28,8 +28,9 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faded line.
 - Nav words: Inter 500, 13px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels or page-transition effects. Radius 0 except inputs (2px).
-- Every image and video is a <Placeholder> with its label until a real asset is dropped into public/media/,
-  except the landing hero, which stays plain black (no label) until home-hero.mp4 exists.
+- Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
+  public/media/; the landing hero stays plain black until home-hero.mp4 exists. Tiles show only the product name.
+- Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
 - The Locust Terminal is theatre: no form action, no fetch, no storage, no analytics on its inputs,

@@ -58,8 +58,8 @@ export const footer = {
     {
       title: 'Social',
       links: [
-        { name: 'X', href: site.social.x, external: true },
         { name: 'LinkedIn', href: site.social.linkedin, external: true },
+        { name: 'X', href: site.social.x, external: true },
       ],
     },
   ],

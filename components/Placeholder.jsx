@@ -1,11 +1,10 @@
-/** A labelled stand-in for an image or video until the real asset exists. ratio like "21/9"; cover fills its positioned parent. */
-export default function Placeholder({ label, ratio, cover = false, className = '', style }) {
+/** An empty box standing in for an image or video until the real file exists in public/media/. No text inside.
+    ratio like "21/9"; cover fills its positioned parent. `label` is kept by callers as a note of what goes there. */
+export default function Placeholder({ ratio, cover = false, className = '', style }) {
   return (
     <div
       className={`ph ${cover ? 'is-cover' : ''} ${className}`}
-      data-label={label}
-      role="img"
-      aria-label={`Placeholder: ${label}`}
+      aria-hidden="true"
       style={{ ...(ratio ? { aspectRatio: ratio } : {}), ...style }}
     />
   );

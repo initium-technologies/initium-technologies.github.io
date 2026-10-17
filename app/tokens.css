@@ -9,7 +9,7 @@
   --terminal-bg: #000000;
   --terminal-line: #333333;
   --bg-inverse: #000000;
-  --nav-panel: var(--bg);
+  --nav-panel: var(--nav-scrolled-bg);
   --ink: #ffffff;
   --ink-muted: #9e9e9e;
   --ink-inverse: #ffffff;
