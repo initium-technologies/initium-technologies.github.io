@@ -34,8 +34,11 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
   Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locust Terminal.
+  ORIN's hero is the live NOAA GOES-19 Earth (components/LiveEarth.jsx, public domain, loaded from NOAA in the
+  browser, refreshed every 10 min, black if the feed is down).
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
-  What every officer sees · Why police use it · Use cases · closing statement. Icons are drawn in
+  What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with numbered points;
+  never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
 - About (/company): full-screen photo of the office INITIUM sign behind the headline, then the text and contact (no
   leadership portraits). Careers: one Open roles list (no future roles).

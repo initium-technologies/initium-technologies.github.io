@@ -45,12 +45,18 @@ export const civ = {
   ],
   bracket: 'Steps 01–03: under 60 seconds',
   seesLabel: 'What every officer sees',
+  /* A real IRIS CIV screen (demo map of our office; top bar with the server address cropped off). `at` = where each
+     numbered point sits on the image, in % from the left and top. */
+  seesImage: {
+    src: '/media/iris-civ/officer-view.jpg',
+    alt: 'IRIS CIV on an officer’s phone: a live floorplan of the ground floor over an aerial photo, people tracked in Room 4, rooms with no camera shaded grey',
+  },
   sees: [
-    { icon: 'layers', text: 'A live floorplan of every level' },
-    { icon: 'target', text: 'The confirmed assailant, tracked room to room' },
-    { icon: 'sight', text: 'Which way they face and what they can see' },
-    { icon: 'people', text: 'Everyone still inside, and how many have not come out' },
-    { icon: 'eyeoff', text: 'Dead space, and where each person was last seen' },
+    { icon: 'layers', text: 'A live floorplan of every level', at: [30.6, 31.9] },
+    { icon: 'target', text: 'Every person tracked room to room, the confirmed assailant marked', at: [51.4, 31.6] },
+    { icon: 'sight', text: 'What each threat can see, shaded on the map', at: [21.5, 81.2] },
+    { icon: 'people', text: 'Everyone still inside, and how many have not come out', at: [59.2, 40.8] },
+    { icon: 'eyeoff', text: 'Dead space with no camera, and where each person was last seen', at: [72.6, 46.5] },
   ],
   banner: 'Operational intelligence improves outcomes.',
   pillarsLabel: 'Why police use it',

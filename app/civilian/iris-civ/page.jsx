@@ -56,14 +56,24 @@ export default function IrisCivPage() {
 
       <section className="civ-section" aria-labelledby="civ-sees">
         <h2 className="civ-section__label section-label" id="civ-sees">{civ.seesLabel}</h2>
-        <ul className="civ-sees">
-          {civ.sees.map((s) => (
+        {/* The real screen, with numbered points that match the list underneath. */}
+        <figure className="civ-shot">
+          <img src={civ.seesImage.src} alt={civ.seesImage.alt} loading="lazy" />
+          {civ.sees.map((s, i) => (
+            <span className="civ-shot__pin" key={s.text} style={{ left: `${s.at[0]}%`, top: `${s.at[1]}%` }} aria-hidden="true">
+              {i + 1}
+            </span>
+          ))}
+        </figure>
+        <ol className="civ-sees">
+          {civ.sees.map((s, i) => (
             <li className="civ-sees__item" key={s.text}>
+              <span className="civ-sees__num mono-label">{String(i + 1).padStart(2, '0')}</span>
               <CivIcon name={s.icon} />
               <span>{s.text}</span>
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
 
       <section className="civ-section" aria-labelledby="civ-why">
