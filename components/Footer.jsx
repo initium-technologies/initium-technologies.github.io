@@ -1,0 +1,65 @@
+import Link from 'next/link';
+import { Wordmark } from './Icons';
+import { footer, site } from '@/content/site';
+
+/* Grey footer: brand top-left, link columns top-right, copyright + legal bottom-left,
+   contact bottom-right, product names centered on the last line. */
+export default function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="footer">
+      <div className="footer__inner">
+        <div className="footer__top">
+          <Link href="/" className="footer__brand" aria-label="Initium home">
+            <Wordmark />
+          </Link>
+          <div className="footer__cols">
+            {footer.groups.map((g) => (
+              <div className="footer__col" key={g.title}>
+                <span className="footer__label section-label">{g.title}</span>
+                <ul>
+                  {g.links.map((l) => (
+                    <li key={l.name}>
+                      {l.external ? (
+                        <a href={l.href} target="_blank" rel="noopener noreferrer">
+                          {l.name}
+                        </a>
+                      ) : (
+                        <Link href={l.href}>{l.name}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="footer__bottom">
+          <div className="footer__legal">
+            <span className="footer__copyright">Copyright © {year} {site.legalName}</span>
+            <ul className="footer__legal-links" aria-label="Legal">
+              {footer.legal.map((l) => (
+                <li key={l.name}>
+                  <Link href={l.href}>{l.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="footer__contact">
+            <span className="footer__label section-label">Contact</span>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </div>
+
+        <nav className="footer__products product-line" aria-label="Products">
+          {footer.products.map((p) => (
+            <Link key={p.name} href={p.href}>
+              {p.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </footer>
+  );
+}

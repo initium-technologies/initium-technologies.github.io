@@ -1,0 +1,27 @@
+import Site from '@/components/Site';
+import HomeHero from '@/components/HomeHero';
+import ProductTile from '@/components/ProductTile';
+import { home, site } from '@/content/site';
+import { findMedia } from '@/lib/media';
+
+export const metadata = {
+  title: `Initium — ${site.tagline}`,
+  description: `${site.company} builds edge compute for mission-critical sensing.`,
+};
+
+/* Media slots: public/media/home-hero.* and public/media/<tile>-tile.* (orin, iris, mantis, iris-civ). */
+export default function HomePage() {
+  return (
+    <Site theme="dark">
+      <HomeHero media={findMedia('home-hero')} />
+      <section className="home-products" aria-label="Products">
+        <span className="home-products__label section-label">Products</span>
+        <div className="home-grid">
+          {home.tiles.map((t) => (
+            <ProductTile key={t.key} {...t} media={findMedia(`${t.media}-tile`)} className={`t-${t.key}`} />
+          ))}
+        </div>
+      </section>
+    </Site>
+  );
+}
