@@ -7,7 +7,7 @@ export default function ProductHero({ name, fullName, explainer, label, media = 
     <section className={`hero ${short ? 'hero--short' : ''} ${cover ? 'hero--cover' : ''}`}>
       {cover && <Media media={media} label={label} cover focus={focus} alt="" />}
       <div className="hero__row">
-        <h1 className="hero__name display-xl">{name}</h1>
+        <h1 className="hero__name display-xl" data-initial={name[0]}>{name}</h1>
         <div className="hero__side">
           <span className="section-label">{fullName}</span>
           {explainer && <p className="body-l">{explainer}</p>}

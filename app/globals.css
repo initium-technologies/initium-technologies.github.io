@@ -204,6 +204,11 @@ h1, h2, h3, p { margin: 0; }
 .hero__row { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); align-items: end; }
 /* The full name and one-liner sit under the product name. */
 .hero__name { grid-column: 1 / -1; }
+/* Julius letters carry empty space on their left, more for some letters than others; pull each product name left by
+   its first letter's gap (measured) so its ink lines up with the text underneath. */
+.hero__name[data-initial="I"] { margin-left: -0.12em; }
+.hero__name[data-initial="O"] { margin-left: -0.082em; }
+.hero__name[data-initial="M"] { margin-left: -0.058em; }
 .hero__side { grid-column: 1 / 8; padding-top: var(--space-5); }
 .hero__side .section-label { display: block; margin-bottom: var(--space-4); }
 .hero__side p { max-width: 36ch; }
@@ -252,6 +257,8 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- product intro (text under the full-screen hero) ---------- */
 .product-intro { padding: var(--space-10) var(--margin); }
+/* ORIN: the Locust Terminal follows straight on, so the intro needs less space under it. */
+.product-intro:has(+ .terminal-section) { padding-bottom: var(--space-7); }
 .product-intro p { max-width: 46ch; font-size: clamp(22px, 2vw, 28px); line-height: 1.5; color: var(--ink); text-wrap: pretty; }
 @media (max-width: 899px) { .product-intro { padding: var(--space-8) var(--margin-mobile); } .product-intro p { font-size: 19px; } }
 
@@ -301,7 +308,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- locust terminal ---------- */
 /* Sits right under ORIN's intro text: the form, then its note centred underneath. */
-.terminal-section { position: relative; background: var(--terminal-section-bg, var(--bg-raised)); display: flex; flex-direction: column; align-items: center; padding: var(--space-6) var(--margin) var(--space-10); }
+.terminal-section { position: relative; background: var(--terminal-section-bg, var(--bg-raised)); display: flex; flex-direction: column; align-items: center; padding: 0 var(--margin) var(--space-10); }
 .terminal { width: 560px; max-width: 100%; background: var(--terminal-bg, var(--brand-black)); color: var(--ink-inverse); border: var(--border-1) solid var(--terminal-line, var(--line-inverse)); padding: var(--space-7); }
 .terminal__title { display: flex; align-items: center; gap: var(--space-2); color: var(--ink-inverse-muted); }
 .cursor { display: inline-block; width: 7px; height: 14px; background: currentColor; animation: blink 1s steps(1) infinite; }
