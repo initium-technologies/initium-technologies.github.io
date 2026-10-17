@@ -1,9 +1,9 @@
 /* Initium — compiled from the design system's tokens.json (Module A). Do not edit by hand; change tokens.json and recompile. */
 
 :root, [data-theme="dark"] {
-  --bg: #0a0a0a;
+  --bg: #000000;
   --bg-raised: #141414;
-  --terminal-section-bg: #0a0a0a;
+  --terminal-section-bg: #000000;
   --terminal-bg: #1b1b1b;
   --terminal-line: #333333;
   --bg-inverse: #141414;
@@ -23,14 +23,14 @@
   --footer-line: #2e2e2e;
   --placeholder: #1c1c1c;
   --placeholder-label: #8a8a86;
-  --brand-black: #0a0a0a;
+  --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
 }
 [data-theme="light"] {
   --bg: #ffffff;
   --bg-raised: #ececea;
-  --bg-inverse: #0a0a0a;
+  --bg-inverse: #000000;
   --nav-panel: var(--bg-raised);
   --ink: #0a0a0a;
   --ink-muted: #5c5c58;
@@ -47,7 +47,7 @@
   --footer-line: #2e2e2e;
   --placeholder: #e6e6e3;
   --placeholder-label: #5c5c58;
-  --brand-black: #0a0a0a;
+  --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
 }
@@ -71,7 +71,7 @@
   --footer-line: #2e2e2e;
   --placeholder: #b8b19e;
   --placeholder-label: #3a3b33;
-  --brand-black: #0a0a0a;
+  --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
 }
@@ -95,7 +95,7 @@
   --footer-line: #2e2e2e;
   --placeholder: #3c4147;
   --placeholder-label: #b4b9be;
-  --brand-black: #0a0a0a;
+  --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
 }
@@ -119,7 +119,7 @@
   --footer-line: #2e2e2e;
   --placeholder: #4a5243;
   --placeholder-label: #c6c5b5;
-  --brand-black: #0a0a0a;
+  --brand-black: #000000;
   --brand-paper: #f2f2f0;
   --brand-sand: #cfc9b8;
 }
