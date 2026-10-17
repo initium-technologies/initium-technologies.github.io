@@ -15,8 +15,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Dark backgrounds and the footer are pure black (#000), as on the partner portal. Selected text = white highlight on dark pages.
 - Three themes: dark (home), light (products, company, legal), ops (IRIS CIV). The Site component sets data-theme;
   Nav reads it. The Footer is always dark.
-- Nav: DEFENSE (Land IRIS · Naval MANTIS · Space ORIN) and CIVILIAN in the center, words only (no +/- icons), nothing
-  on the right. It hides on scroll down and returns on scroll up with a slow ease-in-out slide (--duration-nav).
+- Nav: DEFENSE · <II> mark · CIVILIAN, the mark at the exact page centre (in line with the INITIUM wordmark); Defense
+  holds Land IRIS · Naval MANTIS · Space ORIN. Words only (no +/- icons). Phone: mark centred, MENU on the right. It hides on scroll down and returns on scroll up with a slow ease-in-out slide (--duration-nav).
 - Footer: COMPANY (About, Open Roles, Partner) and SOCIAL columns, contact bottom-right, legal bottom-left.
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends

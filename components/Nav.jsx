@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { menus } from '@/content/site';
 import { Mark } from './Icons';
 
-/* Center menus, left to right (also the mobile sheet order). Partner and Company links live in the footer. */
+/* DEFENSE left of the mark, CIVILIAN right of it (also the mobile sheet order). Partner and Company links live in the footer. */
 const ORDER = ['defense', 'civilian'];
 
 function PanelContent({ menuKey, pathname }) {
@@ -131,6 +131,19 @@ export default function Nav({ theme }) {
     setSheet(false);
   }, [pathname]);
 
+  const menuButton = (key) => (
+    <button
+      type="button"
+      className={`nav__item nav-label ${isOpen && menu === key ? 'is-open' : ''}`}
+      aria-expanded={isOpen && menu === key}
+      aria-controls="nav-panel"
+      onMouseEnter={() => onItemEnter(key)}
+      onClick={() => onItemClick(key)}
+    >
+      <span>{menus[key].label}</span>
+    </button>
+  );
+
   return (
     <>
       <nav
@@ -139,36 +152,25 @@ export default function Nav({ theme }) {
         onMouseEnter={onNavEnter}
         onMouseLeave={onNavLeave}
       >
+        {/* Three equal-width parts: DEFENSE · <II> · CIVILIAN. The outer parts are always the same width,
+            so the mark sits at the exact centre of the page, in line with the INITIUM wordmark. */}
         <div className="nav__bar">
+          <div className="nav__side nav__side--left">{menuButton(ORDER[0])}</div>
           <Link href="/" className="nav__brand" aria-label="Initium home">
             <Mark />
           </Link>
-          <div className="nav__center">
-            {ORDER.map((key) => (
-              <button
-                key={key}
-                type="button"
-                className={`nav__item nav-label ${isOpen && menu === key ? 'is-open' : ''}`}
-                aria-expanded={isOpen && menu === key}
-                aria-controls="nav-panel"
-                onMouseEnter={() => onItemEnter(key)}
-                onClick={() => onItemClick(key)}
-              >
-                <span>{menus[key].label}</span>
-              </button>
-            ))}
+          <div className="nav__side nav__side--right">
+            {menuButton(ORDER[1])}
+            <button
+              type="button"
+              className={`nav__item nav-label nav__menu-button ${sheet ? 'is-open' : ''}`}
+              aria-expanded={sheet}
+              aria-controls="nav-sheet"
+              onClick={() => setSheet((s) => !s)}
+            >
+              <span>{sheet ? 'Close' : 'Menu'}</span>
+            </button>
           </div>
-          {/* Empty: balances the brand mark so the menus stay centred. */}
-          <div className="nav__right" />
-          <button
-            type="button"
-            className={`nav__item nav-label nav__menu-button ${sheet ? 'is-open' : ''}`}
-            aria-expanded={sheet}
-            aria-controls="nav-sheet"
-            onClick={() => setSheet((s) => !s)}
-          >
-            <span>{sheet ? 'Close' : 'Menu'}</span>
-          </button>
         </div>
         <div className="nav__panel" id="nav-panel">
           <div className="nav__panel-clip">
@@ -182,7 +184,8 @@ export default function Nav({ theme }) {
       {sheet && (
         <div className="sheet" id="nav-sheet" data-theme={theme} role="dialog" aria-modal="true" aria-label="Menu">
           <div className="sheet__bar">
-            <Link href="/" aria-label="Initium home">
+            <span aria-hidden="true" />
+            <Link href="/" className="nav__brand" aria-label="Initium home">
               <Mark />
             </Link>
             <button type="button" className="nav__item nav-label is-open" onClick={() => setSheet(false)}>
