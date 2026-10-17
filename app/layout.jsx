@@ -17,11 +17,12 @@ export const viewport = {
 };
 
 const FONTS =
-  'https://fonts.googleapis.com/css2?family=Saira:wdth,wght@125,300..500&family=Inter+Tight:wght@400..600&family=Inter:wght@400..500&family=Geist+Mono:wght@400..500&display=swap';
+  'https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark">
+    // Site sets data-theme on <html> before React starts (light/ops pages), so the attribute differs on purpose.
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

@@ -25,8 +25,7 @@ export default function HomeHero({ media = null }) {
         <Placeholder label={home.heroMediaLabel} cover />
       )}
       <div className="home-hero__copy">
-        <span className="section-label">{home.heroLabel}</span>
-        <h1 className="h2">{home.heroLine}</h1>
+        <h1 className="home-hero__mark" aria-label="Initium">{home.heroMark}</h1>
       </div>
       <div className={`home-hero__scroll ${gone ? 'is-gone' : ''}`} aria-hidden="true">
         Scroll

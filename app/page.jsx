@@ -17,8 +17,8 @@ export default function HomePage() {
       <section className="home-products" aria-label="Products">
         <span className="home-products__label section-label">Products</span>
         <div className="home-grid">
-          {home.tiles.map((t) => (
-            <ProductTile key={t.key} {...t} media={findMedia(`${t.media}-tile`)} className={`t-${t.key}`} />
+          {home.tiles.map(({ key, ...t }) => (
+            <ProductTile key={key} {...t} media={findMedia(`${t.media}-tile`)} className={`t-${key}`} />
           ))}
         </div>
       </section>

@@ -124,10 +124,14 @@
   --brand-sand: #cfc9b8;
 }
 :root {
-  --font-wordmark: "Saira", "Archivo", system-ui, sans-serif;
-  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+  /* The INITIUM type system, shared with partner.initiumtechnologies.com: Julius Sans One for the
+     wordmark and every display line, Inter for reading, IBM Plex Mono for labels and figures.
+     Julius has one weight (400): never set it bolder, the browser would fake it. */
+  --font-wordmark: "Julius Sans One", system-ui, sans-serif;
+  --font-display: "Julius Sans One", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --track-wordmark: 0.5em;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;

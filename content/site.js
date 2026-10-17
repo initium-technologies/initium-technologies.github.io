@@ -72,8 +72,8 @@ export const footer = {
 };
 
 export const home = {
-  heroLabel: 'Initium Technologies',
-  heroLine: 'Edge compute for mission-critical sensing.',
+  /* The original wordmark, centred on the landing page. */
+  heroMark: 'INITIUM',
   /* Phase 1: black. Phase 2: public/media/home-hero.mp4, IRIS in action. */
   heroMediaLabel: 'VIDEO · IRIS IN ACTION · 16:9',
   /* `media` is the file name stem in public/media (e.g. orin-tile.jpg). */
