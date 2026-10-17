@@ -24,6 +24,6 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `orin/hero.mp4`, `company/conrad-scheibye.jpg`.
 
-In use now: `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.jpg` and `mantis/hero.jpg` (copies of the home tiles until proper wide images arrive).
+In use now: `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg` (copy of the home tile until a proper wide image arrives).
 
 Logos are separate, in `public/logo/`.
