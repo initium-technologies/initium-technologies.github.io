@@ -26,23 +26,6 @@ export const iris = {
       confirm: true,
     },
   ],
-  stats: [
-    { value: '7', label: 'Core capabilities' },
-    { value: 'Every level', label: 'Full interior floorplan', long: true },
-    { value: '3', label: 'Counts at a glance: seen / in view / held' },
-    { value: 'USSOCOM', label: 'Built for Special Operations breach teams' },
-    { value: '0', label: 'New cameras required', confirm: true },
-    { value: '1', label: 'Operator carries the system', confirm: true },
-  ],
-  capabilities: [
-    'Personnel accounting',
-    'Interior mapping and positioning',
-    'Unseen occupant inference',
-    'Manual input',
-    'Named individual identification',
-    'Line of sight projection',
-    'Weapon identification',
-  ],
 };
 
 export const mantis = {
@@ -71,14 +54,6 @@ export const mantis = {
       text: 'Designed to MIL-STD-810H and MIL-S-901D Grade A shock, with NSA Type 1 encryption and CNSA 2.0 post-quantum compliance, on standard Navy 440V three-phase power. Closed-loop liquid cooling holds full throughput without throttling, and processor modules swap in the rack as accelerators improve.',
       label: 'IMAGE · MANTIS ENCLOSURE DETAIL · 4:5',
     },
-  ],
-  stats: [
-    { value: 'MIL-STD-810H', label: 'Environmental qualification', long: true },
-    { value: 'MIL-S-901D', label: 'Grade A shock', long: true },
-    { value: 'Type 1', label: 'NSA encryption, CNSA 2.0 ready' },
-    { value: '440V 3Φ', label: 'Standard shipboard power' },
-    { value: 'Minutes → seconds', label: 'Time to actionable intelligence', long: true },
-    { value: '1', label: 'Operator in place of several watchstanders' },
   ],
 };
 

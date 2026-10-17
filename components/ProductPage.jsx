@@ -1,7 +1,6 @@
 import Site from './Site';
 import ProductHero from './ProductHero';
 import KeyFunctions from './KeyFunctions';
-import StatsStrip from './StatsStrip';
 import { findMedia } from '@/lib/media';
 
 /* Media: public/media/<slug>/ (hero.* for the hero, 1.* 2.* 3.* for the key functions). */
@@ -17,7 +16,6 @@ export default function ProductPage({ product }) {
         media={findMedia(`${product.slug}/hero`)}
       />
       <KeyFunctions items={items} />
-      <StatsStrip stats={product.stats} capabilities={product.capabilities} />
     </Site>
   );
 }
