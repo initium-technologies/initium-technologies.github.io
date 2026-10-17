@@ -1,29 +1,24 @@
 export const company = {
   meta: { title: 'Company | Initium', description: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.' },
   label: 'Initium Technologies · Mountain View, California',
+  heroAlt: 'The INITIUM sign at the office in Mountain View, lit at night',
   headline: 'Edge compute for mission-critical sensing.',
   argument: [
     'U.S. software capability has outpaced adversaries for a decade. Software requires hardware to run, and that hardware is now the weak link in the kill chain.',
     'When communications are disrupted, satellite links saturated or a data center is hit, software capability becomes a function of the compute on hand. Initium builds that compute: on the operator, aboard the ship, in orbit.',
   ],
-  leadership: [
-    { name: 'Daniel Choupak', title: 'Chief Executive Officer', label: 'IMAGE · PORTRAIT · 4:5' },
-    { name: 'Conrad Scheibye', title: 'Chief Technology Officer', label: 'IMAGE · PORTRAIT · 4:5' },
-    { name: 'Ashley Astrom-Andrews', title: 'Head of Civilian Partnerships', label: 'IMAGE · PORTRAIT · 4:5' },
-  ],
   contact: [
-    { name: 'Contact', text: 'admin@initiumtechnologies.com', href: 'mailto:admin@initiumtechnologies.com' },
+    { name: 'Email', text: 'admin@initiumtechnologies.com', href: 'mailto:admin@initiumtechnologies.com' },
     { name: 'Location', text: 'Mountain View, California' },
   ],
 };
 
 export const careers = {
-  meta: { title: 'Careers | Initium', description: 'Open roles and future roles at Initium Technologies.' },
+  meta: { title: 'Careers | Initium', description: 'Open roles at Initium Technologies.' },
   label: 'Work with us',
   headline: 'Build the compute the mission runs on.',
-  open: [],
-  openEmpty: 'No open roles today. Write to admin@initiumtechnologies.com and say what you would build.',
-  future: [
+  /* One list: every role we are hiring for. */
+  open: [
     { name: 'Perception engineering', text: 'Detection, tracking and inference that runs on the edge, on hardware the operator carries.' },
     { name: 'Embedded systems', text: 'Ruggedized compute cores, shipboard appliances and the power, thermal and I/O work that keeps them running.' },
     { name: 'Field operations', text: 'Onboarding buildings, ships and agencies; on the live cameras when it counts.' },

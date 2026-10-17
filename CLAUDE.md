@@ -16,7 +16,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   lines. No colour anywhere (no red/orange accent; the accent token is white). One theme, no per-page themes.
   Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
-  Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = About · Open Roles · Partner. Rows show names only
+  Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = About · Open Roles · Partner Portal. Rows show names only
   (no Land/Naval/Space/Police labels).
   Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
   ease-in-out slide (--duration-nav).
@@ -37,6 +37,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
   What every officer sees · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
+- About (/company): full-screen photo of the office INITIUM sign behind the headline, then the text and contact (no
+  leadership portraits). Careers: one Open roles list (no future roles).
 - Home tiles can zoom their image (`zoom`, `focus` in content/site.js) so the name sits on a calm part of the photo.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.

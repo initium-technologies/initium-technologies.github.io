@@ -39,7 +39,7 @@ export const menus = {
       { name: 'About', href: '/company' },
       { name: 'Open Roles', href: '/company/careers' },
       /* The partner site, same tab. */
-      { name: 'Partner', href: 'https://partner.initiumtechnologies.com/' },
+      { name: 'Partner Portal', href: 'https://partner.initiumtechnologies.com/' },
     ],
   },
 };

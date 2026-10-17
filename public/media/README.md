@@ -20,10 +20,10 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | `hero` | ORIN page, full screen behind the name | 16:9 |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
-| `company/` | `daniel-choupak`, `conrad-scheibye`, `ashley-astrom-andrews` | Company page, leadership portraits | 4:5 |
+| `company/` | `hero` | About page, full screen behind the headline (the office INITIUM sign) | 16:9 |
 
-Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `orin/hero.mp4`, `company/conrad-scheibye.jpg`.
+Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `orin/hero.jpg`, `company/hero.jpg`.
 
-In use now: `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
+In use now: `company/hero.jpg`, `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
 
 Logos are separate, in `public/logo/`.

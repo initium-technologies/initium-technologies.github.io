@@ -14,23 +14,7 @@ export default function CareersPage() {
       </section>
       <section className="rows" aria-label="Open roles" style={{ paddingTop: 0 }}>
         <span className="rows__label section-label">Open roles</span>
-        {careers.open.length === 0 ? (
-          <div className="row">
-            <h3 className="row__name h3">None today</h3>
-            <p className="row__text body">{careers.openEmpty}</p>
-          </div>
-        ) : (
-          careers.open.map((r) => (
-            <div className="row" key={r.name}>
-              <h3 className="row__name h3">{r.name}</h3>
-              <p className="row__text body">{r.text}</p>
-            </div>
-          ))
-        )}
-      </section>
-      <section className="rows" aria-label="Future roles" style={{ paddingTop: 0 }}>
-        <span className="rows__label section-label">Future roles</span>
-        {careers.future.map((r) => (
+        {careers.open.map((r) => (
           <div className="row" key={r.name}>
             <h3 className="row__name h3">{r.name}</h3>
             <p className="row__text body">

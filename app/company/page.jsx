@@ -1,16 +1,23 @@
 import Site from '@/components/Site';
 import Media from '@/components/Media';
-import { findMedia, slug } from '@/lib/media';
+import { findMedia } from '@/lib/media';
 import { company } from '@/content/company';
 
 export const metadata = company.meta;
 
+/* About: the office INITIUM sign fills the screen behind the headline (public/media/company/hero.*), then the text and
+   contact. Same hero as the product pages. */
 export default function CompanyPage() {
   return (
     <Site>
-      <section className="text-hero">
-        <span className="section-label">{company.label}</span>
-        <h1 className="h1">{company.headline}</h1>
+      <section className="hero hero--cover">
+        <Media media={findMedia('company/hero')} cover alt={company.heroAlt} />
+        <div className="hero__row">
+          <h1 className="hero__name h1">{company.headline}</h1>
+          <div className="hero__side">
+            <span className="section-label">{company.label}</span>
+          </div>
+        </div>
       </section>
       <div className="prose">
         <div className="prose__inner">
@@ -19,15 +26,6 @@ export default function CompanyPage() {
           ))}
         </div>
       </div>
-      <section className="people" aria-label="Leadership">
-        {company.leadership.map((p) => (
-          <div className="person" key={p.name}>
-            <Media media={findMedia(`company/${slug(p.name)}`)} label={p.label} ratio="4 / 5" alt={p.name} />
-            <div className="h3">{p.name}</div>
-            <div className="small">{p.title}</div>
-          </div>
-        ))}
-      </section>
       <section className="rows" aria-label="Contact">
         <span className="rows__label section-label">Contact</span>
         {company.contact.map((c) => (
