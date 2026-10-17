@@ -29,7 +29,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Nav words: Inter 500, 13px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels or page-transition effects. Radius 0 except inputs (2px).
 - Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
-  public/media/; the landing hero stays plain black until home-hero.mp4 exists. Tiles show only the product name.
+  public/media/<page>/ (one folder per page, slots listed in public/media/README.md); the landing hero stays plain
+  black until home/hero.mp4 exists. Tiles show only the product name.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.

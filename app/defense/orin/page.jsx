@@ -10,7 +10,7 @@ export const metadata = orin.meta;
 export default function OrinPage() {
   return (
     <Site>
-      <ProductHero name={orin.name} fullName={orin.fullName} label={orin.heroLabel} media={findMedia('orin-hero')} cover />
+      <ProductHero name={orin.name} fullName={orin.fullName} label={orin.heroLabel} media={findMedia('orin/hero')} cover />
       <LocustTerminal terminal={orin.terminal} />
     </Site>
   );

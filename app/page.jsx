@@ -9,16 +9,16 @@ export const metadata = {
   description: `${site.company} builds edge compute for mission-critical sensing.`,
 };
 
-/* Media slots: public/media/home-hero.* and public/media/<tile>-tile.* (orin, iris, mantis, iris-civ). */
+/* Media: public/media/home/ (hero.*, orin-tile.*, iris-tile.*, mantis-tile.*, iris-civ-tile.*). */
 export default function HomePage() {
   return (
     <Site>
-      <HomeHero media={findMedia('home-hero')} />
+      <HomeHero media={findMedia('home/hero')} />
       <section className="home-products" aria-label="Products">
         <span className="home-products__label section-label">Products</span>
         <div className="home-grid">
           {home.tiles.map(({ key, ...t }) => (
-            <ProductTile key={key} {...t} media={findMedia(`${t.media}-tile`)} className={`t-${key}`} />
+            <ProductTile key={key} {...t} media={findMedia(`home/${t.media}-tile`)} className={`t-${key}`} />
           ))}
         </div>
       </section>

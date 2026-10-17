@@ -22,7 +22,7 @@ export default function CompanyPage() {
       <section className="people" aria-label="Leadership">
         {company.leadership.map((p) => (
           <div className="person" key={p.name}>
-            <Media media={findMedia(`portrait-${slug(p.name)}`)} label={p.label} ratio="4 / 5" alt={p.name} />
+            <Media media={findMedia(`company/${slug(p.name)}`)} label={p.label} ratio="4 / 5" alt={p.name} />
             <div className="h3">{p.name}</div>
             <div className="small">{p.title}</div>
           </div>

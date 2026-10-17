@@ -15,7 +15,7 @@ export default function IrisCivPage() {
         fullName={civ.fullName}
         explainer={civ.explainer}
         label={civ.heroLabel}
-        media={findMedia('iris-civ-hero')}
+        media={findMedia('iris-civ/hero')}
       />
       <AlertChain chain={civ.chain} arrival={civ.arrival} />
       <section className="banner">
