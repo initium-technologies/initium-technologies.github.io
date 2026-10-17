@@ -2,10 +2,10 @@ import Media from './Media';
 
 /* Product hero. Standard: name and one-liner up top, the hero media (21:9) directly underneath inside the
    margins. `cover`: the media fills the whole section edge to edge and the name sits over it (ORIN). */
-export default function ProductHero({ name, fullName, explainer, label, media = null, cover = false, short = false }) {
+export default function ProductHero({ name, fullName, explainer, label, media = null, cover = false, focus, short = false }) {
   return (
     <section className={`hero ${short ? 'hero--short' : ''} ${cover ? 'hero--cover' : ''}`}>
-      {cover && <Media media={media} label={label} cover alt="" />}
+      {cover && <Media media={media} label={label} cover focus={focus} alt="" />}
       <div className="hero__row">
         <h1 className="hero__name display-xl">{name}</h1>
         <div className="hero__side">

@@ -300,7 +300,8 @@ h1, h2, h3, p { margin: 0; }
 .button:disabled { cursor: default; opacity: 0.7; }
 
 /* ---------- locust terminal ---------- */
-.terminal-section { position: relative; background: var(--terminal-section-bg, var(--bg-raised)); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-10) var(--margin); }
+/* Sits right under ORIN's intro text: the form, then its note centred underneath. */
+.terminal-section { position: relative; background: var(--terminal-section-bg, var(--bg-raised)); display: flex; flex-direction: column; align-items: center; padding: var(--space-6) var(--margin) var(--space-10); }
 .terminal { width: 560px; max-width: 100%; background: var(--terminal-bg, var(--brand-black)); color: var(--ink-inverse); border: var(--border-1) solid var(--terminal-line, var(--line-inverse)); padding: var(--space-7); }
 .terminal__title { display: flex; align-items: center; gap: var(--space-2); color: var(--ink-inverse-muted); }
 .cursor { display: inline-block; width: 7px; height: 14px; background: currentColor; animation: blink 1s steps(1) infinite; }
@@ -312,7 +313,7 @@ h1, h2, h3, p { margin: 0; }
 .field input:focus { border-bottom-color: var(--ink-inverse); }
 .terminal__button { margin-top: var(--space-6); width: 100%; }
 .terminal__msg { display: block; margin-top: var(--space-4); min-height: 12px; color: var(--accent); }
-.terminal-section__note { position: absolute; right: var(--margin); bottom: var(--space-7); max-width: 440px; text-align: right; color: var(--ink-muted); line-height: 1.6; }
+.terminal-section__note { margin-top: var(--space-6); max-width: 440px; text-align: center; color: var(--ink-muted); line-height: 1.6; }
 .dots::after { content: ""; animation: dots 1.2s steps(4, end) infinite; }
 @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
 @media (max-width: 899px) {

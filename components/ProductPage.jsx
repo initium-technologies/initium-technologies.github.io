@@ -4,8 +4,8 @@ import KeyFunctions from './KeyFunctions';
 import LocustTerminal from './LocustTerminal';
 import { findMedia } from '@/lib/media';
 
-/* Hidden for now (Sanjeev, 2026-10-16): the key functions (IRIS, MANTIS) and the Locust Terminal (ORIN).
-   Set to true to bring them back; their copy is still in content/products.js. */
+/* Hidden for now (Sanjeev, 2026-10-16): the key functions (IRIS, MANTIS). Set to true to bring them back; their copy
+   is still in content/products.js. ORIN's Locust Terminal always shows. */
 const SHOW_DETAILS = false;
 
 /* Product page (IRIS, MANTIS, ORIN): the hero image fills the screen behind the name, then a short text block.
@@ -28,7 +28,7 @@ export default function ProductPage({ product }) {
         </section>
       )}
       {SHOW_DETAILS && items.length > 0 && <KeyFunctions items={items} />}
-      {SHOW_DETAILS && product.terminal && <LocustTerminal terminal={product.terminal} />}
+      {product.terminal && <LocustTerminal terminal={product.terminal} />}
     </Site>
   );
 }

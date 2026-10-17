@@ -33,7 +33,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   black until home/hero.mp4 exists. Tiles show only the product name.
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
-  Key functions and the Locust Terminal are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx).
+  Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locust Terminal.
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
   What every officer sees · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.

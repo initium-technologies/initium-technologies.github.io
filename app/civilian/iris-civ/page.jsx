@@ -17,6 +17,7 @@ export default function IrisCivPage() {
         explainer={civ.explainer}
         label={civ.heroLabel}
         media={findMedia('iris-civ/hero')}
+        focus={civ.heroFocus}
         cover
       />
 
