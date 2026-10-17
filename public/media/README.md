@@ -20,10 +20,10 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | — | ORIN's hero is the live NOAA Earth (components/LiveEarth.jsx), no file | — |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
-| `company/` | `hero` | About page, full screen behind the headline (the office INITIUM sign) | 16:9 |
+| `company/` | `hero` | About page, full screen behind the headline (empty = plain black; a video is planned) | 16:9 |
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `company/hero.jpg`.
 
-In use now: `company/hero.jpg`, `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
+In use now: `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
 
 Logos are separate, in `public/logo/`.
