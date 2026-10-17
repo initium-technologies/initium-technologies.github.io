@@ -46,7 +46,7 @@ export function scramble(el, text) {
   el._raf = requestAnimationFrame(tick);
 }
 
-export default function ProductTile({ name, subtitle, href, media = null, className = '' }) {
+export default function ProductTile({ name, subtitle, href, media = null, zoom, focus, className = '' }) {
   const tile = useRef(null);
   const sub = useRef(null);
 
@@ -69,7 +69,7 @@ export default function ProductTile({ name, subtitle, href, media = null, classN
       onFocus={run}
       aria-label={`${name}: ${subtitle.toLowerCase()}`}
     >
-      <div className="tile__media" aria-hidden="true">
+      <div className="tile__media" aria-hidden="true" style={zoom ? { '--zoom': zoom, '--focus': focus || '50% 50%' } : undefined}>
         {media && (media.video ? <Video src={media.src} className="media is-cover" /> : <img className="media is-cover" src={media.src} alt="" />)}
       </div>
       <div className="tile__text">

@@ -14,16 +14,16 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `home/` | `iris-tile` | Landing page, IRIS tile | 7:5 |
 | `home/` | `mantis-tile` | Landing page, MANTIS tile | 7:5 |
 | `home/` | `iris-civ-tile` | Landing page, IRIS CIV tile (wide, bottom) | 5:2 |
-| `iris/` | `hero` | IRIS page, under the name | 21:9 |
+| `iris/` | `hero` | IRIS page, full screen behind the name | 16:9 |
 | `iris/` | `1`, `2`, `3` | IRIS page, key functions 01–03 | 4:5 |
-| `mantis/` | `hero` | MANTIS page, under the name | 21:9 |
+| `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | `hero` | ORIN page, full screen behind the name | 16:9 |
-| `iris-civ/` | `hero` | IRIS CIV page, under the name | 21:9 |
+| `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
 | `company/` | `daniel-choupak`, `conrad-scheibye`, `ashley-astrom-andrews` | Company page, leadership portraits | 4:5 |
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `orin/hero.mp4`, `company/conrad-scheibye.jpg`.
 
-In use now: `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg` (copy of the home tile until a proper wide image arrives).
+In use now: `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `orin/hero.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
 
 Logos are separate, in `public/logo/`.

@@ -31,10 +31,13 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
   public/media/<page>/ (one folder per page, slots listed in public/media/README.md); the landing hero stays plain
   black until home/hero.mp4 exists. Tiles show only the product name.
-- Product pages (IRIS, MANTIS, ORIN): full-screen hero image behind the name (sitting ~a quarter up from the bottom,
-  black shades top and bottom for readability), then a short intro text (`intro` in content/products.js). Key
-  functions and the Locust Terminal are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx). IRIS CIV is
-  its own page and unchanged.
+- Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
+  the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
+  Key functions and the Locust Terminal are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx).
+- IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
+  What every officer sees · Why police use it · Use cases · closing statement. Icons are drawn in
+  components/CivIcons.jsx (no icon library); copy in content/civ.js.
+- Home tiles can zoom their image (`zoom`, `focus` in content/site.js) so the name sits on a calm part of the photo.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.

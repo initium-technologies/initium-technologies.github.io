@@ -78,7 +78,9 @@ export const home = {
   /* `media` is the file name stem in public/media (e.g. orin-tile.jpg). */
   tiles: [
     { key: 'orin', media: 'orin', name: 'ORIN', category: 'Space', subtitle: 'SATELLITE SOVEREIGNTY', href: '/defense/orin', label: 'IMAGE · ORIN TILE · 2:3' },
-    { key: 'iris', media: 'iris', name: 'IRIS', category: 'Land', subtitle: 'FOR THE OPERATOR', href: '/defense/iris', label: 'IMAGE · IRIS TILE · 7:5' },
+    { key: 'iris', media: 'iris', name: 'IRIS', category: 'Land', subtitle: 'FOR THE OPERATOR', href: '/defense/iris', label: 'IMAGE · IRIS TILE · 7:5',
+      /* Zoomed in so the IRIS name sits on the camouflage sleeve, not the light floor. */
+      zoom: 1.3, focus: '0% 28%' },
     { key: 'mantis', media: 'mantis', name: 'MANTIS', category: 'Naval', subtitle: 'NAVAL SOVEREIGNTY', href: '/defense/mantis', label: 'IMAGE · MANTIS TILE · 7:5' },
     { key: 'civ', media: 'iris-civ', name: 'IRIS CIV', category: 'Police', subtitle: 'POLICE TOTAL RESPONSE', href: '/civilian/iris-civ', label: 'IMAGE · IRIS CIV TILE · 5:2' },
   ],
