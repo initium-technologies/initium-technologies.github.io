@@ -37,7 +37,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   ORIN's hero is the live NOAA GOES-19 Earth (components/LiveEarth.jsx, public domain, loaded from NOAA in the
   browser, refreshed every 10 min, black if the feed is down).
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
-  What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with numbered points;
+  What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
+  components/CivShot.jsx that auto-play until touched;
   never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
 - About (/company): full-screen photo of the office INITIUM sign behind the headline, then the text and contact (no

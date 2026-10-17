@@ -269,7 +269,7 @@ h1, h2, h3, p { margin: 0; }
   .earth__disc { top: 34%; right: -30vw; width: 130vw; }
   .earth__hud { left: var(--margin-mobile); top: auto; bottom: var(--space-4); font-size: 10px; }
 }
-@media (prefers-reduced-motion: reduce) { .earth__disc, .earth__dot, .civ-shot__pin::after { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .earth__disc, .earth__dot, .civ-shot__pin::after, .civ-shot__hint-dot { animation: none; } }
 
 /* ---------- product intro (text under the full-screen hero) ---------- */
 .product-intro { padding: var(--space-10) var(--margin); }
@@ -279,7 +279,7 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 899px) { .product-intro { padding: var(--space-8) var(--margin-mobile); } .product-intro p { font-size: 19px; } }
 
 /* ---------- statement banner ---------- */
-.banner { padding: var(--space-11) var(--margin); text-align: center; }
+.banner { padding: var(--space-9) var(--margin) var(--space-10); text-align: center; }
 .banner h2 { text-transform: uppercase; letter-spacing: 0.02em; text-wrap: balance; max-width: 22ch; margin: 0 auto; }
 @media (max-width: 899px) { .banner { padding: var(--space-9) var(--margin-mobile); } }
 
@@ -365,15 +365,35 @@ h1, h2, h3, p { margin: 0; }
 .civ-bracket { position: relative; margin-top: var(--space-7); width: calc(75% - var(--gutter) / 4); height: 14px; border: var(--border-1) solid var(--ink-muted); border-top: 0; color: var(--ink); }
 .civ-bracket span { position: absolute; left: 50%; top: 100%; transform: translate(-50%, var(--space-3)); white-space: nowrap; background: var(--bg); padding: 0 var(--space-3); }
 /* What every officer sees: icon + one line each. */
-.civ-shot { position: relative; margin: 0 0 var(--space-7); border: var(--border-1) solid var(--graphite); }
+.civ-shot__hint { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); color: var(--ink-muted); }
+.civ-shot__hint-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); animation: blink 2s steps(1) infinite; }
+.civ-shot__hint-tap { display: none; }
+@media (hover: none) { .civ-shot__hint-hover { display: none; } .civ-shot__hint-tap { display: inline; } }
+.civ-shot { position: relative; margin: 0; border: var(--border-1) solid var(--graphite); overflow: hidden; }
 .civ-shot img { display: block; width: 100%; height: auto; }
-/* Numbered points on the screenshot: white rings that pulse gently, matching the numbers in the list. */
-.civ-shot__pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; display: grid; place-items: center; border-radius: 50%; background: var(--bg); color: var(--ink); border: 1.5px solid var(--ink); font-family: var(--font-mono); font-size: 13px; }
-.civ-shot__pin::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid var(--ink); opacity: 0; animation: pin-pulse 2.4s ease-out infinite; }
-@keyframes pin-pulse { from { transform: scale(0.8); opacity: 0.7; } to { transform: scale(1.5); opacity: 0; } }
-.civ-sees { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gutter); }
-.civ-sees__num { color: var(--ink-muted); }
-.civ-sees__item { display: flex; flex-direction: column; gap: var(--space-4); padding-top: var(--space-5); border-top: var(--border-1) solid var(--graphite); font-size: 17px; line-height: 1.45; }
+/* Spotlight: the screen dims except a soft circle around the open point. */
+.civ-shot__dim { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 0 70px, #000000b3 150px); transition: opacity var(--duration-base) var(--ease-in-out); }
+.civ-shot.has-active .civ-shot__dim { opacity: 1; }
+/* Hotspots: white rings with a +, pulsing so they read as clickable; the open one turns into a filled ×. */
+.civ-shot__pin { position: absolute; z-index: 2; width: 36px; height: 36px; margin: -18px 0 0 -18px; display: grid; place-items: center; border-radius: 50%; background: #000000a6; border: 1.5px solid var(--ink); color: var(--ink); cursor: pointer; transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-base) var(--ease-out-expo); }
+.civ-shot__pin::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 1px solid var(--ink); opacity: 0; animation: pin-pulse 2.4s ease-out infinite; pointer-events: none; }
+.civ-shot__pin:hover, .civ-shot__pin.is-on { background: var(--ink); color: var(--bg); transform: scale(1.12); }
+.civ-shot__pin.is-on::after { animation: none; }
+.civ-shot__plus { position: relative; width: 12px; height: 12px; transition: transform var(--duration-base) var(--ease-out-expo); }
+.civ-shot__plus::before, .civ-shot__plus::after { content: ""; position: absolute; background: currentColor; }
+.civ-shot__plus::before { left: 0; top: 5.25px; width: 12px; height: 1.5px; }
+.civ-shot__plus::after { left: 5.25px; top: 0; width: 1.5px; height: 12px; }
+.civ-shot__pin.is-on .civ-shot__plus { transform: rotate(45deg); }
+@keyframes pin-pulse { from { transform: scale(0.8); opacity: 0.8; } to { transform: scale(1.6); opacity: 0; } }
+/* Card beside the open point: to the right (or left past the middle), fading and sliding in. */
+.civ-shot__card { position: absolute; z-index: 3; width: max-content; max-width: 280px; display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); background: #000000e0; border: var(--border-1) solid var(--graphite); color: var(--ink); font-size: 16px; line-height: 1.45; pointer-events: none; opacity: 0; transform: translate(30px, -50%) translateX(-8px); transition: opacity var(--duration-base) var(--ease-in-out), transform var(--duration-base) var(--ease-out-expo); }
+.civ-shot__card .civ-icon { flex: none; width: 22px; height: 22px; margin-top: 1px; }
+.civ-shot__card.is-on { opacity: 1; transform: translate(30px, -50%); }
+.civ-shot__card.is-left { transform: translate(calc(-100% - 30px), -50%) translateX(8px); }
+.civ-shot__card.is-left.is-on { transform: translate(calc(-100% - 30px), -50%); }
+.civ-shot__card.is-up { transform: translate(30px, -85%) translateX(-8px); }
+.civ-shot__card.is-up.is-on { transform: translate(30px, -85%); }
+.civ-shot__below { display: none; }
 .civ-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); }
 .civ-pillar { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); border: var(--border-1) solid var(--graphite); }
 .civ-pillar p { font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
@@ -390,10 +410,14 @@ h1, h2, h3, p { margin: 0; }
   .civ-step__tag { padding-top: var(--space-2); }
   .civ-bracket { width: auto; height: auto; border: 0; margin-top: 0; }
   .civ-bracket span { position: static; transform: none; padding: 0; }
-  .civ-sees { grid-template-columns: 1fr; gap: 0; }
-  .civ-sees__item { flex-direction: row; align-items: center; padding: var(--space-4) 0; }
-  .civ-shot { margin-bottom: var(--space-5); }
-  .civ-shot__pin { width: 20px; height: 20px; margin: -10px 0 0 -10px; font-size: 10px; }
+  .civ-shot__pin { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
+  .civ-shot__plus { transform: scale(0.75); }
+  .civ-shot__pin.is-on .civ-shot__plus { transform: scale(0.75) rotate(45deg); }
+  .civ-shot__card { display: none; }
+  .civ-shot__dim { background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent 0 28px, #000000b3 60px); }
+  .civ-shot__below { display: flex; align-items: flex-start; gap: var(--space-3); min-height: 72px; padding: var(--space-4) 0; border-bottom: var(--border-1) solid var(--graphite); font-size: 17px; line-height: 1.45; }
+  .civ-shot__below .civ-icon { flex: none; width: 22px; height: 22px; }
+  .civ-shot__below-empty { color: var(--ink-muted); }
   .civ-pillars { grid-template-columns: 1fr; }
 }
 
