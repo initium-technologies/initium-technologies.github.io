@@ -9,6 +9,7 @@ export default function Site({ theme = 'dark', children }) {
       <script
         dangerouslySetInnerHTML={{ __html: `document.documentElement.setAttribute('data-theme','${safe}');` }}
       />
+      <div className="grain" aria-hidden="true" />
       <Nav theme={safe} />
       <main id="main">{children}</main>
       <Footer />

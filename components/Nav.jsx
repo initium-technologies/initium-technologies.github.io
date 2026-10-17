@@ -56,6 +56,7 @@ export default function Nav({ theme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [switching, setSwitching] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [sheet, setSheet] = useState(false);
   const [sheetGroup, setSheetGroup] = useState(null);
   const intent = useRef(null);
@@ -102,6 +103,7 @@ export default function Nav({ theme }) {
     lastY.current = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
+      setScrolled(y > 8);
       const dy = y - lastY.current;
       if (Math.abs(dy) < 8) return;
       setHidden(y > 80 && dy > 0);
@@ -138,7 +140,7 @@ export default function Nav({ theme }) {
   return (
     <>
       <nav
-        className={`nav ${isOpen ? 'is-open' : ''} ${hidden && !isOpen ? 'is-hidden' : ''}`}
+        className={`nav ${isOpen ? 'is-open' : ''} ${scrolled ? 'is-scrolled' : ''} ${hidden && !isOpen ? 'is-hidden' : ''}`}
         aria-label="Site"
         onMouseEnter={onNavEnter}
         onMouseLeave={onNavLeave}
@@ -163,7 +165,7 @@ export default function Nav({ theme }) {
             ))}
           </div>
           <div className="nav__right">
-            <a href={menus.partners.href} className="nav__item nav__link nav-label" onMouseEnter={onLinkEnter}>
+            <a href={menus.partners.href} className="nav__item nav__link nav__partner nav-label" onMouseEnter={onLinkEnter}>
               <span>{menus.partners.label}</span>
             </a>
           </div>

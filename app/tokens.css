@@ -17,7 +17,7 @@
   --accent: #e84a1f;
   --accent-text: #e84a1f;
   --focus: var(--accent);
-  --footer-bg: #1b1b1b;
+  --footer-bg: #000000;
   --footer-ink: #ffffff;
   --footer-muted: #9a9a96;
   --footer-line: #2e2e2e;
@@ -28,6 +28,12 @@
   --brand-sand: #cfc9b8;
   --selection-bg: #edeff2;
   --selection-ink: #000000;
+  /* Partner-portal look: faint white lines that fade out at both ends, nav words in light grey. */
+  --rule: #ffffff1f;
+  --graphite: #26292e;
+  --nav-ink: #b9bdc2;
+  --nav-ink-hover: #edeff2;
+  --nav-scrolled-bg: #000000b8;
 }
 [data-theme="light"] {
   --bg: #ffffff;
@@ -37,6 +43,11 @@
   --ink: #0a0a0a;
   --selection-bg: #000000;
   --selection-ink: #edeff2;
+  --rule: #0000001f;
+  --graphite: #d4d4d0;
+  --nav-ink: #5c5c58;
+  --nav-ink-hover: #0a0a0a;
+  --nav-scrolled-bg: #ffffffb8;
   --ink-muted: #5c5c58;
   --ink-inverse: #f2f2f0;
   --ink-inverse-muted: #9a9a96;
@@ -45,7 +56,7 @@
   --accent: #e84a1f;
   --accent-text: #c8390f;
   --focus: var(--accent);
-  --footer-bg: #1b1b1b;
+  --footer-bg: #000000;
   --footer-ink: #ffffff;
   --footer-muted: #9a9a96;
   --footer-line: #2e2e2e;
@@ -69,7 +80,7 @@
   --accent: #e84a1f;
   --accent-text: #962708;
   --focus: var(--accent);
-  --footer-bg: #1b1b1b;
+  --footer-bg: #000000;
   --footer-ink: #ffffff;
   --footer-muted: #9a9a96;
   --footer-line: #2e2e2e;
@@ -93,7 +104,7 @@
   --accent: #e84a1f;
   --accent-text: #ff7a4d;
   --focus: var(--accent);
-  --footer-bg: #1b1b1b;
+  --footer-bg: #000000;
   --footer-ink: #ffffff;
   --footer-muted: #9a9a96;
   --footer-line: #2e2e2e;
@@ -117,7 +128,7 @@
   --accent: #e84a1f;
   --accent-text: #ff7a4d;
   --focus: var(--accent);
-  --footer-bg: #1b1b1b;
+  --footer-bg: #000000;
   --footer-ink: #ffffff;
   --footer-muted: #9a9a96;
   --footer-line: #2e2e2e;
@@ -147,6 +158,11 @@
   --space-9: 96px;
   --space-10: 128px;
   --space-11: 192px;
+  /* Faded 1px lines, as on partner.initiumtechnologies.com. Use with a 1px solid border on the side(s) you want. */
+  --rule-h: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
+  --rule-v: linear-gradient(transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
+  /* The footer is always dark, so its line is always the dark-page line. */
+  --footer-rule-h: linear-gradient(90deg, transparent, #ffffff1f 20%, #ffffff1f 80%, transparent) 1;
   --radius-0: 0px;
   --radius-input: 2px;
   --columns: 12;
