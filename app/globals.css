@@ -208,7 +208,7 @@ h1, h2, h3, p { margin: 0; }
 .hero__side .section-label { display: block; margin-bottom: var(--space-4); }
 .hero__side p { max-width: 36ch; }
 .hero__media { margin-top: var(--space-8); }
-.hero--cover { position: relative; overflow: hidden; background: var(--brand-black); padding-bottom: 24vh; }
+.hero--cover { position: relative; overflow: hidden; background: var(--brand-black); padding-bottom: 12vh; }
 /* Soft black shades, rising from the bottom and falling from the top, keep the white name and the nav readable over bright photos. */
 .hero--cover::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to bottom, var(--scrim-top) 0%, transparent 22%), linear-gradient(to top, var(--scrim) 0%, transparent 65%); pointer-events: none; }
 .hero--cover .media, .hero--cover .ph { z-index: 0; }
@@ -216,7 +216,7 @@ h1, h2, h3, p { margin: 0; }
 .hero--cover .hero__side .section-label { color: var(--ink); opacity: 0.8; }
 @media (max-width: 899px) {
   .hero { padding: calc(64px + var(--space-9)) var(--margin-mobile) var(--space-7); min-height: 0; }
-  .hero--cover { min-height: 100vh; padding-bottom: 18vh; }
+  .hero--cover { min-height: 100vh; padding-bottom: 10vh; }
   .hero__name, .hero__side { grid-column: 1 / -1; }
   .hero__side { padding-top: var(--space-4); }
 }
