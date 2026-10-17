@@ -3,6 +3,9 @@ export const iris = {
   name: 'IRIS',
   fullName: 'Interior Reconnaissance and Inference System',
   explainer: 'Mission compute for the operator, from the moment of breach.',
+  /* Text under the full-screen hero (draft, from the key-function copy). */
+  intro:
+    'IRIS is carried, not connected to. A portable compute core worn by a member of the assault element runs the whole system on the operator’s back, with no link to a data center, a vehicle or a satellite. If the network is gone, IRIS is not.',
   heroLabel: 'IMAGE/VIDEO · IRIS HERO · 21:9',
   meta: {
     title: 'IRIS — Interior Reconnaissance and Inference System | Initium',
@@ -33,6 +36,9 @@ export const mantis = {
   name: 'MANTIS',
   fullName: 'Maritime Autonomous Neural Triage and Inference System',
   explainer: 'Shipboard compute that turns raw ISR feeds into intelligence before they leave the ship.',
+  /* Text under the full-screen hero (draft, from the key-function copy). */
+  intro:
+    'Every unmanned feed the ship receives is triaged on board. Detections, classified tracks, anomalies and annotated clips reach watchstanders and combat systems in seconds. Only the compressed product crosses the satellite link, and in EMCON or denied communications the ship keeps its full exploitation capability.',
   heroLabel: 'IMAGE/VIDEO · MANTIS HERO · 21:9',
   meta: {
     title: 'MANTIS — Shipboard edge compute for ISR | Initium',
@@ -61,6 +67,9 @@ export const orin = {
   slug: 'orin',
   name: 'ORIN',
   fullName: 'Orbital Relay Inference Network',
+  /* Text under the full-screen hero (draft: ORIN has no public copy yet). */
+  intro:
+    'ORIN runs inference in orbit, on the satellite that collects the data, and sends down only what matters. ORIN is a confidential product; details are shared with cleared partners only.',
   heroLabel: 'VIDEO · ORIN HERO · 16:9',
   meta: {
     title: 'ORIN | Initium',

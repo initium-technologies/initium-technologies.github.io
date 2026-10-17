@@ -35,6 +35,8 @@
   --nav-ink: #b8b8b8;
   --nav-ink-hover: #ffffff;
   --nav-scrolled-bg: #000000b8;
+  --scrim: #000000a6;
+  --scrim-top: #00000080;
 }
 :root {
   /* The INITIUM type system, shared with partner.initiumtechnologies.com: Julius Sans One for the
