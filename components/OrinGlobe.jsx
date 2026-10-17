@@ -264,14 +264,26 @@ export default function OrinGlobe({ fallbackVideo = null }) {
         /* Start with the Sun to the right and slightly behind the globe, so the day/night line and the city lights face the
            visitor. Rotating about y adds to a direction's azimuth atan2(x, z). */
         const s0 = sunDir(Date.now());
+        /* Drag: the pointer moves a target (yawT, pitchT); the globe eases toward it every frame, so it follows smoothly
+           instead of jumping between pointer events. On release the last drag speed carries on and dies away.
+           Mouse/pen: drag any direction. Touch: sideways only, so vertical swipes still scroll the page. */
+        const PITCH = 0.38; // resting tilt
+        const PITCH_MAX = 1.15; // how far up/down a drag can tilt (~66°)
         let yaw = Math.atan2(1, -0.35) - Math.atan2(s0[0], s0[2]);
-        let yawVel = 0;
+        let yawT = yaw;
+        let pitch = PITCH;
+        let pitchT = PITCH;
+        let velX = 0;
+        let velY = 0;
         let tiltX = 0;
         let tiltY = 0;
         let targetX = 0;
         let targetY = 0;
         let dragging = false;
+        let dragTouch = false;
         let lastPX = 0;
+        let lastPY = 0;
+        const DRAG = 0.0055; // radians per pixel
         const pointer = { x: -1, y: -1, moved: false };
         const onMove = (e) => {
           targetX = (e.clientY / window.innerHeight - 0.5) * 0.35;
@@ -281,14 +293,25 @@ export default function OrinGlobe({ fallbackVideo = null }) {
           pointer.y = e.clientY - r.top;
           pointer.moved = true;
           if (dragging) {
-            yawVel = (e.clientX - lastPX) * 0.006;
-            yaw += yawVel;
+            const dx = (e.clientX - lastPX) * DRAG;
+            const dy = dragTouch ? 0 : (e.clientY - lastPY) * DRAG;
+            yawT += dx;
+            pitchT = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, pitchT + dy));
+            // Smoothed drag speed, used for the glide after release.
+            velX = velX * 0.5 + dx * 0.5;
+            velY = velY * 0.5 + dy * 0.5;
             lastPX = e.clientX;
+            lastPY = e.clientY;
           }
         };
         const onDown = (e) => {
           dragging = true;
+          dragTouch = e.pointerType === 'touch';
           lastPX = e.clientX;
+          lastPY = e.clientY;
+          velX = 0;
+          velY = 0;
+          if (!dragTouch) renderer.domElement.setPointerCapture?.(e.pointerId);
           el.classList.add('is-dragging');
         };
         const onUp = () => {
@@ -414,14 +437,22 @@ export default function OrinGlobe({ fallbackVideo = null }) {
           sunU.value.set(sd[0], sd[1], sd[2]).applyQuaternion(root.quaternion).normalize();
 
           // Visitor: momentum spin, gentle auto-turn, lean toward the cursor, turn with scroll.
+          // Frame-rate independent easing: the same feel at 30, 60 or 120 fps.
+          const k = (rate) => 1 - Math.pow(1 - rate, dt * 60);
           if (!dragging) {
-            yawVel *= 0.94;
-            yaw += yawVel + (reduce ? 0 : dt * 0.012);
+            // Glide after release, then a slow return of the tilt toward its resting angle.
+            yawT += velX + (reduce ? 0 : dt * 0.012);
+            pitchT = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, pitchT + velY));
+            velX *= Math.pow(0.93, dt * 60);
+            velY *= Math.pow(0.93, dt * 60);
+            if (Math.abs(velY) < 0.0005) pitchT += (PITCH - pitchT) * k(0.006);
           }
-          tiltX += (targetX - tiltX) * 0.05;
-          tiltY += (targetY - tiltY) * 0.05;
+          yaw += (yawT - yaw) * k(0.18);
+          pitch += (pitchT - pitch) * k(0.18);
+          tiltX += (targetX - tiltX) * k(0.05);
+          tiltY += (targetY - tiltY) * k(0.05);
           const scroll = Math.min(1, window.scrollY / Math.max(1, window.innerHeight));
-          root.rotation.set(0.38 + tiltX, yaw + tiltY + scroll * 0.9, 0, 'XYZ');
+          root.rotation.set(pitch + tiltX, yaw + tiltY + scroll * 0.9, 0, 'XYZ');
           camera.position.set(0, 0, baseDist + scroll * 1.6);
           camera.lookAt(0, 0, 0);
 
