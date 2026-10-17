@@ -258,7 +258,8 @@ h1, h2, h3, p { margin: 0; }
 
 
 /* ---------- ORIN globe (live satellites) ---------- */
-.orin-globe { position: absolute; inset: 0; z-index: 0; background: var(--bg); cursor: grab; touch-action: pan-y; }
+.orin-globe { position: absolute; inset: 0; z-index: 0; background: var(--bg); cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.hero--backdrop { user-select: none; -webkit-user-select: none; }
 .orin-globe.is-dragging { cursor: grabbing; }
 .orin-globe__canvas { display: block; width: 100%; height: 100%; opacity: 0; transition: opacity 1.6s var(--ease-in-out); }
 .orin-globe.is-ready .orin-globe__canvas { opacity: 1; }

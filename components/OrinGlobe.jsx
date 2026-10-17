@@ -266,9 +266,9 @@ export default function OrinGlobe({ fallbackVideo = null }) {
         const s0 = sunDir(Date.now());
         /* Drag: the pointer moves a target (yawT, pitchT); the globe eases toward it every frame, so it follows smoothly
            instead of jumping between pointer events. On release the last drag speed carries on and dies away.
-           Mouse/pen: drag any direction. Touch: sideways only, so vertical swipes still scroll the page. */
+           Mouse/pen: drag any direction (the tilt stays where it is left). Touch: sideways only, so vertical swipes still scroll the page. */
         const PITCH = 0.38; // resting tilt
-        const PITCH_MAX = 1.15; // how far up/down a drag can tilt (~66°)
+        const PITCH_MAX = 1.4; // how far up/down a drag can tilt (~80°, almost over a pole)
         let yaw = Math.atan2(1, -0.35) - Math.atan2(s0[0], s0[2]);
         let yawT = yaw;
         let pitch = PITCH;
@@ -305,6 +305,7 @@ export default function OrinGlobe({ fallbackVideo = null }) {
           }
         };
         const onDown = (e) => {
+          if (e.pointerType !== 'touch') e.preventDefault(); // no text selection or native drag while turning the globe
           dragging = true;
           dragTouch = e.pointerType === 'touch';
           lastPX = e.clientX;
@@ -440,12 +441,11 @@ export default function OrinGlobe({ fallbackVideo = null }) {
           // Frame-rate independent easing: the same feel at 30, 60 or 120 fps.
           const k = (rate) => 1 - Math.pow(1 - rate, dt * 60);
           if (!dragging) {
-            // Glide after release, then a slow return of the tilt toward its resting angle.
+            // Glide after release; the tilt stays where the visitor leaves it.
             yawT += velX + (reduce ? 0 : dt * 0.012);
             pitchT = Math.max(-PITCH_MAX, Math.min(PITCH_MAX, pitchT + velY));
             velX *= Math.pow(0.93, dt * 60);
             velY *= Math.pow(0.93, dt * 60);
-            if (Math.abs(velY) < 0.0005) pitchT += (PITCH - pitchT) * k(0.006);
           }
           yaw += (yawT - yaw) * k(0.18);
           pitch += (pitchT - pitch) * k(0.18);
