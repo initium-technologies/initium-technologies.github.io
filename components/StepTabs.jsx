@@ -5,16 +5,15 @@ import Media from './Media';
 
 /* Steps as tabs over one card at a time, after Anduril's Fury build-qualities block (IRIS concept of operations): a row
    of tabs (the step tags) with a line under the active one, and below it the cards side by side in a track that slides
-   to the chosen tab. Click a tab, use the arrow keys on the tabs, or swipe the track. Each card: 01 / 04, the tag in
-   caps, the step title large, the image top right (black until public/media/<page>/step-N.* exists) and a large number
-   bottom left. Every card is as tall as the tallest. A step is { tag, title, text?, media }. */
+   to the chosen tab. Click a tab, use the arrow keys on the tabs, or swipe the track. Each card: the tag in caps in the
+   top-left corner, the step title large, the image top right (black until public/media/<page>/step-N.* exists) and a
+   large number bottom left. Every card is as tall as the tallest. A step is { tag, title, text?, media }. */
 export default function StepTabs({ steps, label }) {
   const [active, setActive] = useState(0);
   const track = useRef(null);
   const tabs = useRef([]);
   const id = useId();
   const n = steps.length;
-  const pad = (x) => String(x).padStart(2, '0');
 
   const go = (i, focus = false) => {
     const el = track.current;
@@ -80,11 +79,8 @@ export default function StepTabs({ steps, label }) {
             aria-labelledby={`${id}-tab-${i}`}
             inert={i !== active}
           >
-            <span className="step-tab__index mono-label">
-              {pad(i + 1)} / {pad(n)}
-            </span>
+            <span className="step-tab__tag mono-label">{s.tag}</span>
             <div className="step-tab__body">
-              <span className="step-tab__tag mono-label">{s.tag}</span>
               <h3 className="step-tab__title">{s.title}</h3>
               {s.text && <p className="step-tab__text">{s.text}</p>}
             </div>

@@ -50,7 +50,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
   CONCEPT OF OPERATIONS (components/StepTabs.jsx, after Anduril's Fury build-qualities block: tabs Access · Build ·
   Refine · Enter (Julius) with a line under the active one, over one grey card at a time that slides sideways to the chosen tab
-  (scroll-snap, so it swipes too; arrow keys on the tabs); card: 01 / 04, the tag in caps, the title large in Julius, the image
+  (scroll-snap, so it swipes too; arrow keys on the tabs); card: the tag in caps in the top-left corner, the title large in Julius (close to the left edge; no 01 / 04), the image
   top right (public/media/iris/step-1…4.*), a large number bottom left; titles only), DESCRIPTION (large lead, body set
   in from the right, grey) and BUILT FOR ANY ENVIRONMENT (components/SpecTable.jsx: caption IRIS RUGGEDIZATION SPECS ·
   09 PARAMETERS, then a compact ruled table, parameter, rating, detail; no row numbers; rows do not change on hover).
