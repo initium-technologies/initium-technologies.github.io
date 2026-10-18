@@ -12,27 +12,23 @@ export const iris = {
      environment specification. */
   concept: {
     label: 'Concept of operations',
-    /* Step texts are drafts drawn from the description; replace when the final lines arrive. */
+    /* Titles only on IRIS (no secondary text). */
     steps: [
       {
         tag: 'Access',
         title: 'Access to camera feeds established',
-        text: 'A cyber element or a hardline connection opens the target building’s own security cameras to IRIS.',
       },
       {
         tag: 'Build',
         title: 'IRIS builds an initial interior picture',
-        text: 'IRIS fuses the feeds into a floorplan of the building and begins identifying every person in view.',
       },
       {
         tag: 'Refine',
         title: 'Fidelity increases as intelligence is collected over time',
-        text: 'Each person is tracked room to room in real time, and the picture sharpens the longer the feeds run.',
       },
       {
         tag: 'Enter',
         title: 'The assault element enters with a full visual of the interior',
-        text: 'Operators go through the door knowing the layout and where every visible person is.',
       },
     ],
   },

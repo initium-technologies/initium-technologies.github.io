@@ -44,17 +44,19 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   Earth (public/media/orin/earth-day.jpg, earth-night.jpg) lit by the real Sun. Refresh the catalogue every few days:
   `node scripts/update-satellites.mjs` (CelesTrak: max one download per 2 hours). Falls back to the video without WebGL.
 - IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
-  CONCEPT OF OPERATIONS (the same step cards as IRIS CIV; images public/media/iris/step-1…4.*), DESCRIPTION (large
+  CONCEPT OF OPERATIONS (the same step cards as IRIS CIV, titles only, no secondary text; images
+  public/media/iris/step-1…4.*), DESCRIPTION (large
   lead, body set in from the right, grey) and BUILT FOR ANY ENVIRONMENT (components/SpecTable.jsx: a compact ruled
   table, one row per parameter: large mono number 01–09 on the left, parameter, rating, detail). All copy in `iris` in
   content/products.js.
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (STEPS 01–03: UNDER 60 SECONDS at the right
   end of the label line; components/StepCards.jsx: the 4 steps as full-width bands touching edge to edge, after
   Anduril's build-qualities cards, alternating grey (01, 03) and black (02, 04): a large white number at the top left
-  that sticks near the top of the screen while its card scrolls past, so it reads as one number counting 01 to 04,
+  (fixed, it does not move on scroll),
   the step title in Julius (normal case), its text, and the image filling the right part of the band to its top,
   bottom and the page's right edge, about a third of the width (public/media/iris-civ/step-1…4.*; plain black until
-  then); bands are only as tall as their text; no rail, no sand) ·
+  then); every band in a list is as tall as the tallest (grid rows 1fr), so they match on every platform; no rail,
+  no sand) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
   components/CivShot.jsx that auto-play until touched;
   never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
