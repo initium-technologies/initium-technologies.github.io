@@ -16,28 +16,24 @@ export const civ = {
     text: 'From the 911 call to a confirmed, tracked assailant on every responding officer’s screen.',
   },
   flowLabel: 'How it works',
-  /* Short versions of the alert chain; icons are drawn in components/CivIcons.jsx. */
+  /* Short versions of the alert chain (FlowSteps: a point and a line per step, no icons). */
   steps: [
     {
-      icon: 'phone',
       tag: 'Call',
       title: '911 is called',
       text: 'A call lands with the emergency communications center. If the address is enrolled and a threat is identified, IRIS CIV starts on its own.',
     },
     {
-      icon: 'building',
       tag: 'Link',
       title: 'Linked to the building',
       text: 'The call is matched to the building. Every dispatched officer gets an IRIS link in the call-out package, on the phone or MDT they already carry. No app, no account.',
     },
     {
-      icon: 'verify',
       tag: 'Verify',
       title: 'A person confirms the threat',
       text: 'As units go inbound, Initium’s team checks the building’s live cameras and confirms the threat, so officers get a confirmed, tracked assailant, not a guess.',
     },
     {
-      icon: 'floorplan',
       tag: 'Arrive',
       title: 'Officers see inside',
       text: 'Before the first unit reaches the door, every officer has a live floorplan of the building. It keeps updating until the incident is closed.',

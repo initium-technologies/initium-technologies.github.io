@@ -2,14 +2,60 @@ export const iris = {
   slug: 'iris',
   name: 'IRIS',
   fullName: 'Interior Reconnaissance and Inference System',
-  explainer: 'Mission compute for the operator, from the moment of breach.',
-  /* Text under the full-screen hero (draft, from the key-function copy). */
-  intro:
-    'IRIS is carried, not connected to. A portable compute core worn by a member of the assault element runs the whole system on the operator’s back, with no link to a data center, a vehicle or a satellite. If the network is gone, IRIS is not.',
+  explainer: 'A full interior picture for the operator, before engagement.',
   heroLabel: 'IMAGE/VIDEO · IRIS HERO · 21:9',
   meta: {
     title: 'IRIS — Interior Reconnaissance and Inference System | Initium',
-    description: 'Mission compute for the operator, from the moment of breach.',
+    description: 'A full interior picture for the operator, before engagement.',
+  },
+  /* Under the hero, in order: concept of operations (FlowSteps), description, environment specification. */
+  concept: {
+    label: 'Concept of operations',
+    /* Step texts are drafts drawn from the description; replace when the final lines arrive. */
+    steps: [
+      {
+        tag: 'Access',
+        title: 'Access to camera feeds established',
+        text: 'A cyber element or a hardline connection opens the target building’s own security cameras to IRIS.',
+      },
+      {
+        tag: 'Build',
+        title: 'IRIS builds an initial interior picture',
+        text: 'IRIS fuses the feeds into a floorplan of the building and begins identifying every person in view.',
+      },
+      {
+        tag: 'Refine',
+        title: 'Fidelity increases as intelligence is collected over time',
+        text: 'Each person is tracked room to room in real time, and the picture sharpens the longer the feeds run.',
+      },
+      {
+        tag: 'Enter',
+        title: 'The assault element enters with a full visual of the interior',
+        text: 'Operators go through the door knowing the layout and where every visible person is.',
+      },
+    ],
+  },
+  description: {
+    label: 'Description',
+    lead: 'With access to the camera feed inside a target building established prior by a cyber element or through a hardline connection, IRIS fuses data from the adversary’s own security system to construct a live interior picture for the assault element.',
+    text: 'The picture is comprised of a full floorplan with real-time person identification and tracking throughout all visible rooms. The IRIS ruggedized unit is designed to attach to the exterior of an operator’s assault pack, allowing all inference to be conducted on-site with no reach-back, network connectivity or traceable RF signature.',
+  },
+  specs: {
+    label: 'Built for any environment',
+    caption: 'IRIS ruggedized unit',
+    columns: ['No.', 'Parameter', 'Rating', 'Detail'],
+    /* Each row: the parameter, its rating, and the detail behind it. */
+    items: [
+      { label: 'Operating temperature', figure: '−60°F to +130°F', detail: 'Full operating range.' },
+      { label: 'Temperature shock', figure: 'Full range', detail: 'Rapid transition across the full operating range.' },
+      { label: 'Altitude', figure: '30,000 ft', detail: 'Operational up to 30,000 ft.' },
+      { label: 'Seawater immersion', figure: '30 FSW', detail: 'Operational up to 30 feet of seawater.' },
+      { label: 'Drop', figure: '4 ft / 5 ft', detail: 'Logistic / tactical.' },
+      { label: 'Sand and dust', figure: 'Operational', detail: 'During and after exposure.' },
+      { label: 'Vibration', figure: 'All profiles', detail: 'Tactical ground, rotary-wing and fixed-wing.' },
+      { label: 'Salt fog', figure: 'Resistant', detail: 'Maritime environment.' },
+      { label: 'EMI / EMC', figure: 'MIL-STD-461G', detail: 'RE102 / RS103 as applicable.' },
+    ],
   },
   functions: [
     {
@@ -77,7 +123,8 @@ export const orin = {
   },
   /* The Locus Terminal under the intro, after initiumterminal.com. Shown in caps. */
   terminal: {
-    label: 'Initium Locus Terminal',
+    /* The slim bar across the top of the box. */
+    label: 'Initium',
     title: 'Log in to access',
     fields: [
       { id: 'access-code', label: 'Access code', masked: false },

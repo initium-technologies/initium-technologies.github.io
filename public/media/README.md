@@ -20,6 +20,7 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | `hero` | ORIN page, full screen behind the name (ORIN Hero video, 14 s) | 16:9 |
 | `iris-civ/` | `hero` | IRIS CIV page, full screen behind the name | 16:9 |
+| `iris-civ/` | `step-1` … `step-4` | IRIS CIV page, How it works cards 01–04 (right side of each card) | 16:9 |
 | `company/` | `hero` | About page, full screen behind the headline (empty = plain black; a video is planned) | 16:9 |
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `company/hero.jpg`.

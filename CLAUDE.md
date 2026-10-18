@@ -20,7 +20,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   (no Land/Naval/Space/Police labels).
   Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
   ease-in-out slide (--duration-nav).
-- Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL packed close together at the right edge, titles in
+- Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL as four equal columns (`--footer-col`, so the gaps
+  match) packed at the right edge, titles in
   bold Inter (built from the nav menus in content/site.js, so a product added to a menu appears in both); bottom-left
   INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links (no copyright line); CONTACT under COMPANY, lined up
   with it, the email on one line running across toward SOCIAL.
@@ -29,31 +30,41 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
   (border + `border-image: var(--rule-h)` / `var(--rule-v)`); boxes use a solid `--graphite` border; a fixed film grain
   (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faded line.
-- Nav words: Inter 500, 13px, 0.08em, light grey (`--nav-ink`), white on hover/open.
+- Nav words: Inter 500, 15px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels or page-transition effects. Radius 0 except inputs (2px).
 - Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
   public/media/<page>/ (one folder per page, slots listed in public/media/README.md); the landing hero stays plain
   black until home/hero.mp4 exists. Tiles show only the product name.
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
-  the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
-  Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locus Terminal.
-  ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4).
-- IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03;
-  white sand grains rise out of each icon and stream along the line to the next, components/CivFlowSand.jsx, a
-  still frame with reduced motion) ·
+  the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js;
+  MANTIS, ORIN). Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locus
+  Terminal. ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4).
+- IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
+  CONCEPT OF OPERATIONS (4-step workflow, long titles a size down), DESCRIPTION (large lead, body set in from the right,
+  grey) and BUILT FOR ANY ENVIRONMENT (components/SpecTable.jsx: a compact ruled table, one row per parameter: large
+  mono number 01–09 on the left, parameter, rating, detail). All copy in `iris` in content/products.js.
+- Workflows (components/FlowSteps.jsx; IRIS concept of operations): numbered steps in a row, each
+  starting at a small point on a line into the next step, no icon boxes; white sand grains rise from each point and
+  stream along the line to the next (components/FlowSand.jsx; paused off screen, a still frame with reduced motion).
+- IRIS CIV: same hero, then one story: 60-second promise · How it works (STEPS 01–03: UNDER 60 SECONDS at the right
+  end of the label line; components/StepCards.jsx: the 4 steps as full-width bands touching edge to edge, after
+  Anduril's build-qualities cards, alternating grey (01, 03) and black (02, 04): a large white number at the top left
+  that sticks near the top of the screen while its card scrolls past, so it reads as one number counting 01 to 04,
+  the step title in Julius (normal case), its text, and the image filling the right part of the band to its top,
+  bottom and the page's right edge (public/media/iris-civ/step-1…4.*; plain black until then); no rail, no sand) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
   components/CivShot.jsx that auto-play until touched;
   never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
 - About (/company): plain black hero behind the headline for now (a video will go in public/media/company/hero.*), then the text and contact (no
-  leadership portraits). Careers: one Open roles list (no future roles).
+  leadership portraits). Careers: one Open roles list (now just Perception engineering), then a last row, FUTURE ROLES, same look and hover: new hires are welcome periodically, email to join the newsletter (mailto, subject Newsletter).
 - Home tiles: ORIN tall on the left (the right half of the globe, coming in from the left edge, on pure black), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
   bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
 - The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a grey box (`--terminal-bg`, thin
-  `--terminal-line` border) centred under ORIN's intro: a slim title bar (INITIUM LOCUS TERMINAL), the LOG IN TO
+  `--terminal-line` border) centred under ORIN's intro: a slim title bar (INITIUM), the LOG IN TO
   ACCESS heading in Julius, ACCESS CODE and PASSWORD as labelled input boxes (`--terminal-field`, 2px radius, block
   cursor), the status line, a full-width white LOG IN button. Under the box: "ORIN is a confidential product and
   requires a login." No NODE / LINK lines, no green. The heading types itself out when scrolled into view, then the

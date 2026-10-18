@@ -27,6 +27,18 @@ export default function CareersPage() {
             </p>
           </div>
         ))}
+        {/* Future roles: a row like the roles above (grey, white on hover), with the newsletter link. */}
+        <div className="row">
+          <h3 className="row__name h3">{careers.future.name}</h3>
+          <p className="row__text body">
+            {careers.future.text}
+            <br />
+            <a className="arrow-link nav-label" href={`mailto:${site.email}?subject=${encodeURIComponent(careers.future.subject)}`}>
+              <span>{careers.future.link}</span>
+              <Arrow />
+            </a>
+          </p>
+        </div>
       </section>
     </Site>
   );

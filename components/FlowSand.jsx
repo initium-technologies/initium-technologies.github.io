@@ -2,18 +2,19 @@
 
 import { useEffect, useRef } from 'react';
 
-/* How it works (IRIS CIV): thousands of white grains, like sand, rise out of each step's icon, settle onto the line and
-   stream along it to the next icon, rise out of that one, and so on to 04, where they rise and fade. One canvas over
-   the steps, reading its geometry from the icons and arrows beside it; paused while off screen. With reduced motion it
+/* Workflow sand (FlowSteps): thousands of white grains rise from each step's point, settle onto the line and stream
+   along it to the next point, rise from that one, and so on to the last step, where they rise and fade. One canvas over
+   the steps, reading its geometry from the points and arrows beside it; paused while off screen. With reduced motion it
    draws one still frame. Decorative only (aria-hidden, no pointer events). */
 
-const RISE = 0.3; // share of each leg spent rising out of the icon
+const RISE = 0.3; // share of each leg spent rising from the point
 const JOIN = 0.42; // ... then settling onto the start of the line; the rest is the stream along it
+const SPAWN = 24; // grains start within this many px (across) of a point, so each rise is a plume, not a thread
 
 const easeOut = (u) => 1 - (1 - u) ** 3;
 const easeInOut = (u) => (u < 0.5 ? 4 * u * u * u : 1 - (-2 * u + 2) ** 3 / 2);
 
-export default function CivFlowSand({ grains = 2400 }) {
+export default function FlowSand({ grains = 2400 }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -39,12 +40,13 @@ export default function CivFlowSand({ grains = 2400 }) {
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      stations = [...box.querySelectorAll('.civ-step__icon')].map((el) => {
+      stations = [...box.querySelectorAll('.flow-step__node')].map((el) => {
         const b = el.getBoundingClientRect();
-        return { x: b.left - r.left + b.width / 2, y: b.top - r.top + b.height / 2, w: b.width, h: b.height, top: b.top - r.top };
+        const y = b.top - r.top + b.height / 2;
+        return { x: b.left - r.left + b.width / 2, y, w: SPAWN, h: SPAWN / 4, top: y - SPAWN / 4 };
       });
-      /* Each arrow is the line from one icon to the next: across on wide screens, down on phones. */
-      lines = [...box.querySelectorAll('.civ-step__arrow')].map((el) => {
+      /* Each arrow is the line from one point to the next: across on wide screens, down on phones. */
+      lines = [...box.querySelectorAll('.flow-step__arrow')].map((el) => {
         const b = el.getBoundingClientRect();
         if (b.width >= b.height) {
           const y = b.top - r.top + b.height / 2;
@@ -55,8 +57,8 @@ export default function CivFlowSand({ grains = 2400 }) {
       });
     };
 
-    /* Per grain: where it is along the chain (0 … number of icons), its speed and brightness, and the shape of the
-       leg it is on (start point in the icon, how high it rises, sideways drift, offset across the line). */
+    /* Per grain: where it is along the chain (0 … number of points), its speed and brightness, and the shape of the
+       leg it is on (start point around the point, how high it rises, sideways drift, offset across the line). */
     const s = new Float32Array(n);
     const speed = new Float32Array(n);
     const glow = new Float32Array(n);
@@ -107,14 +109,14 @@ export default function CivFlowSand({ grains = 2400 }) {
         let y;
         let a = 1;
         if (f < RISE) {
-          /* Rising out of the icon. */
+          /* Rising from the point. */
           const u = f / RISE;
           const e = easeOut(u);
           x = x0 + (px - x0) * e + wob * 1.5;
           y = y0 + (py - y0) * e;
           a = Math.min(1, u * 4);
         } else if (k >= last || !lines[k]) {
-          /* The last icon: keep rising, and fade. */
+          /* The last point: keep rising, and fade. */
           const u = (f - RISE) / (1 - RISE);
           x = px + drift[i] * 0.4 * u + wob * 2;
           y = py - u * 28;
@@ -129,7 +131,7 @@ export default function CivFlowSand({ grains = 2400 }) {
             x = px + (lx - px) * e;
             y = py + (ly - py) * e;
           } else {
-            /* Streaming along the line into the next icon. */
+            /* Streaming along the line into the next point. */
             const u = (f - JOIN) / (1 - JOIN);
             const shimmer = wob * 0.6;
             x = lx + (L.x1 - L.x0) * u + L.nx * shimmer;
@@ -190,5 +192,5 @@ export default function CivFlowSand({ grains = 2400 }) {
     };
   }, [grains]);
 
-  return <canvas className="civ-sand" ref={ref} aria-hidden="true" />;
+  return <canvas className="flow-sand" ref={ref} aria-hidden="true" />;
 }

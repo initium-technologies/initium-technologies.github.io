@@ -22,10 +22,14 @@ export const careers = {
   /* One list: every role we are hiring for. */
   open: [
     { name: 'Perception engineering', text: 'Detection, tracking and inference that runs on the edge, on hardware the operator carries.' },
-    { name: 'Embedded systems', text: 'Ruggedized compute cores, shipboard appliances and the power, thermal and I/O work that keeps them running.' },
-    { name: 'Field operations', text: 'Onboarding buildings, ships and agencies; on the live cameras when it counts.' },
-    { name: 'Civilian partnerships', text: 'Police, facilities and the resellers that bring IRIS CIV to a city.' },
   ],
+  /* The last row: how to hear about the next role (opens an email to us with this subject). */
+  future: {
+    name: 'Future roles',
+    text: 'We welcome new hires periodically. Email us to join the newsletter and get an update when a new role appears.',
+    link: 'Join the newsletter',
+    subject: 'Newsletter',
+  },
 };
 
 export const events = {

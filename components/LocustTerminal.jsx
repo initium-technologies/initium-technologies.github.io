@@ -87,7 +87,7 @@ export default function LocustTerminal({ terminal }) {
   };
 
   return (
-    <section className="terminal-section" aria-label={terminal.label} ref={section}>
+    <section className="terminal-section" aria-label={title} ref={section}>
       <form
         className="term"
         autoComplete="off"

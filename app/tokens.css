@@ -6,6 +6,8 @@
   --bg: #000000;
   --bg-raised: #000000;
   --terminal-section-bg: #000000;
+  /* Step cards (IRIS CIV how it works): a panel just off black. */
+  --card-bg: #0f0f0f;
   /* Locus Terminal (ORIN): a grey box on the black page; greys only. */
   --terminal-bg: #141414;
   --terminal-field: #0b0b0b;
@@ -80,6 +82,8 @@
   --nav-height: 72px;
   --panel-min: 30vh;
   --footer-min: 55vh;
+  /* Footer link columns: four equal widths, so the gaps between DEFENSE, CIVILIAN, COMPANY and SOCIAL match. */
+  --footer-col: 136px;
   --border-1: 1px;
   --border-focus: 2px;
   --scrollbar-size: 6px;
