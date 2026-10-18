@@ -4,7 +4,7 @@ import Media from './Media';
    margins. `cover`: the media fills the whole section edge to edge and the name sits over it (ORIN). */
 export default function ProductHero({ name, fullName, explainer, label, media = null, cover = false, focus, backdrop = null, short = false }) {
   return (
-    <section className={`hero ${short ? 'hero--short' : ''} ${cover ? 'hero--cover' : ''}`}>
+    <section className={`hero ${short ? 'hero--short' : ''} ${cover ? 'hero--cover' : ''} ${backdrop ? 'hero--backdrop' : ''}`}>
       {/* `backdrop` (e.g. the live Earth) replaces the hero image when given. */}
       {cover && (backdrop || <Media media={media} label={label} cover focus={focus} alt="" />)}
       <div className="hero__row">

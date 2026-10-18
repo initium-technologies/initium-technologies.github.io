@@ -6,8 +6,8 @@ export const site = {
   email: 'admin@initiumtechnologies.com',
   url: 'https://initiumtechnologies.com',
   social: {
-    x: 'https://x.com/',
-    linkedin: 'https://www.linkedin.com/',
+    x: 'https://x.com/initium_tech',
+    linkedin: 'https://www.linkedin.com/company/initiumtech/',
   },
 };
 
