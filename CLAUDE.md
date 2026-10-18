@@ -11,7 +11,10 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   the old site and partner.initiumtechnologies.com), centred on the landing page.
 
 ## Rules
-- Type: Julius Sans One (wordmark + display, weight 400 only), Inter (body), IBM Plex Mono (labels, figures).
+- Type: Julius Sans One (wordmark + display, weight 400 only), Inter (body), IBM Plex Mono (labels, figures). The fonts
+  are bundled with the site (next/font in app/layout.jsx), never fetched from Google at page load, so Windows and Mac
+  get the same files; `font-synthesis: none` stops browsers faking weights. Check layouts at Windows sizes too
+  (1280×720, 1366×768, 1536×864: Windows scales the display, so laptops report these widths).
 - Black and white only, on every page: background pure black (#000), text white, neutral greys for muted text and
   lines. No colour anywhere (no red/orange accent; the accent token is white). One theme, no per-page themes.
   Selected text = white highlight with black letters.
@@ -31,7 +34,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   (border + `border-image: var(--rule-h)` / `var(--rule-v)`); boxes use a solid `--graphite` border; a fixed film grain
   (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faded line.
 - Nav words: Inter 500, 15px, 0.08em, light grey (`--nav-ink`), white on hover/open.
-- Otherwise no gradients, shadows, glass, icon libraries, carousels or page-transition effects. Radius 0 except inputs (2px).
+- Otherwise no gradients, shadows, glass, icon libraries, carousels (except the IRIS concept-of-operations tabs) or
+  page-transition effects. Radius 0 except inputs (2px).
 - Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
   public/media/<page>/ (one folder per page, slots listed in public/media/README.md); the landing hero stays plain
   black until home/hero.mp4 exists. Tiles show only the product name.
@@ -44,11 +48,13 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   Earth (public/media/orin/earth-day.jpg, earth-night.jpg) lit by the real Sun. Refresh the catalogue every few days:
   `node scripts/update-satellites.mjs` (CelesTrak: max one download per 2 hours). Falls back to the video without WebGL.
 - IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
-  CONCEPT OF OPERATIONS (the same step cards as IRIS CIV, titles only, no secondary text; images
-  public/media/iris/step-1…4.*), DESCRIPTION (large
-  lead, body set in from the right, grey) and BUILT FOR ANY ENVIRONMENT (components/SpecTable.jsx: a compact ruled
-  table, one row per parameter: large mono number 01–09 on the left, parameter, rating, detail). All copy in `iris` in
-  content/products.js.
+  CONCEPT OF OPERATIONS (components/StepTabs.jsx, after Anduril's Fury build-qualities block: tabs Access · Build ·
+  Refine · Enter (Julius) with a line under the active one, over one grey card at a time that slides sideways to the chosen tab
+  (scroll-snap, so it swipes too; arrow keys on the tabs); card: 01 / 04, the tag in caps, the title large in Julius, the image
+  top right (public/media/iris/step-1…4.*), a large number bottom left; titles only), DESCRIPTION (large lead, body set
+  in from the right, grey) and BUILT FOR ANY ENVIRONMENT (components/SpecTable.jsx: caption IRIS RUGGEDIZATION SPECS ·
+  09 PARAMETERS, then a compact ruled table, parameter, rating, detail; no row numbers; rows do not change on hover).
+  All copy in `iris` in content/products.js.
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (STEPS 01–03: UNDER 60 SECONDS at the right
   end of the label line; components/StepCards.jsx: the 4 steps as full-width bands touching edge to edge, after
   Anduril's build-qualities cards, alternating grey (01, 03) and black (02, 04): a large white number at the top left

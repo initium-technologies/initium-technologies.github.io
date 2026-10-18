@@ -39,8 +39,8 @@ export const iris = {
   },
   specs: {
     label: 'Built for any environment',
-    caption: 'IRIS ruggedized unit',
-    columns: ['No.', 'Parameter', 'Rating', 'Detail'],
+    caption: 'IRIS ruggedization specs',
+    columns: ['Parameter', 'Rating', 'Detail'],
     /* Each row: the parameter, its rating, and the detail behind it. */
     items: [
       { label: 'Operating temperature', figure: '−60°F to +130°F', detail: 'Full operating range.' },
