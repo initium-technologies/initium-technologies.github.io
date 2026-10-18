@@ -34,7 +34,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
   Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locust Terminal.
-  ORIN's hero is the Earth Orin video (public/media/orin/hero.mp4).
+  ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4).
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
   components/CivShot.jsx that auto-play until touched;
