@@ -10,10 +10,10 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | Folder | File name | Where it shows | Shape |
 |---|---|---|---|
 | `home/` | `hero` | Landing page, full screen behind INITIUM | 16:9 |
-| `home/` | `orin-tile` | Landing page, ORIN tile (tall, left) | 2:3 |
+| `home/` | `orin-tile` | Landing page, ORIN tile (tall, left) | 5:7 |
 | `home/` | `iris-tile` | Landing page, IRIS tile | 7:5 |
-| `home/` | `mantis-tile` | Landing page, MANTIS tile | 7:5 |
-| `home/` | `iris-civ-tile` | Landing page, IRIS CIV tile (wide, bottom) | 5:2 |
+| `home/` | `iris-civ-tile` | Landing page, IRIS CIV tile (right, under IRIS) | 7:5 |
+| `home/` | `mantis-tile` | Landing page, MANTIS tile (wide, bottom) | 5:2 |
 | `iris/` | `hero` | IRIS page, full screen behind the name | 16:9 |
 | `iris/` | `1`, `2`, `3` | IRIS page, key functions 01–03 | 4:5 |
 | `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
@@ -24,6 +24,6 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `company/hero.jpg`.
 
-In use now: `orin/hero.mp4` (ORIN Hero video, 14 s), `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg`, `home/iris-tile.jpg`, `home/mantis-tile.jpg`, `home/iris-civ-tile.jpg`, `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (copies of the home tiles until proper wide images arrive).
+In use now: `orin/hero.mp4` (ORIN Hero video, 14 s), `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg` (globe star field), `home/iris-tile.jpg`, `home/iris-civ-tile.jpg` (7:5 crop of `iris-civ/hero.jpg`), `home/mantis-tile.jpg` (5:2 crop of `mantis/hero.jpg`), `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (officers in daylight; the phone screen is the real IRIS CIV screen, mapped in perspective).
 
 Logos are separate, in `public/logo/`.

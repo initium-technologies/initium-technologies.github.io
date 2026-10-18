@@ -75,16 +75,18 @@ export const orin = {
     title: 'ORIN | Initium',
     description: 'Orbital Relay Inference Network.',
   },
+  /* The Locus Terminal under the intro, after initiumterminal.com. Shown in caps. */
   terminal: {
-    title: 'Locust Terminal',
-    fields: [
-      { id: 'identification-code', label: 'Identification code', masked: false },
-      { id: 'access-code', label: 'Access code', masked: true },
-      { id: 'personal-access-code', label: 'Personal access code', masked: true },
+    title: 'Initium Locus Terminal',
+    status: [
+      { label: 'Node', value: 'Operational' },
+      { label: 'Link', value: 'Encrypted' },
     ],
-    enter: 'Enter',
+    fields: [
+      { id: 'access-code', label: 'Access code', masked: false },
+      { id: 'password', label: 'Password', masked: true },
+    ],
     verifying: 'Verifying',
     invalid: 'Invalid details',
-    note: 'ORIN is a confidential product. Please sign in with your Locust Terminal details.',
   },
 };

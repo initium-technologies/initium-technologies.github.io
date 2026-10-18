@@ -2,10 +2,9 @@ import Link from 'next/link';
 import { Wordmark } from './Icons';
 import { footer, site } from '@/content/site';
 
-/* Black footer: brand top-left, then Defense · Civilian · Company · Social spread to the right edge; copyright + legal bottom-left,
-   contact bottom-right. */
+/* Black footer: brand top-left, then Defense · Civilian · Company · Social spread to the right edge; Made in America +
+   legal bottom-left, contact bottom-right. */
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -37,7 +36,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <div className="footer__legal">
-            <span className="footer__copyright">Copyright © {year} {site.legalName}</span>
+            <span className="footer__made">{footer.madeIn}</span>
             <ul className="footer__legal-links" aria-label="Legal">
               {footer.legal.map((l) => (
                 <li key={l.name}>

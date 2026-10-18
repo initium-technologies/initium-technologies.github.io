@@ -13,7 +13,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 ## Rules
 - Type: Julius Sans One (wordmark + display, weight 400 only), Inter (body), IBM Plex Mono (labels, figures).
 - Black and white only, on every page: background pure black (#000), text white, neutral greys for muted text and
-  lines. No colour anywhere (no red/orange accent; the accent token is white). One theme, no per-page themes.
+  lines. No colour anywhere (no red/orange accent; the accent token is white), except the Locus Terminal's green
+  OPERATIONAL / ENCRYPTED. One theme, no per-page themes.
   Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
   Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = About · Open Roles · Partner Portal. Rows show names only
@@ -21,7 +22,9 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
   ease-in-out slide (--duration-nav).
 - Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL spread to the right edge (built from the nav menus in
-  content/site.js, so a product added to a menu appears in both); legal bottom-left, contact bottom-right.
+  content/site.js, so a product added to a menu appears in both); MADE IN AMERICA + legal bottom-left (no copyright
+  line), contact bottom-right.
+- Scrollbar: themed, never the OS one: thin graphite thumb on black (`--scrollbar-*` tokens).
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
   (border + `border-image: var(--rule-h)` / `var(--rule-v)`); boxes use a solid `--graphite` border; a fixed film grain
@@ -33,7 +36,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   black until home/hero.mp4 exists. Tiles show only the product name.
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
-  Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locust Terminal.
+  Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locus Terminal.
   ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4).
 - IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
@@ -42,11 +45,17 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
 - About (/company): plain black hero behind the headline for now (a video will go in public/media/company/hero.*), then the text and contact (no
   leadership portraits). Careers: one Open roles list (no future roles).
-- Home tiles can zoom their image (`zoom`, `focus` in content/site.js) so the name sits on a calm part of the photo.
+- Home tiles: ORIN tall on the left (globe star field), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
+  bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
-- The Locust Terminal is theatre: no form action, no fetch, no storage, no analytics on its inputs,
+- The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a box (solid `--graphite` border)
+  centred under ORIN's intro: INITIUM LOCUS TERMINAL, NODE … OPERATIONAL, LINK … ENCRYPTED, then ACCESS CODE
+  and PASSWORD prompts with a block cursor (Enter moves on, then signs in). It boots line by line when scrolled into
+  view (final frame with reduced motion). Its status words are green (`--terminal-ok`, as on initiumterminal.com):
+  the one exception to black and white.
+- The Locus Terminal is theatre: no form action, no fetch, no storage, no analytics on its inputs,
   autocomplete="off". Every submit shows INVALID DETAILS.
 - Respect prefers-reduced-motion: transforms become opacity; dot fields render their final frame.
 - Accessibility: WCAG 2.1 AA; keyboard focus visible everywhere.
