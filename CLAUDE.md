@@ -21,9 +21,10 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   (no Land/Naval/Space/Police labels).
   Words only (no +/- icons). Phone: mark left, MENU right. It hides on scroll down and returns on scroll up with a slow
   ease-in-out slide (--duration-nav).
-- Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL spread to the right edge (built from the nav menus in
-  content/site.js, so a product added to a menu appears in both); MADE IN AMERICA + legal bottom-left (no copyright
-  line), contact bottom-right.
+- Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL packed close together at the right edge, titles in
+  bold Inter (built from the nav menus in content/site.js, so a product added to a menu appears in both); bottom-left
+  INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links (no copyright line); CONTACT under SOCIAL, lined up
+  with it, the email split over two lines (admin@initium / technologies.com).
 - Scrollbar: themed, never the OS one: thin graphite thumb on black (`--scrollbar-*` tokens).
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
@@ -38,14 +39,16 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js).
   Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locus Terminal.
   ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4).
-- IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03) ·
+- IRIS CIV: same hero, then one story: 60-second promise · How it works (4 steps with line icons, bracket over 01–03;
+  white sand grains rise out of each icon and stream along the line to the next, components/CivFlowSand.jsx, a
+  still frame with reduced motion) ·
   What every officer sees (a real IRIS CIV screen, `public/media/iris-civ/officer-view.jpg`, with hover/tap hotspots in
   components/CivShot.jsx that auto-play until touched;
   never publish the app's top bar: it shows the server address) · Why police use it · Use cases · closing statement. Icons are drawn in
   components/CivIcons.jsx (no icon library); copy in content/civ.js.
 - About (/company): plain black hero behind the headline for now (a video will go in public/media/company/hero.*), then the text and contact (no
   leadership portraits). Careers: one Open roles list (no future roles).
-- Home tiles: ORIN tall on the left (globe star field), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
+- Home tiles: ORIN tall on the left (the right half of the globe, coming in from the left edge, on pure black), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
   bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.

@@ -137,28 +137,34 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- footer ---------- */
 .footer { background: var(--footer-bg); color: var(--footer-ink); border-top: var(--border-1) solid transparent; border-image: var(--rule-h); min-height: var(--footer-min); padding: var(--space-9) var(--margin) var(--space-6); display: flex; }
-.footer__inner { max-width: var(--content-max); margin: 0 auto; width: 100%; display: flex; flex-direction: column; }
-.footer__top, .footer__bottom { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); align-items: start; }
-.footer__brand { grid-column: 1 / 4; display: inline-flex; align-items: center; gap: var(--space-4); width: fit-content; }
+/* One grid for the whole footer: brand on the left, then the four link columns packed together at the right edge.
+   The bottom row puts the legal block under the brand and Contact in the Social column, so CONTACT lines up with
+   SOCIAL. (Top, cols and bottom are display: contents, so their children are the grid's items.) */
+.footer__inner { max-width: var(--content-max); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr repeat(4, auto); grid-template-rows: auto minmax(var(--space-10), 1fr) auto; column-gap: var(--space-8); align-items: start; }
+.footer__top, .footer__cols, .footer__bottom { display: contents; }
+.footer__brand { grid-column: 1; grid-row: 1; display: inline-flex; align-items: center; gap: var(--space-4); width: fit-content; }
 .footer__brand .wordmark { height: 22px; }
-/* Four columns spread across the rest of the width; the last one (Social) ends at the right margin. */
-.footer__cols { grid-column: 5 / 13; display: flex; justify-content: space-between; gap: var(--gutter); }
-.footer__label { display: block; color: var(--footer-muted); font-size: 12px; letter-spacing: 0.1em; margin-bottom: var(--space-4); }
+.footer__col { grid-row: 1; }
+/* Column titles: bold Inter (Julius has no bold). */
+.footer__label { display: block; font-family: var(--font-body); font-weight: 600; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; color: var(--footer-ink); margin-bottom: var(--space-4); }
 .footer__col ul, .footer__legal-links { list-style: none; margin: 0; padding: 0; }
 .footer__col a, .footer__contact a { display: inline-block; font-size: 18px; line-height: 2; letter-spacing: -0.01em; position: relative; }
 .footer__col a::after, .footer__contact a::after, .footer__legal-links a::after { content: ""; position: absolute; left: 0; bottom: 4px; height: 1px; width: 0; background: currentColor; transition: width var(--duration-base) var(--ease-out-expo); }
 .footer__col a:hover::after, .footer__contact a:hover::after, .footer__legal-links a:hover::after { width: 100%; }
-.footer__bottom { margin-top: auto; padding-top: var(--space-10); }
-.footer__legal { grid-column: 1 / 6; }
-.footer__made { display: block; font-family: var(--font-display); font-weight: 400; font-size: 13px; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: var(--space-4); }
+.footer__legal { grid-column: 1 / 5; grid-row: 3; }
+/* INITIUM INDUSTRIES, INC. then MADE IN AMERICA, then the legal links. */
+.footer__mark { display: block; font-family: var(--font-display); font-weight: 400; font-size: 13px; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: var(--space-2); }
+.footer__mark:last-of-type { margin-bottom: var(--space-4); }
 .footer__legal-links a { display: inline-block; font-size: 12px; line-height: 1.7; color: var(--footer-ink); opacity: 0.85; position: relative; }
 .footer__legal-links a::after { bottom: 2px; }
-.footer__contact { grid-column: 7 / 13; justify-self: end; display: flex; flex-direction: column; }
-.footer__contact a { white-space: nowrap; }
+.footer__contact { grid-column: 5; grid-row: 3; display: flex; flex-direction: column; }
+.footer__contact a { white-space: nowrap; line-height: 1.5; }
 .footer__contact .footer__label { margin-bottom: var(--space-4); }
 @media (max-width: 899px) {
   .footer { padding: var(--space-8) var(--margin-mobile) var(--space-6); }
+  .footer__inner { display: flex; flex-direction: column; }
   .footer__top, .footer__bottom { display: flex; flex-direction: column; gap: var(--space-7); }
+  .footer__bottom { margin-top: auto; }
   .footer__cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6) var(--gutter); }
   .footer__col a, .footer__contact a { font-size: 17px; line-height: 1.8; }
   .footer__contact a { white-space: normal; overflow-wrap: anywhere; }
@@ -356,6 +362,9 @@ h1, h2, h3, p { margin: 0; }
 /* How it works: four steps in a row, joined by arrows; a bracket under steps 01–03 marks the 60 seconds. */
 .civ-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gutter); }
 .civ-step__head { position: relative; display: flex; align-items: center; margin-bottom: var(--space-5); }
+/* Sand grains over the steps; the canvas reaches up above the icons for the rise. */
+.civ-flow-wrap { position: relative; }
+.civ-sand { position: absolute; left: 0; top: calc(-1 * var(--space-8)); z-index: 1; width: 100%; height: calc(100% + var(--space-8)); pointer-events: none; }
 .civ-step__icon { display: grid; place-items: center; width: 64px; height: 64px; border: var(--border-1) solid var(--graphite); flex: none; }
 .civ-step__arrow { position: relative; flex: 1; height: 1px; margin: 0 var(--space-4); background: var(--line); margin-right: calc(-1 * var(--gutter) + var(--space-4)); }
 .civ-step__arrow::after { content: ""; position: absolute; right: 0; top: -4px; width: 8px; height: 8px; border-top: var(--border-1) solid var(--ink-muted); border-right: var(--border-1) solid var(--ink-muted); transform: rotate(45deg); }

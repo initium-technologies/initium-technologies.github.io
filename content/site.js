@@ -63,8 +63,10 @@ export const footer = {
       ],
     },
   ],
-  /* Bottom-left, above the legal links. */
+  /* Bottom-left, under the legal name and above the legal links. */
   madeIn: 'Made in America',
+  /* The contact email, split over two lines so it fits the Social column it sits under. */
+  emailLines: ['admin@initium', 'technologies.com'],
   legal: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Use', href: '/terms-of-use' },

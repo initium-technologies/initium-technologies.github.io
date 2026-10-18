@@ -2,6 +2,7 @@ import Site from '@/components/Site';
 import ProductHero from '@/components/ProductHero';
 import CivIcon from '@/components/CivIcons';
 import CivShot from '@/components/CivShot';
+import CivFlowSand from '@/components/CivFlowSand';
 import { civ } from '@/content/civ';
 import { findMedia } from '@/lib/media';
 
@@ -32,23 +33,27 @@ export default function IrisCivPage() {
 
       <section className="civ-section" aria-labelledby="civ-flow">
         <h2 className="civ-section__label section-label" id="civ-flow">{civ.flowLabel}</h2>
-        <ol className="civ-flow">
-          {civ.steps.map((s, i) => (
-            <li className="civ-step" key={s.title}>
-              <div className="civ-step__head">
-                <span className="civ-step__icon">
-                  <CivIcon name={s.icon} />
+        {/* The steps, with the sand grains (CivFlowSand) drawn over them, flowing from 01 to 04. */}
+        <div className="civ-flow-wrap">
+          <ol className="civ-flow">
+            {civ.steps.map((s, i) => (
+              <li className="civ-step" key={s.title}>
+                <div className="civ-step__head">
+                  <span className="civ-step__icon">
+                    <CivIcon name={s.icon} />
+                  </span>
+                  {i < civ.steps.length - 1 && <span className="civ-step__arrow" aria-hidden="true" />}
+                </div>
+                <span className="civ-step__tag mono-label">
+                  {String(i + 1).padStart(2, '0')} · {s.tag}
                 </span>
-                {i < civ.steps.length - 1 && <span className="civ-step__arrow" aria-hidden="true" />}
-              </div>
-              <span className="civ-step__tag mono-label">
-                {String(i + 1).padStart(2, '0')} · {s.tag}
-              </span>
-              <h3 className="civ-step__title h3">{s.title}</h3>
-              <p className="civ-step__text">{s.text}</p>
-            </li>
-          ))}
-        </ol>
+                <h3 className="civ-step__title h3">{s.title}</h3>
+                <p className="civ-step__text">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+          <CivFlowSand />
+        </div>
         {/* Spans steps 01–03: the call to a confirmed threat on every officer's screen. */}
         <div className="civ-bracket mono-label">
           <span>{civ.bracket}</span>

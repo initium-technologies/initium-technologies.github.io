@@ -24,6 +24,6 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `company/hero.jpg`.
 
-In use now: `orin/hero.mp4` (ORIN Hero video, 14 s), `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg` (globe star field), `home/iris-tile.jpg`, `home/iris-civ-tile.jpg` (7:5 crop of `iris-civ/hero.jpg`), `home/mantis-tile.jpg` (5:2 crop of `mantis/hero.jpg`), `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (officers in daylight; the phone screen is the real IRIS CIV screen, mapped in perspective).
+In use now: `orin/hero.mp4` (ORIN Hero video, 14 s), `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page; top bar with the server address cropped off), `home/orin-tile.jpg` (right half of the globe from `globe_starfield_5x7.png`, enlarged, on pure black), `home/iris-tile.jpg`, `home/iris-civ-tile.jpg` (7:5 crop of `iris-civ/hero.jpg`), `home/mantis-tile.jpg` (5:2 crop of `mantis/hero.jpg`), `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `mantis/hero.jpg`, `iris-civ/hero.jpg` (officers in daylight; the phone screen is the real IRIS CIV screen, mapped in perspective).
 
 Logos are separate, in `public/logo/`.

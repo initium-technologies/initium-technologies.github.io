@@ -17,7 +17,7 @@ export const viewport = {
 };
 
 const FONTS =
-  'https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
+  'https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap';
 
 export default function RootLayout({ children }) {
   return (

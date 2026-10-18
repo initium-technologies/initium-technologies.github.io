@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Wordmark } from './Icons';
 import { footer, site } from '@/content/site';
 
-/* Black footer: brand top-left, then Defense · Civilian · Company · Social spread to the right edge; Made in America +
-   legal bottom-left, contact bottom-right. */
+/* Black footer: brand top-left, then Defense · Civilian · Company · Social packed at the right edge; legal name, Made in
+   America and legal links bottom-left; Contact bottom-right, under Social. */
 export default function Footer() {
   return (
     <footer className="footer">
@@ -36,7 +36,8 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <div className="footer__legal">
-            <span className="footer__made">{footer.madeIn}</span>
+            <span className="footer__mark">{site.legalName}</span>
+            <span className="footer__mark">{footer.madeIn}</span>
             <ul className="footer__legal-links" aria-label="Legal">
               {footer.legal.map((l) => (
                 <li key={l.name}>
@@ -47,7 +48,14 @@ export default function Footer() {
           </div>
           <div className="footer__contact">
             <span className="footer__label section-label">Contact</span>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`mailto:${site.email}`}>
+              {footer.emailLines.map((line, i) => (
+                <span key={line}>
+                  {i > 0 && <br />}
+                  {line}
+                </span>
+              ))}
+            </a>
           </div>
         </div>
       </div>

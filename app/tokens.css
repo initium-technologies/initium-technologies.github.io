@@ -92,6 +92,8 @@
   --duration-tick: 30ms;
   --duration-verify: 1200ms;
   --duration-boot-line: 280ms;
+  /* IRIS CIV How it works: one grain's trip from an icon to the next (rise, settle, stream). */
+  --duration-sand-leg: 5200ms;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-linear: linear;
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
