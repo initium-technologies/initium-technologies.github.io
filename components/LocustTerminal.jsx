@@ -2,24 +2,19 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-/* The Locus Terminal, after initiumterminal.com: it boots line by line when scrolled into view (title, then each
-   status row types its dots and shows its value), then asks for an access code and a password.
+/* The Locus Terminal on ORIN, after initiumterminal.com: a grey box with a slim title bar. Its heading types itself out
+   when scrolled into view, then the access code and password fields appear, each echoing into an input box with a
+   block cursor, then the LOG IN button; a note sits under the box. Enter moves to the next field, then logs in.
    Theatre: no action, no fetch, no storage. Every attempt ends in INVALID DETAILS. */
-
-/* Label + dots fill this many characters, so every status value starts in the same column. */
-const DOT_COLUMN = 20;
-const dotsFor = (s) => Math.max(3, DOT_COLUMN - s.label.length);
 
 /* A duration token from app/tokens.css, in ms. */
 const ms = (name) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0;
 const wait = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
 export default function LocustTerminal({ terminal }) {
-  const { status, fields } = terminal;
-  const promptsAt = status.length + 2; // rows: title, one per status, then the prompts
-  const [shown, setShown] = useState(0);
+  const { title, fields } = terminal;
   const [typed, setTyped] = useState(0);
-  const [settled, setSettled] = useState(0);
+  const [ready, setReady] = useState(false);
   const [values, setValues] = useState(() => fields.map(() => ''));
   const [focus, setFocus] = useState(-1);
   const [busy, setBusy] = useState(false);
@@ -31,32 +26,21 @@ export default function LocustTerminal({ terminal }) {
   useEffect(() => {
     let cancelled = false;
     const finish = () => {
-      setSettled(status.length);
-      setShown(promptsAt);
+      setTyped(title.length);
+      setReady(true);
     };
     const boot = async () => {
-      const line = ms('--duration-boot-line');
-      const tick = ms('--duration-tick');
-      setShown(1);
-      for (let k = 0; k < status.length; k += 1) {
-        await wait(line);
+      const tick = ms('--duration-type');
+      for (let c = 1; c <= title.length; c += 1) {
+        await wait(tick);
         if (cancelled) return;
-        setTyped(0);
-        setShown(2 + k);
-        for (let d = 1; d <= dotsFor(status[k]); d += 1) {
-          await wait(tick);
-          if (cancelled) return;
-          setTyped(d);
-        }
-        await wait(line);
-        if (cancelled) return;
-        setSettled(k + 1);
+        setTyped(c);
       }
-      await wait(line);
-      if (!cancelled) setShown(promptsAt);
+      await wait(ms('--duration-boot-line'));
+      if (!cancelled) setReady(true);
     };
 
-    /* Reduced motion: the final frame, no boot. */
+    /* Reduced motion: the final frame, no typing. */
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
       finish();
       return undefined;
@@ -75,7 +59,7 @@ export default function LocustTerminal({ terminal }) {
       io.disconnect();
       clearTimeout(timer.current);
     };
-  }, [status, promptsAt]);
+  }, [title]);
 
   const submit = () => {
     if (busy) return;
@@ -89,7 +73,7 @@ export default function LocustTerminal({ terminal }) {
     }, ms('--duration-verify'));
   };
 
-  /* Enter moves to the next prompt; on the last one it signs in. */
+  /* Enter moves to the next field; on the last one it logs in. */
   const onKeyDown = (i) => (e) => {
     if (e.key !== 'Enter') return;
     e.preventDefault();
@@ -102,10 +86,8 @@ export default function LocustTerminal({ terminal }) {
     setValues((prev) => prev.map((p, j) => (j === i ? v : p)));
   };
 
-  const on = (cond) => (cond ? ' is-on' : '');
-
   return (
-    <section className="terminal-section" aria-label={terminal.title} ref={section}>
+    <section className="terminal-section" aria-label={terminal.label} ref={section}>
       <form
         className="term"
         autoComplete="off"
@@ -115,63 +97,65 @@ export default function LocustTerminal({ terminal }) {
           submit();
         }}
       >
-        <p className={`term__line term__title${on(shown >= 1)}`}>{terminal.title}</p>
-        <div className="term__gap" />
-        {status.map((s, k) => {
-          const n = dotsFor(s);
-          const done = settled > k;
-          const t = done ? n : shown >= 2 + k ? typed : 0;
-          return (
-            <p className={`term__line${on(shown >= 2 + k)}`} key={s.label}>
-              {s.label}{' '}
-              <span aria-hidden="true">
-                {'.'.repeat(t)}
-                <span className="term__ghost">{'.'.repeat(n - t)}</span>
-              </span>{' '}
-              <span className={`term__value${on(done)}`}>{s.value}</span>
+        <div className="term__bar" aria-hidden="true">
+          {terminal.label}
+        </div>
+        <div className="term__body">
+          <h2 className="term__title">
+            <span className="sr-only">{title}</span>
+            <span aria-hidden="true">
+              {title.slice(0, typed)}
+              <span className="term__ghost">{title.slice(typed)}</span>
+            </span>
+          </h2>
+          <div className={`term__fields${ready ? ' is-on' : ''}`} inert={!ready}>
+            {fields.map((f, i) => {
+              const v = values[i];
+              const cursor = !busy && (focus === i || (focus === -1 && i === 0));
+              return (
+                <div className="term__field" key={f.id}>
+                  <label className="term__label" htmlFor={f.id}>
+                    {f.label}
+                  </label>
+                  <div className="term__entry">
+                    <span className="term__echo" aria-hidden="true">
+                      {f.masked ? '•'.repeat(v.length) : v}
+                    </span>
+                    {cursor && <span className="cursor" aria-hidden="true" />}
+                    <input
+                      className="term__input"
+                      id={f.id}
+                      name={f.id}
+                      type={f.masked ? 'password' : 'text'}
+                      ref={(el) => {
+                        inputs.current[i] = el;
+                      }}
+                      value={v}
+                      maxLength={32}
+                      readOnly={busy}
+                      autoComplete="off"
+                      autoCapitalize="characters"
+                      autoCorrect="off"
+                      spellCheck={false}
+                      onChange={onChange(i, f.masked)}
+                      onKeyDown={onKeyDown(i)}
+                      onFocus={() => setFocus(i)}
+                      onBlur={() => setFocus(-1)}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+            <p className="term__msg" role="status" aria-live="polite">
+              {busy ? <span className="dots">{terminal.verifying}</span> : msg}
             </p>
-          );
-        })}
-        <div className="term__gap" />
-        <div className={`term__prompts${on(shown >= promptsAt)}`} inert={shown < promptsAt}>
-          {fields.map((f, i) => {
-            const v = values[i];
-            const cursor = !busy && (focus === i || (focus === -1 && i === 0));
-            return (
-              <div className="term__line term__prompt" key={f.id}>
-                <label className="term__ps" htmlFor={f.id}>
-                  {f.label}:{' '}
-                </label>
-                <span aria-hidden="true">{f.masked ? '*'.repeat(v.length) : v}</span>
-                {cursor && <span className="cursor" aria-hidden="true" />}
-                <input
-                  className="term__input"
-                  id={f.id}
-                  name={f.id}
-                  type={f.masked ? 'password' : 'text'}
-                  ref={(el) => {
-                    inputs.current[i] = el;
-                  }}
-                  value={v}
-                  maxLength={32}
-                  readOnly={busy}
-                  autoComplete="off"
-                  autoCapitalize="characters"
-                  autoCorrect="off"
-                  spellCheck={false}
-                  onChange={onChange(i, f.masked)}
-                  onKeyDown={onKeyDown(i)}
-                  onFocus={() => setFocus(i)}
-                  onBlur={() => setFocus(-1)}
-                />
-              </div>
-            );
-          })}
-          <p className="term__line term__msg" role="status" aria-live="polite">
-            {busy ? <span className="dots">{terminal.verifying}</span> : msg}
-          </p>
+            <button className="term__enter" type="submit" disabled={busy}>
+              {terminal.enter}
+            </button>
+          </div>
         </div>
       </form>
+      <p className="terminal-section__note">{terminal.note}</p>
     </section>
   );
 }

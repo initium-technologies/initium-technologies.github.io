@@ -13,8 +13,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 ## Rules
 - Type: Julius Sans One (wordmark + display, weight 400 only), Inter (body), IBM Plex Mono (labels, figures).
 - Black and white only, on every page: background pure black (#000), text white, neutral greys for muted text and
-  lines. No colour anywhere (no red/orange accent; the accent token is white), except the Locus Terminal's green
-  OPERATIONAL / ENCRYPTED. One theme, no per-page themes.
+  lines. No colour anywhere (no red/orange accent; the accent token is white). One theme, no per-page themes.
   Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
   Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = About · Open Roles · Partner Portal. Rows show names only
@@ -23,8 +22,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   ease-in-out slide (--duration-nav).
 - Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL packed close together at the right edge, titles in
   bold Inter (built from the nav menus in content/site.js, so a product added to a menu appears in both); bottom-left
-  INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links (no copyright line); CONTACT under SOCIAL, lined up
-  with it, the email split over two lines (admin@initium / technologies.com).
+  INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links (no copyright line); CONTACT under COMPANY, lined up
+  with it, the email on one line running across toward SOCIAL.
 - Scrollbar: themed, never the OS one: thin graphite thumb on black (`--scrollbar-*` tokens).
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 1px faint line that fades out at both ends
@@ -53,11 +52,12 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
-- The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a box (solid `--graphite` border)
-  centred under ORIN's intro: INITIUM LOCUS TERMINAL, NODE … OPERATIONAL, LINK … ENCRYPTED, then ACCESS CODE
-  and PASSWORD prompts with a block cursor (Enter moves on, then signs in). It boots line by line when scrolled into
-  view (final frame with reduced motion). Its status words are green (`--terminal-ok`, as on initiumterminal.com):
-  the one exception to black and white.
+- The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a grey box (`--terminal-bg`, thin
+  `--terminal-line` border) centred under ORIN's intro: a slim title bar (INITIUM LOCUS TERMINAL), the LOG IN TO
+  ACCESS heading in Julius, ACCESS CODE and PASSWORD as labelled input boxes (`--terminal-field`, 2px radius, block
+  cursor), the status line, a full-width white LOG IN button. Under the box: "ORIN is a confidential product and
+  requires a login." No NODE / LINK lines, no green. The heading types itself out when scrolled into view, then the
+  fields fade in (final frame with reduced motion). Enter moves to the next field, then logs in.
 - The Locus Terminal is theatre: no form action, no fetch, no storage, no analytics on its inputs,
   autocomplete="off". Every submit shows INVALID DETAILS.
 - Respect prefers-reduced-motion: transforms become opacity; dot fields render their final frame.

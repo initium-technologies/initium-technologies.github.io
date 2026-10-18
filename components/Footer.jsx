@@ -3,7 +3,7 @@ import { Wordmark } from './Icons';
 import { footer, site } from '@/content/site';
 
 /* Black footer: brand top-left, then Defense · Civilian · Company · Social packed at the right edge; legal name, Made in
-   America and legal links bottom-left; Contact bottom-right, under Social. */
+   America and legal links bottom-left; Contact bottom-right, under Company, the email on one line. */
 export default function Footer() {
   return (
     <footer className="footer">
@@ -48,14 +48,7 @@ export default function Footer() {
           </div>
           <div className="footer__contact">
             <span className="footer__label section-label">Contact</span>
-            <a href={`mailto:${site.email}`}>
-              {footer.emailLines.map((line, i) => (
-                <span key={line}>
-                  {i > 0 && <br />}
-                  {line}
-                </span>
-              ))}
-            </a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>
         </div>
       </div>

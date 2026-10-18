@@ -77,16 +77,16 @@ export const orin = {
   },
   /* The Locus Terminal under the intro, after initiumterminal.com. Shown in caps. */
   terminal: {
-    title: 'Initium Locus Terminal',
-    status: [
-      { label: 'Node', value: 'Operational' },
-      { label: 'Link', value: 'Encrypted' },
-    ],
+    label: 'Initium Locus Terminal',
+    title: 'Log in to access',
     fields: [
       { id: 'access-code', label: 'Access code', masked: false },
       { id: 'password', label: 'Password', masked: true },
     ],
+    enter: 'Log in',
     verifying: 'Verifying',
     invalid: 'Invalid details',
+    /* Under the box. */
+    note: 'ORIN is a confidential product and requires a login.',
   },
 };
