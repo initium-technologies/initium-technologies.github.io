@@ -16,6 +16,7 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 | `home/` | `mantis-tile` | Landing page, MANTIS tile (wide, bottom) | 5:2 |
 | `iris/` | `hero` | IRIS page, full screen behind the name | 16:9 |
 | `iris/` | `1`, `2`, `3` | IRIS page, key functions 01–03 | 4:5 |
+| `iris/` | `step-1` … `step-4` | IRIS page, Concept of operations cards 01–04 (right side of each card) | 16:9 |
 | `mantis/` | `hero` | MANTIS page, full screen behind the name | 16:9 |
 | `mantis/` | `1`, `2`, `3` | MANTIS page, key functions 01–03 | 4:5 |
 | `orin/` | `hero` | ORIN page, full screen behind the name (ORIN Hero video, 14 s) | 16:9 |

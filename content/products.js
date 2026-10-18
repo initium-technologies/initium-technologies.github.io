@@ -8,7 +8,8 @@ export const iris = {
     title: 'IRIS — Interior Reconnaissance and Inference System | Initium',
     description: 'A full interior picture for the operator, before engagement.',
   },
-  /* Under the hero, in order: concept of operations (FlowSteps), description, environment specification. */
+  /* Under the hero, in order: concept of operations (StepCards; images public/media/iris/step-1…4.*), description,
+     environment specification. */
   concept: {
     label: 'Concept of operations',
     /* Step texts are drafts drawn from the description; replace when the final lines arrive. */

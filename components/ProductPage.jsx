@@ -2,7 +2,7 @@ import Site from './Site';
 import ProductHero from './ProductHero';
 import KeyFunctions from './KeyFunctions';
 import LocustTerminal from './LocustTerminal';
-import FlowSteps from './FlowSteps';
+import StepCards from './StepCards';
 import SpecTable from './SpecTable';
 import { findMedia } from '@/lib/media';
 
@@ -11,7 +11,7 @@ import { findMedia } from '@/lib/media';
 const SHOW_DETAILS = false;
 
 /* Product page (IRIS, MANTIS, ORIN): the hero image fills the screen behind the name, then whichever of these the
-   product's copy has: a short intro (MANTIS, ORIN), a concept of operations workflow, a description and an environment
+   product's copy has: a short intro (MANTIS, ORIN), a concept of operations (step cards, as on IRIS CIV), a description and an environment
    spec table (IRIS), the Locus Terminal (ORIN).
    Media: public/media/<slug>/ (hero.* behind the name; 1.* 2.* 3.* for the key functions). */
 export default function ProductPage({ product, backdrop = null }) {
@@ -37,7 +37,7 @@ export default function ProductPage({ product, backdrop = null }) {
           <h2 className="product-section__label section-label" id={`${product.slug}-concept`}>
             {product.concept.label}
           </h2>
-          <FlowSteps steps={product.concept.steps} long />
+          <StepCards steps={product.concept.steps} media={product.slug} />
         </section>
       )}
       {product.description && (

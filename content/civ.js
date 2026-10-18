@@ -16,7 +16,7 @@ export const civ = {
     text: 'From the 911 call to a confirmed, tracked assailant on every responding officer’s screen.',
   },
   flowLabel: 'How it works',
-  /* Short versions of the alert chain (FlowSteps: a point and a line per step, no icons). */
+  /* Short versions of the alert chain (StepCards). */
   steps: [
     {
       tag: 'Call',
