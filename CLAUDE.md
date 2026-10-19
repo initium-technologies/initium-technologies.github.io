@@ -41,7 +41,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
 - Partner-portal look (partner.initiumtechnologies.com): every divider is a 3px light-grey line (`--border-1`, `--rule` / `--graphite`), solid end to end,
   drawn as a plain border in `--rule` (no border-image: it paints thicker than plain borders at Windows scaling); boxes use a solid `--graphite` border; a fixed film grain
-  (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faint line.
+  (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur, with no line under it.
 - Nav words: Inter 500, 15px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels (except the IRIS concept-of-operations tabs) or
   page-transition effects. Radius 0 except inputs (2px), the IRIS spec panel (`--radius-panel`) and the home tiles (`--radius-tile`, 4px).

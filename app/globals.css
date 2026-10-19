@@ -87,7 +87,7 @@ h1, h2, h3, p { margin: 0; }
 /* Hides on scroll down, returns on scroll up: a slow ease-in-out slide, so it glides rather than snaps. */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: var(--ink); transition: transform var(--duration-nav) var(--ease-in-out); }
 .nav.is-hidden { transform: translateY(-100%); }
-.nav__bar { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: var(--nav-height); padding: 0 var(--margin); border-bottom: var(--border-1) solid transparent; transition: background-color var(--duration-nav) var(--ease-in-out), backdrop-filter var(--duration-nav) var(--ease-in-out); }
+.nav__bar { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: var(--nav-height); padding: 0 var(--margin); transition: background-color var(--duration-nav) var(--ease-in-out), backdrop-filter var(--duration-nav) var(--ease-in-out); }
 .nav__brand { display: flex; align-items: center; justify-self: start; }
 .nav__brand .mark { width: 52px; height: 16px; }
 .nav__link.is-current, .sheet__link.is-current { color: var(--accent); }
@@ -97,8 +97,8 @@ h1, h2, h3, p { margin: 0; }
 .nav__side--right { grid-column: 3; display: flex; align-items: center; justify-content: flex-end; }
 .nav__item { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) 0; color: var(--nav-ink); cursor: pointer; transition: opacity var(--duration-fast), color var(--duration-fast); }
 .nav__item:hover, .nav__item.is-open { color: var(--nav-ink-hover); }
-/* Once scrolled, the bar's bottom border takes the faint line colour (transparent at rest). */
-.nav.is-scrolled:not(.is-open) .nav__bar { background: var(--nav-scrolled-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--rule); }
+/* Once scrolled, the bar turns translucent black with a blur; no line under it. */
+.nav.is-scrolled:not(.is-open) .nav__bar { background: var(--nav-scrolled-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .nav.is-open .nav__item:not(.is-open) { opacity: 0.5; }
 /* Drop-down: see-through black with a blur, like the scrolled bar (the page shows faintly behind it). */
 .nav.is-open .nav__bar, .nav__panel { background: var(--nav-panel); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
