@@ -15,19 +15,19 @@ export const iris = {
     /* Titles only on IRIS (no secondary text). */
     steps: [
       {
-        tag: 'Access',
+        tag: 'Camera Access',
         title: 'Access to camera feeds established',
       },
       {
-        tag: 'Build',
+        tag: 'Initial Picture',
         title: 'IRIS builds an initial interior picture',
       },
       {
-        tag: 'Refine',
+        tag: 'Refinement',
         title: 'Fidelity increases as intelligence is collected over time',
       },
       {
-        tag: 'Enter',
+        tag: 'Assault',
         title: 'The assault element enters with a full visual of the interior',
       },
     ],
@@ -38,7 +38,6 @@ export const iris = {
     text: 'The picture is comprised of a full floorplan with real-time person identification and tracking throughout all visible rooms. The IRIS ruggedized unit is designed to attach to the exterior of an operator’s assault pack, allowing all inference to be conducted on-site with no reach-back, network connectivity or traceable RF signature.',
   },
   specs: {
-    label: 'Built for any environment',
     caption: 'IRIS ruggedization specs',
     columns: ['Parameter', 'Rating', 'Detail'],
     /* Each row: the parameter, its rating, and the detail behind it. */
@@ -110,15 +109,12 @@ export const orin = {
   slug: 'orin',
   name: 'ORIN',
   fullName: 'Orbital Relay Inference Network',
-  /* Text under the full-screen hero (draft: ORIN has no public copy yet). */
-  intro:
-    'ORIN runs inference in orbit, on the satellite that collects the data, and sends down only what matters. ORIN is a confidential product; details are shared with cleared partners only.',
   heroLabel: 'VIDEO · ORIN HERO · 16:9',
   meta: {
     title: 'ORIN | Initium',
     description: 'Orbital Relay Inference Network.',
   },
-  /* The Locus Terminal under the intro, after initiumterminal.com. Shown in caps. */
+  /* The Locus Terminal under the hero, after initiumterminal.com. Shown in caps. */
   terminal: {
     /* The slim bar across the top of the box. */
     label: 'Initium',
@@ -130,7 +126,5 @@ export const orin = {
     enter: 'Log in',
     verifying: 'Verifying',
     invalid: 'Invalid details',
-    /* Under the box. */
-    note: 'ORIN is a confidential product and requires a login.',
   },
 };

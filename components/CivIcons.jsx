@@ -54,26 +54,6 @@ const PATHS = {
       <path d="M10.6 6.1A10 10 0 0 1 12 6c6.5 0 10 6 10 6a17 17 0 0 1-3 3.6M6.6 6.6A17 17 0 0 0 2 12s3.5 6 10 6a9.7 9.7 0 0 0 4.4-1" />
     </>
   ),
-  shield: (
-    <>
-      <path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z" />
-      <path d="M9 12l2 2 4-4" />
-    </>
-  ),
-  scan: (
-    <>
-      <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4" />
-      <circle cx="12" cy="10" r="2.5" />
-      <path d="M8 17c.6-2 2.2-3 4-3s3.4 1 4 3" />
-    </>
-  ),
-  plug: (
-    <>
-      <path d="M9 3v5M15 3v5" />
-      <path d="M6 8h12v3a6 6 0 0 1-12 0V8z" />
-      <path d="M12 17v4" />
-    </>
-  ),
 };
 
 export default function CivIcon({ name, className = '' }) {

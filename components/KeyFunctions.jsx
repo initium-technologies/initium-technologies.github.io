@@ -25,7 +25,7 @@ export default function KeyFunctions({ items, label = 'Key Functions' }) {
   }, []);
 
   return (
-    <section className="numbered" aria-label={label}>
+    <section className="numbered band" aria-label={label}>
       <span className="numbered__label section-label">{label}</span>
       <div className="numbered__layout">
         <div className="numbered__count" aria-hidden="true">
@@ -43,7 +43,7 @@ export default function KeyFunctions({ items, label = 'Key Functions' }) {
           {items.map((it, i) => (
             <div className="numbered__item" key={it.title} data-index={i} ref={(el) => (refs.current[i] = el)}>
               <div className="numbered__body">
-                <span className="numbered__num mono-label">
+                <span className="numbered__num label">
                   {pad(i + 1)} / {pad(items.length)}
                 </span>
                 <h3 className="h3">{it.title}</h3>

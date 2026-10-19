@@ -1,4 +1,4 @@
-import { Julius_Sans_One, Inter, IBM_Plex_Mono } from 'next/font/google';
+import { Julius_Sans_One, Inter } from 'next/font/google';
 import './globals.css';
 
 export const metadata = {
@@ -17,16 +17,15 @@ export const viewport = {
   themeColor: '#000000',
 };
 
-/* The three fonts are bundled with the site at build time (next/font), not fetched from Google when the page opens, so
+/* The two fonts are bundled with the site at build time (next/font), not fetched from Google when the page opens, so
    every browser on every system (Windows included) gets the same files, with metric-matched fallbacks while they load.
-   They reach the CSS as --font-julius, --font-inter and --font-plex (see app/tokens.css). */
+   They reach the CSS as --font-julius and --font-inter (see app/tokens.css). */
 const julius = Julius_Sans_One({ weight: '400', subsets: ['latin'], display: 'swap', variable: '--font-julius' });
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
-const plex = IBM_Plex_Mono({ weight: ['400', '500'], subsets: ['latin'], display: 'swap', variable: '--font-plex' });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${julius.variable} ${inter.variable} ${plex.variable}`}>
+    <html lang="en" className={`${julius.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );

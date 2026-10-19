@@ -2,15 +2,32 @@
    (one black-and-white theme, partner-portal look). */
 
 :root {
-  /* One theme for every page: black and white only (no colour, no red). Greys are neutral shades of white. */
+  /* One theme for every page: black and white, no colour. Greys are neutral shades of white, except the panels:
+     grey boxes carry a barely visible brown hue, and set-apart sections (e.g. the IRIS spec table) sit on a band of
+     brown so dark it reads as black. */
   --bg: #000000;
   --bg-raised: #000000;
   --terminal-section-bg: #000000;
-  /* Step cards (IRIS CIV how it works): a panel just off black. */
-  --card-bg: #0f0f0f;
-  /* Locus Terminal (ORIN): a grey box on the black page; greys only. */
-  --terminal-bg: #141414;
-  --terminal-field: #0b0b0b;
+  /* Step cards and tabs: a panel just off black, a touch of brown. */
+  --card-bg: #110f0d;
+  /* Full-width band behind set-apart sections (.band, the IRIS CIV 60): brown so dark it only shows on close
+     inspection. */
+  --band-bg: #040302;
+  /* A table row on the band, every other one: a minuscule step browner. */
+  --band-row: #070504;
+  /* Grey panels (.grey: IRIS CIV steps 01, 03, the IRIS description): mid grey, a touch of brown, dark text. */
+  --card-grey-bg: #8a8680;
+  --card-grey-line: #00000059;
+  --card-grey-ink: #000000;
+  --card-grey-muted: #2b2824;
+  /* Light panels (.light: the IRIS concept cards, the IRIS CIV description): off-white, a touch of brown, dark text. */
+  --card-light-bg: #e7e4de;
+  --card-light-line: #00000047;
+  --card-light-ink: #000000;
+  --card-light-muted: #57534d;
+  /* Locus Terminal (ORIN): a grey box on the black page, a touch of brown. */
+  --terminal-bg: #161311;
+  --terminal-field: #0c0a09;
   --terminal-line: #2e2e2e;
   --terminal-ink: #cfcfcf;
   --terminal-ink-bright: #f2f2f2;
@@ -37,8 +54,12 @@
   --selection-bg: #ffffff;
   --selection-ink: #000000;
   /* Partner-portal look: faint white lines that fade out at both ends, nav words in light grey. */
-  --rule: #ffffff1f;
-  --graphite: #262626;
+  --rule: #ffffff47;
+  --graphite: #474747;
+  /* The same lines inside a black box set on a light panel (the IRIS spec box on grey), where --rule and --graphite
+     have flipped dark. */
+  --box-rule: #ffffff47;
+  --box-line: #474747;
   --nav-ink: #b8b8b8;
   --nav-ink-hover: #ffffff;
   --nav-scrolled-bg: #000000b8;
@@ -50,13 +71,12 @@
 }
 :root {
   /* The INITIUM type system, shared with partner.initiumtechnologies.com: Julius Sans One for the
-     wordmark and every display line, Inter for reading, IBM Plex Mono for labels and figures.
+     wordmark, every display line and every label, Inter for reading and figures.
      Julius has one weight (400): never set it bolder, the browser would fake it. The fonts are bundled with the site
-     (next/font in app/layout.jsx), so --font-julius / --font-inter / --font-plex come first. */
+     (next/font in app/layout.jsx), so --font-julius / --font-inter come first. */
   --font-wordmark: var(--font-julius), "Julius Sans One", system-ui, sans-serif;
   --font-display: var(--font-julius), "Julius Sans One", system-ui, sans-serif;
   --font-body: var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-plex), "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   --track-wordmark: 0.5em;
   --space-1: 4px;
   --space-2: 8px;
@@ -69,15 +89,21 @@
   --space-9: 96px;
   --space-10: 128px;
   --space-11: 192px;
-  /* Faded 1px lines, as on partner.initiumtechnologies.com. Use with a 1px solid border on the side(s) you want. */
-  --rule-h: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
-  --rule-v: linear-gradient(transparent, var(--rule) 20%, var(--rule) 80%, transparent) 1;
   --radius-0: 0px;
   --radius-input: 2px;
+  /* The IRIS spec panel and its tab. */
+  --radius-panel: 12px;
   --columns: 12;
   --content-max: 1440px;
   --gutter: 24px;
   --margin: 40px;
+  /* IRIS CIV 60-second promise: the size of the three lines beside the 60 (the 60 is sized from it). */
+  --civ-stat-text: clamp(22px, 2vw, 28px);
+  /* IRIS concept-of-operations card: the tag column, wide enough for REFINEMENT (two-word tags wrap). */
+  --step-tab-tag: 104px;
+  /* IRIS spec table: every row the same height, the header row included. */
+  --spec-row: 52px;
+  --civ-stat-text-mobile: clamp(16px, 4.6vw, 22px);
   --margin-mobile: 20px;
   --text-columns: 8;
   --nav-height: 72px;
@@ -85,8 +111,8 @@
   --footer-min: 55vh;
   /* Footer link columns: four equal widths, so the gaps between DEFENSE, CIVILIAN, COMPANY and SOCIAL match. */
   --footer-col: 136px;
-  --border-1: 1px;
-  --border-focus: 2px;
+  --border-1: 3px;
+  --border-focus: 4px;
   --scrollbar-size: 6px;
   --duration-fast: 150ms;
   --duration-base: 300ms;

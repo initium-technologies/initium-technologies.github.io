@@ -34,17 +34,19 @@ export default function ProductPage({ product, backdrop = null }) {
       )}
       {product.concept && (
         <section className="product-section" aria-labelledby={`${product.slug}-concept`}>
-          <h2 className="product-section__label section-label" id={`${product.slug}-concept`}>
+          <h2 className="product-section__label product-section__label--major section-label" id={`${product.slug}-concept`}>
             {product.concept.label}
           </h2>
-          <StepTabs
-            label={product.concept.label}
-            steps={product.concept.steps.map((st, i) => ({ ...st, media: findMedia(`${product.slug}/step-${i + 1}`) }))}
-          />
+          <div className="step-tabs-band">
+            <StepTabs
+              label={product.concept.label}
+              steps={product.concept.steps.map((st, i) => ({ ...st, media: findMedia(`${product.slug}/step-${i + 1}`) }))}
+            />
+          </div>
         </section>
       )}
       {product.description && (
-        <section className="product-section product-desc" aria-labelledby={`${product.slug}-description`}>
+        <section className="product-section product-desc grey" aria-labelledby={`${product.slug}-description`}>
           <h2 className="product-section__label section-label" id={`${product.slug}-description`}>
             {product.description.label}
           </h2>

@@ -31,6 +31,10 @@ h1, h2, h3, p { margin: 0; }
 .nav-label { font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1; letter-spacing: 0.08em; text-transform: uppercase; }
 .section-label { font-size: 12px; letter-spacing: 0.18em; color: var(--ink-muted); }
 .display-xl, .display-l, .h1, .h2, .h3 { font-family: var(--font-display); font-weight: 400; }
+/* Julius draws lowercase as smaller capitals, so a capital first letter stands taller than the rest: mixed-case Julius
+   is set all in lowercase, every letter the same size. Product names in the hero and the tiles stay in capitals. */
+.display-l, .h1, .h2, .h3, .step-card__title, .step-tab__title, .step-tabs__tab, .spec-table__figure { text-transform: lowercase; }
+.tile .h2 { text-transform: none; }
 .display-xl { font-size: clamp(64px, 8.9vw, 128px); line-height: 1; letter-spacing: 0.04em; }
 .display-l { font-size: clamp(40px, 5.6vw, 80px); line-height: 1.05; letter-spacing: 0.04em; }
 .h1 { font-size: clamp(40px, 3.9vw, 56px); line-height: 1.1; letter-spacing: 0.04em; }
@@ -39,15 +43,15 @@ h1, h2, h3, p { margin: 0; }
 .body-l { font-size: 20px; line-height: 1.5; }
 .body { font-size: 17px; line-height: 1.55; }
 .small { font-size: 14px; line-height: 1.5; }
-.mono-label { font-family: var(--font-mono); font-weight: 400; font-size: 12px; line-height: 1; letter-spacing: 0.12em; text-transform: uppercase; }
-.stat-value { font-family: var(--font-mono); font-weight: 400; font-size: clamp(36px, 3.9vw, 56px); line-height: 1; letter-spacing: -0.01em; }
+.label { font-family: var(--font-wordmark); font-weight: 400; font-size: 12px; line-height: 1; letter-spacing: 0.18em; text-transform: uppercase; }
+.stat-value { font-family: var(--font-wordmark); font-weight: 400; font-size: clamp(36px, 3.9vw, 56px); line-height: 1; letter-spacing: -0.01em; }
 .stat-value.is-long { font-size: clamp(26px, 2.8vw, 40px); }
 .stat-value.is-xlong { font-size: clamp(18px, 1.8vw, 26px); }
 .stat-value { display: block; overflow-wrap: anywhere; }
-.counter { font-family: var(--font-mono); font-weight: 400; font-size: 80px; line-height: 1; }
-.counter-of { font-family: var(--font-mono); font-weight: 400; font-size: 14px; line-height: 1; color: var(--ink-muted); }
-.scramble { font-family: var(--font-mono); font-weight: 400; font-size: 14px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; }
-.product-line { font-family: var(--font-mono); font-weight: 400; font-size: 11px; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; }
+.counter { font-family: var(--font-wordmark); font-weight: 400; font-size: 80px; line-height: 1; }
+.counter-of { font-family: var(--font-wordmark); font-weight: 400; font-size: 14px; line-height: 1; color: var(--ink-muted); }
+.scramble { font-family: var(--font-wordmark); font-weight: 400; font-size: 14px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; }
+.product-line { font-family: var(--font-wordmark); font-weight: 400; font-size: 11px; line-height: 1; letter-spacing: 0.2em; text-transform: uppercase; }
 .muted { color: var(--ink-muted); }
 
 /* ---------- layout ---------- */
@@ -87,14 +91,14 @@ h1, h2, h3, p { margin: 0; }
 .nav__brand { display: flex; align-items: center; justify-self: start; }
 .nav__brand .mark { width: 52px; height: 16px; }
 .nav__link.is-current, .sheet__link.is-current { color: var(--accent); }
-.sheet__link { display: block; padding: var(--space-5) 0; border-top: var(--border-1) solid transparent; border-image: var(--rule-h); }
-.sheet__link:last-child { border-bottom: var(--border-1) solid transparent; }
+.sheet__link { display: block; padding: var(--space-5) 0; border-top: var(--border-1) solid var(--rule); }
+.sheet__link:last-child { border-bottom: var(--border-1) solid var(--rule); }
 .nav__center { display: flex; gap: var(--space-8); justify-content: center; }
 .nav__side--right { grid-column: 3; display: flex; align-items: center; justify-content: flex-end; }
 .nav__item { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) 0; color: var(--nav-ink); cursor: pointer; transition: opacity var(--duration-fast), color var(--duration-fast); }
 .nav__item:hover, .nav__item.is-open { color: var(--nav-ink-hover); }
-/* The faded line is the border-image; the border colour itself stays transparent so nothing can flash white when it switches off (e.g. bouncing past the top). */
-.nav.is-scrolled:not(.is-open) .nav__bar { background: var(--nav-scrolled-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-image: var(--rule-h); }
+/* Once scrolled, the bar's bottom border takes the faint line colour (transparent at rest). */
+.nav.is-scrolled:not(.is-open) .nav__bar { background: var(--nav-scrolled-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--rule); }
 .nav.is-open .nav__item:not(.is-open) { opacity: 0.5; }
 /* Drop-down: see-through black with a blur, like the scrolled bar (the page shows faintly behind it). */
 .nav.is-open .nav__bar, .nav__panel { background: var(--nav-panel); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
@@ -108,8 +112,8 @@ h1, h2, h3, p { margin: 0; }
 .nav__summary { grid-column: 1 / 5; }
 .nav__summary p { margin-top: var(--space-4); max-width: 38ch; color: var(--ink-muted); }
 .nav__links { grid-column: 6 / 13; }
-.nav__cat { border-top: var(--border-1) solid transparent; border-image: var(--rule-h); padding: var(--space-4) 0 var(--space-5); }
-.nav__cat:last-child { border-bottom: var(--border-1) solid transparent; }
+.nav__cat { border-top: var(--border-1) solid var(--rule); padding: var(--space-4) 0 var(--space-5); }
+.nav__cat:last-child { border-bottom: var(--border-1) solid var(--rule); }
 .nav__product { display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-3); padding: var(--space-2) 0; transition: transform var(--duration-base) var(--ease-out-expo); }
 .nav__product-name { position: relative; display: inline-flex; align-items: center; }
 .nav__product-name::after { content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: currentColor; transition: width var(--duration-base) var(--ease-out-expo); }
@@ -130,8 +134,8 @@ h1, h2, h3, p { margin: 0; }
 }
 .sheet { position: fixed; inset: 0; z-index: 60; background: var(--bg); color: var(--ink); overflow-y: auto; padding: 0 var(--margin-mobile) var(--space-8); }
 .sheet__bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.sheet__group { border-top: var(--border-1) solid transparent; border-image: var(--rule-h); }
-.sheet__group:last-child { border-bottom: var(--border-1) solid transparent; }
+.sheet__group { border-top: var(--border-1) solid var(--rule); }
+.sheet__group:last-child { border-bottom: var(--border-1) solid var(--rule); }
 .sheet__head { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: var(--space-5) 0; text-align: left; }
 .sheet__body { padding: 0 0 var(--space-5) var(--space-4); }
 .sheet__body .section-label { display: block; margin: var(--space-4) 0 var(--space-2); }
@@ -139,7 +143,7 @@ h1, h2, h3, p { margin: 0; }
 .sheet__group:not(.is-open) .sheet__body { display: none; }
 
 /* ---------- footer ---------- */
-.footer { background: var(--footer-bg); color: var(--footer-ink); border-top: var(--border-1) solid transparent; border-image: var(--rule-h); min-height: var(--footer-min); padding: var(--space-9) var(--margin) var(--space-6); display: flex; }
+.footer { background: var(--footer-bg); color: var(--footer-ink); min-height: var(--footer-min); padding: var(--space-9) var(--margin) var(--space-6); display: flex; }
 /* One grid for the whole footer: brand on the left, then the four link columns packed together at the right edge.
    The bottom row puts the legal block under the brand and Contact across the Company and Social columns, so CONTACT
    lines up with COMPANY and the email runs on one line toward SOCIAL. (Top, cols and bottom are display: contents, so
@@ -188,7 +192,7 @@ h1, h2, h3, p { margin: 0; }
 @keyframes scroll-cue { 0% { transform: scaleY(0); opacity: 0; } 40% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
 .home-hero__scroll.is-gone { opacity: 0; }
 .home-products { padding: var(--space-10) var(--margin); }
-.home-products__label { display: block; padding-bottom: var(--space-4); border-bottom: var(--border-1) solid transparent; border-image: var(--rule-h); margin-bottom: var(--space-7); }
+.home-products__label { display: block; padding-bottom: var(--space-4); border-bottom: var(--border-1) solid var(--rule); margin-bottom: var(--space-7); }
 .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); grid-template-areas: "orin iris" "orin civ" "mantis mantis"; }
 .t-orin { grid-area: orin; }
 .t-iris { grid-area: iris; aspect-ratio: 7 / 5; }
@@ -237,7 +241,6 @@ h1, h2, h3, p { margin: 0; }
 .hero--cover .hero__row { position: relative; z-index: 1; }
 .hero--cover .hero__side .section-label { color: var(--ink); opacity: 0.8; }
 /* About: the photo's lower third is light plaster, so its bottom shade is deeper to keep the white text readable. */
-.hero--about::after { background: linear-gradient(to bottom, var(--scrim-top) 0%, transparent 22%), linear-gradient(to top, #000000e0 0%, #00000099 35%, transparent 70%); }
 @media (max-width: 899px) {
   .hero { padding: calc(64px + var(--space-9)) var(--margin-mobile) var(--space-7); min-height: 0; }
   .hero--cover { min-height: 100vh; padding-bottom: 10vh; }
@@ -304,39 +307,49 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- product intro (text under the full-screen hero) ---------- */
 .product-intro { padding: var(--space-10) var(--margin); }
-/* ORIN: the Locust Terminal follows straight on, so the intro needs less space under it. */
-.product-intro:has(+ .terminal-section) { padding-top: var(--space-9); padding-bottom: var(--space-9); }
 .product-intro p { max-width: 46ch; font-size: clamp(22px, 2vw, 28px); line-height: 1.5; color: var(--ink); text-wrap: pretty; }
 @media (max-width: 899px) { .product-intro { padding: var(--space-8) var(--margin-mobile); } .product-intro p { font-size: 19px; } }
 /* Description (IRIS): a large lead across most of the width, then the body set in from the right, smaller and grey. */
 .product-desc__body { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-7) var(--gutter); }
 .product-desc__lead { grid-column: 1 / 10; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.4; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .product-desc__text { grid-column: 6 / 13; max-width: 60ch; font-size: 18px; line-height: 1.65; color: var(--ink-muted); text-wrap: pretty; }
-/* Environment spec (IRIS): a compact table, one ruled row per parameter: the parameter in mono caps, its rating in
-   mono, the detail in grey; a thin mono header row on top. Rows do not change on hover. On phones each row stacks. */
-.specs__caption { display: flex; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-4); color: var(--ink-muted); }
+/* Environment spec (IRIS): a compact table under its caption, one ruled row per parameter, every row the same height:
+   the parameter in caps, its rating, the detail in grey; a caps header row on top, every other row a touch browner. Rows do not change on hover. On phones each row stacks. */
+.specs { padding-top: 0; }
+/* The IRIS spec table in a black panel on the grey (which continues down from the description), shaped like a folder:
+   the caption sits in a tab rising from the top-left, its top corners rounded and its right foot curving out into
+   the panel's top edge (the ::after square is the grey, rounded at its bottom-left, laid over a black ::before
+   square); the panel's other corners are rounded too. The tab's bottom padding is short by Julius's descent (0.228em),
+   so the black between the caption's baseline and the table matches the margin at the sides and bottom. The colour tokens flip back to the dark page's inside. */
+.specs__box { --ink: var(--ink-inverse); --ink-muted: var(--ink-inverse-muted); --rule: var(--box-rule); --graphite: var(--box-line); color: var(--ink); }
+.specs__tab { position: relative; display: block; width: fit-content; margin: 0; padding: var(--space-5) var(--space-7) calc(var(--space-5) - 0.228em); font-size: clamp(17px, 1.5vw, 22px); letter-spacing: 0.12em; line-height: 1; background: var(--bg); border-radius: var(--radius-panel) var(--radius-panel) 0 0; color: var(--ink); }
+.specs__tab::before, .specs__tab::after { content: ""; position: absolute; left: 100%; bottom: 0; width: var(--radius-panel); height: var(--radius-panel); }
+.specs__tab::before { background: var(--bg); }
+.specs__tab::after { background: var(--card-grey-bg); border-bottom-left-radius: var(--radius-panel); }
+.specs__body { padding: var(--space-7); padding-top: calc(var(--space-7) - var(--space-5)); background: var(--bg); border-radius: 0 var(--radius-panel) var(--radius-panel) var(--radius-panel); }
 .spec-table { width: 100%; border-collapse: collapse; border-top: var(--border-1) solid var(--graphite); }
+.spec-table tr { height: var(--spec-row); }
+.spec-table tbody tr:nth-child(even) { background: var(--band-row); }
 .spec-table th, .spec-table td { padding: var(--space-3) var(--space-5) var(--space-3) 0; text-align: left; vertical-align: middle; font-weight: 400; border-bottom: var(--border-1) solid var(--graphite); }
-.spec-table__head th { padding-top: var(--space-3); padding-bottom: var(--space-3); font-family: var(--font-mono); font-size: 11px; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.spec-table__head th { font-family: var(--font-wordmark); font-size: 12px; line-height: 1; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); }
 .spec-table__label { width: 30%; color: var(--ink-muted); }
-.spec-table__figure { width: 26%; font-family: var(--font-mono); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.3; color: var(--ink); white-space: nowrap; }
+.spec-table__figure { width: 26%; font-family: var(--font-wordmark); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.3; color: var(--ink); white-space: nowrap; }
 .spec-table__detail { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
 @media (max-width: 899px) {
   .product-desc__lead, .product-desc__text { grid-column: 1 / -1; }
   .product-desc__lead { font-size: 22px; }
   .product-desc__text { font-size: 16px; }
   .spec-table__head { display: none; }
+  .spec-table tr { height: auto; }
   .spec-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); padding: var(--space-4) 0; border-bottom: var(--border-1) solid var(--graphite); }
   .spec-table th, .spec-table td { padding: 0; border: 0; }
   .spec-table__label, .spec-table__figure, .spec-table__detail { width: auto; padding-left: 0; }
   .spec-table__figure { margin: var(--space-2) 0 var(--space-1); white-space: normal; }
   .spec-table__detail { font-size: 14px; }
+  .specs__tab { padding: var(--space-4) var(--space-5) calc(var(--space-4) - 0.228em); font-size: 15px; letter-spacing: 0.08em; }
+  .specs__body { padding: var(--space-5); padding-top: calc(var(--space-5) - var(--space-4)); }
 }
 
-/* ---------- statement banner ---------- */
-.banner { padding: var(--space-9) var(--margin) var(--space-10); text-align: center; }
-.banner h2 { text-transform: uppercase; letter-spacing: 0.02em; text-wrap: balance; max-width: 22ch; margin: 0 auto; }
-@media (max-width: 899px) { .banner { padding: var(--space-9) var(--margin-mobile); } }
 
 /* ---------- image plus list ---------- */
 .ipl { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); padding: var(--space-10) var(--margin); align-items: start; }
@@ -373,17 +386,17 @@ h1, h2, h3, p { margin: 0; }
 .arrow-link { display: inline-flex; align-items: center; gap: var(--space-2); }
 .arrow-link .icon { transition: transform var(--duration-base) var(--ease-out-expo); }
 .arrow-link:hover .icon { transform: translate(2px, -2px); }
-.button { display: inline-flex; align-items: center; justify-content: center; height: var(--space-7); padding: 0 var(--space-6); border: var(--border-1) solid currentColor; border-radius: var(--radius-0); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; transition: background var(--duration-fast), color var(--duration-fast); }
+.button { display: inline-flex; align-items: center; justify-content: center; height: var(--space-7); padding: 0 var(--space-6); border: var(--border-1) solid currentColor; border-radius: var(--radius-0); font-family: var(--font-wordmark); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; transition: background var(--duration-fast), color var(--duration-fast); }
 .button:hover { background: var(--ink-inverse); color: var(--brand-black); }
 .button:disabled { cursor: default; opacity: 0.7; }
 
 /* ---------- locus terminal ---------- */
-/* After initiumterminal.com: a grey box centred under ORIN's intro, with a slim title bar (INITIUM).
+/* After initiumterminal.com: a grey box centred under ORIN's hero, with a slim title bar (INITIUM).
    Inside: the LOG IN TO ACCESS heading, which types itself out; labelled input boxes (the real inputs lie invisibly
    over them and echo into them, with a block cursor); the status line; a full-width LOG IN button. A note sits under
    the box. */
-.terminal-section { display: flex; flex-direction: column; align-items: center; background: var(--terminal-section-bg); padding: 0 var(--margin) var(--space-10); }
-.term { width: 480px; max-width: 100%; background: var(--terminal-bg); border: var(--border-1) solid var(--terminal-line); font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--terminal-ink); text-transform: uppercase; }
+.terminal-section { display: flex; flex-direction: column; align-items: center; background: var(--terminal-section-bg); padding: var(--space-10) var(--margin); }
+.term { width: 480px; max-width: 100%; background: var(--terminal-bg); font-family: var(--font-wordmark); font-size: 14px; line-height: 1.6; color: var(--terminal-ink); text-transform: uppercase; }
 .term__bar { padding: var(--space-3) var(--space-6); border-bottom: var(--border-1) solid var(--terminal-line); font-size: 11px; letter-spacing: 0.18em; color: var(--terminal-ink-dim); }
 .term__body { padding: var(--space-6); }
 .term__title { margin-bottom: var(--space-6); font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.2; letter-spacing: 0.12em; white-space: pre; color: var(--terminal-ink-bright); }
@@ -400,16 +413,15 @@ h1, h2, h3, p { margin: 0; }
 .term .cursor { flex: none; width: 0.6em; height: 1.15em; background: var(--terminal-ink-bright); }
 .term__msg { min-height: 1.6em; margin: calc(-1 * var(--space-2)) 0 var(--space-3); font-size: 12px; letter-spacing: 0.12em; color: var(--terminal-ink-bright); }
 .term__msg .dots { color: var(--terminal-ink-dim); }
-.term__enter { display: block; width: 100%; height: var(--space-7); border: var(--border-1) solid var(--terminal-ink-bright); background: var(--terminal-ink-bright); color: var(--terminal-bg); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background var(--duration-fast), color var(--duration-fast), opacity var(--duration-fast); }
+.term__enter { display: block; width: 100%; height: var(--space-7); border: var(--border-1) solid var(--terminal-ink-bright); background: var(--terminal-ink-bright); color: var(--terminal-bg); font-family: var(--font-wordmark); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background var(--duration-fast), color var(--duration-fast), opacity var(--duration-fast); }
 .term__enter:hover:not(:disabled) { background: transparent; color: var(--terminal-ink-bright); }
 .term__enter:disabled { cursor: default; opacity: 0.6; }
-.terminal-section__note { width: 480px; max-width: 100%; margin-top: var(--space-5); font-size: 14px; line-height: 1.6; text-align: center; color: var(--ink-muted); }
 .cursor { display: inline-block; width: 7px; height: 14px; background: currentColor; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .dots::after { content: ""; animation: dots 1.2s steps(4, end) infinite; }
 @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
 @media (max-width: 899px) {
-  .terminal-section { padding: 0 var(--margin-mobile) var(--space-9); }
+  .terminal-section { padding: var(--space-9) var(--margin-mobile); }
   .term { font-size: 13px; }
   .term__bar { padding: var(--space-3) var(--space-5); }
   .term__body { padding: var(--space-5); }
@@ -418,26 +430,61 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- IRIS CIV ---------- */
 .civ-icon { display: block; width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.civ-stat { padding: var(--space-10) var(--margin) var(--space-8); display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); align-items: end; }
-.civ-stat__value { grid-column: 1 / 6; font-family: var(--font-display); font-size: clamp(120px, 16vw, 240px); line-height: 0.85; letter-spacing: 0.02em; display: flex; align-items: flex-end; gap: var(--space-4); }
-.civ-stat__unit { font-size: 14px; letter-spacing: 0.3em; color: var(--ink-muted); padding-bottom: 0.6em; }
-.civ-stat__text { grid-column: 7 / 13; font-size: clamp(22px, 2vw, 28px); line-height: 1.45; max-width: 26ch; padding-bottom: var(--space-3); }
+/* The 60 on the barely visible brown band, centred top to bottom: equal space above and below. */
+.civ-stat { padding: var(--space-9) var(--margin); background: var(--band-bg); display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); align-items: start; }
+/* The 60 (Julius, like the step numbers) is exactly as tall as the three lines beside it: from the top of the 6 to the
+   bottom of the 0 equals the first line's cap top to the last line's baseline. Measured: Inter cap height 0.734em,
+   ascent 0.969 + descent 0.241 = 1.21em of content; Julius digits' ink 0.750em above the baseline and 0.016em below
+   (0.766em), ascent 0.863 + descent 0.228 = 1.091em. Three lines at line-height 1.45 span 2 × 1.45 + 0.734 = 3.634
+   text sizes, so the 60 is 3.634 / 0.766 = 4.744 text sizes. The first line's cap top sits (1.45 − 1.21) / 2 + 0.969 −
+   0.734 = 0.355 text sizes down; the 60's ink top sits (1 − 1.091) / 2 + 0.863 − 0.750 = 0.068 of its own size down,
+   so it moves up by the difference. Its box also reaches (1 + 1.091) / 2 − 0.863 = 0.183 of its size below the
+   baseline, more than the text's last line (1.45 − 1.21) / 2 + 0.241 = 0.361 text sizes, so the bottom margin pulls it
+   back level with the text and the band's space above and below the ink stays equal. */
+.civ-stat__value { --t: var(--civ-stat-text); grid-column: 1 / 6; margin-top: calc(var(--t) * 0.355 - var(--t) * 4.744 * 0.068); margin-bottom: calc(var(--t) * 0.361 - var(--t) * 4.744 * 0.183); display: flex; align-items: baseline; gap: var(--space-4); font-family: var(--font-display); font-weight: 400; font-size: calc(var(--t) * 4.744); line-height: 1; }
+.civ-stat__unit { font-size: 14px; letter-spacing: 0.3em; color: var(--ink-muted); }
+.civ-stat__text { grid-column: 7 / 13; font-size: var(--civ-stat-text); line-height: 1.45; }
+.civ-stat__text span { display: block; white-space: nowrap; }
 .product-section { padding: var(--space-9) var(--margin); }
-.product-section__label { display: block; padding-bottom: var(--space-4); margin-bottom: var(--space-7); border-bottom: var(--border-1) solid transparent; border-image: var(--rule-h); font-size: 12px; letter-spacing: 0.18em; color: var(--ink-muted); }
+/* Panels with dark text; the colour tokens flip inside them. Off-white (.light): the IRIS concept cards, the IRIS CIV
+   description. Mid grey (.grey): IRIS CIV steps 01, 03, the IRIS description. */
+.light, .step-tab { --ink: var(--card-light-ink); --ink-muted: var(--card-light-muted); --rule: var(--card-light-line); --graphite: var(--card-light-line); background: var(--card-light-bg); color: var(--ink); }
+.grey, .step-card:not(.step-card--dark) { --ink: var(--card-grey-ink); --ink-muted: var(--card-grey-muted); --rule: var(--card-grey-line); --graphite: var(--card-grey-line); background: var(--card-grey-bg); color: var(--ink); }
+/* The concept-of-operations heading: larger and white, the section the page is built around. */
+.product-section__label.product-section__label--major { font-size: clamp(26px, 2.6vw, 40px); letter-spacing: 0.08em; color: var(--ink); }
+/* IRIS concept of operations: the tabs and card on a brown band from edge to edge, from just above the tabs to just
+   below the card. */
+.step-tabs-band { margin: 0 calc(-1 * var(--margin)); padding: var(--space-6) var(--margin); background: var(--band-bg); }
+/* A set-apart section (IRIS spec table, key functions): a barely visible brown band from edge to edge, starting just
+   above the section label. */
+.band { padding-top: var(--space-6); background: var(--band-bg); }
+.product-section__label { display: block; padding-bottom: var(--space-4); margin-bottom: var(--space-7); border-bottom: var(--border-1) solid var(--rule); font-size: 12px; letter-spacing: 0.18em; color: var(--ink-muted); }
 /* Step cards (StepCards: IRIS CIV how it works), after Anduril's build-qualities cards: full-width bands stacked edge
    to edge with no gap, alternating grey and black (01, 03 grey; 02, 04 black). A large white number at the top left,
    the step title in Julius, its text, and the image filling the right part of the band to its top, bottom and the
    page's right edge (plain black, no outline, until the file exists). */
 /* Every card in a list is as tall as the tallest, so the bands match whatever the platform's fonts do. */
-.step-cards { display: grid; grid-auto-rows: 1fr; list-style: none; margin: 0 calc(-1 * var(--margin)); padding: 0; border-top: var(--border-1) solid var(--graphite); }
-.step-card { display: grid; grid-template-columns: calc(var(--space-10) + var(--space-7)) minmax(0, 1fr) minmax(0, 35%); column-gap: var(--space-6); align-items: start; padding-left: var(--margin); background: var(--card-bg); border-bottom: var(--border-1) solid var(--graphite); }
+.step-cards { display: grid; grid-auto-rows: 1fr; list-style: none; margin: 0 calc(-1 * var(--margin)); padding: 0; }
+.step-card { display: grid; grid-template-columns: calc(var(--space-10) + var(--space-7)) minmax(0, 1fr) minmax(0, 35%); column-gap: var(--space-6); align-items: start; padding-left: var(--margin); }
 .step-card--dark { background: var(--bg); }
-.step-card__num { padding: var(--space-6) 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(64px, 7vw, 112px); line-height: 0.8; color: var(--ink); }
+.step-card__lead { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6) 0; }
+.step-card__num { font-family: var(--font-display); font-weight: 400; font-size: clamp(64px, 7vw, 112px); line-height: 0.8; color: var(--ink); }
+.step-card__time { color: var(--ink-muted); }
 .step-card__body { padding: var(--space-6) var(--space-6) var(--space-6) 0; }
 .step-card__title { margin-bottom: var(--space-4); font-family: var(--font-display); font-weight: 400; font-size: clamp(20px, 1.6vw, 26px); line-height: 1.25; letter-spacing: 0.04em; color: var(--ink); }
 .step-card__text { max-width: 44ch; font-size: clamp(17px, 1.4vw, 21px); line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .step-card__media { position: relative; align-self: stretch; background: var(--bg); }
 .step-card__media .ph { border: 0; background: var(--bg); }
+/* The last band with `last` content (IRIS CIV: the officer screen): no image column; the content runs under the title
+   to the page's right margin, and the band keeps its own height (not stretched into the others). */
+.step-cards--last { grid-template-rows: repeat(var(--rows), 1fr); grid-auto-rows: auto; }
+.step-card--wide { grid-template-columns: calc(var(--space-10) + var(--space-7)) minmax(0, 1fr); padding-right: var(--margin); }
+.step-card--wide .step-card__body { padding-right: 0; }
+.step-card__extra { margin-top: var(--space-6); }
+/* A little more of the band under the officer screen. */
+.step-card--wide .step-card__body { padding-bottom: var(--space-9); }
+/* IRIS CIV: the description panel sits directly under the steps, no black between. */
+.product-section--flush { padding-bottom: 0; }
 /* Step tabs (StepTabs: IRIS concept of operations), after Anduril's Fury build-qualities block: the tabs in a row with a
    line under the active one; one card at a time below, sliding sideways to the chosen tab (scroll-snap, so it can be
    swiped too). Tabs and card titles in Julius (the Initium title font). Card: a narrow left column with the tag in caps at
@@ -449,21 +496,16 @@ h1, h2, h3, p { margin: 0; }
 .step-tabs__tab.is-on { color: var(--ink); border-bottom-color: var(--ink); }
 .step-tabs__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
 .step-tabs__track::-webkit-scrollbar { display: none; }
-.step-tab { flex: 0 0 100%; scroll-snap-align: start; display: grid; grid-template-columns: var(--space-8) minmax(0, 1fr) minmax(0, 34%); grid-template-rows: 1fr auto; column-gap: var(--space-6); min-height: 340px; padding: var(--space-6); background: var(--card-bg); border: var(--border-1) solid var(--graphite); }
+.step-tab { flex: 0 0 100%; scroll-snap-align: start; display: grid; grid-template-columns: var(--step-tab-tag) minmax(0, 1fr) minmax(0, 34%); grid-template-rows: 1fr auto; column-gap: var(--space-6); min-height: 340px; padding: var(--space-6); }
 .step-tab__body { grid-column: 2; grid-row: 1 / span 2; }
-.step-tab__tag { grid-column: 1; grid-row: 1; align-self: start; padding-top: var(--space-2); color: var(--ink); }
+.step-tab__tag { grid-column: 1; grid-row: 1; align-self: start; padding-top: var(--space-2); line-height: 1.5; color: var(--ink); }
 .step-tab__title { max-width: 22ch; font-family: var(--font-display); font-weight: 400; font-size: clamp(30px, 3vw, 46px); line-height: 1.15; letter-spacing: 0.03em; color: var(--ink); text-wrap: pretty; }
 .step-tab__text { max-width: 44ch; margin-top: var(--space-4); font-size: 17px; line-height: 1.5; color: var(--ink-muted); }
 .step-tab__media { grid-column: 3; grid-row: 1 / span 2; align-self: start; }
 .step-tab__media .ph { border: 0; background: var(--bg); }
 .step-tab__num { grid-column: 1; grid-row: 2; align-self: end; font-family: var(--font-display); font-weight: 400; font-size: clamp(80px, 8vw, 128px); line-height: 0.75; color: var(--ink); }
-/* A section label with a note at the right end of its line (IRIS CIV how it works: STEPS 01–03: UNDER 60 SECONDS). */
-.product-section__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2) var(--space-5); padding-bottom: var(--space-4); margin-bottom: var(--space-7); border-bottom: var(--border-1) solid transparent; border-image: var(--rule-h); }
-.product-section__head .product-section__label { padding: 0; margin: 0; border: 0; }
-.product-section__note { color: var(--ink); }
-/* What every officer sees: icon + one line each. */
+/* What every officer sees (in the last step card): the real screen with hotspots. */
 .civ-shot__hint { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); color: var(--ink-muted); }
-.civ-shot__hint-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); animation: blink 2s steps(1) infinite; }
 .civ-shot__hint-tap { display: none; }
 @media (hover: none) { .civ-shot__hint-hover { display: none; } .civ-shot__hint-tap { display: inline; } }
 .civ-shot { position: relative; margin: 0; border: var(--border-1) solid var(--graphite); overflow: hidden; }
@@ -491,21 +533,25 @@ h1, h2, h3, p { margin: 0; }
 .civ-shot__card.is-up { transform: translate(30px, -85%) translateX(-8px); }
 .civ-shot__card.is-up.is-on { transform: translate(30px, -85%); }
 .civ-shot__below { display: none; }
-.civ-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gutter); }
-.civ-pillar { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); border: var(--border-1) solid var(--graphite); }
-.civ-pillar p { font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
 @media (max-width: 899px) {
-  .civ-stat { padding: var(--space-8) var(--margin-mobile) var(--space-6); }
+  .civ-stat { padding: var(--space-7) var(--margin-mobile); }
   .civ-stat__value, .civ-stat__text { grid-column: 1 / -1; }
+  .civ-stat__value { --t: var(--civ-stat-text-mobile); }
+  .civ-stat__text { font-size: var(--civ-stat-text-mobile); }
   .product-section { padding: var(--space-7) var(--margin-mobile); }
   /* Step cards: one column, the image full width at the bottom of the band. */
   .step-cards { margin: 0 calc(-1 * var(--margin-mobile)); }
+  .step-tabs-band { margin: 0 calc(-1 * var(--margin-mobile)); padding: var(--space-5) var(--margin-mobile); }
   .step-card { grid-template-columns: minmax(0, 1fr); padding-left: var(--margin-mobile); }
-  .step-card__num { padding: var(--space-5) 0 0; font-size: 56px; }
+  .step-card__lead { padding: var(--space-5) 0 0; gap: var(--space-3); }
+  .step-card__num { font-size: 56px; }
   .step-card__body { padding: var(--space-4) var(--margin-mobile) var(--space-5) 0; }
   .step-card__title { font-size: 21px; }
   .step-card__text { font-size: 17px; }
-  .step-card__media { min-height: 0; aspect-ratio: 16 / 9; margin-left: calc(-1 * var(--margin-mobile)); }
+  .step-card--wide { grid-template-columns: minmax(0, 1fr); padding-right: var(--margin-mobile); }
+  .step-card__extra { margin-top: var(--space-5); }
+  /* At the band's foot, its height from the width (stretched, the 16:9 box would grow wider than the screen). */
+  .step-card__media { align-self: end; min-height: 0; aspect-ratio: 16 / 9; margin-left: calc(-1 * var(--margin-mobile)); }
   /* Step tabs: the card in one column, image under the text; no large number. */
   .step-tabs__tabs { gap: var(--space-5); }
   .step-tab { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; row-gap: var(--space-4); min-height: 0; padding: var(--space-5); }
@@ -522,7 +568,6 @@ h1, h2, h3, p { margin: 0; }
   .civ-shot__below { display: flex; align-items: flex-start; gap: var(--space-3); min-height: 72px; padding: var(--space-4) 0; border-bottom: var(--border-1) solid var(--graphite); font-size: 17px; line-height: 1.45; }
   .civ-shot__below .civ-icon { flex: none; width: 22px; height: 22px; }
   .civ-shot__below-empty { color: var(--ink-muted); }
-  .civ-pillars { grid-template-columns: 1fr; }
 }
 
 /* ---------- text pages (company, legal) ---------- */
@@ -535,7 +580,7 @@ h1, h2, h3, p { margin: 0; }
 .hero--cover + .prose { padding-top: var(--space-10); }
 .prose p + p { margin-top: var(--space-5); }
 .prose h2 { margin: var(--space-8) 0 var(--space-4); }
-.prose .mono-label { display: block; margin-bottom: var(--space-6); color: var(--ink-muted); }
+.prose .label { display: block; margin-bottom: var(--space-6); color: var(--ink-muted); }
 @media (max-width: 899px) {
   .text-hero { padding: calc(64px + var(--space-9)) var(--margin-mobile) var(--space-7); }
   .prose { padding: 0 var(--margin-mobile) var(--space-8); }

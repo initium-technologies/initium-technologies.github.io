@@ -1,20 +1,3 @@
-export const company = {
-  meta: { title: 'Company | Initium', description: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.' },
-  label: 'Initium Technologies · Mountain View, California',
-  heroAlt: 'The lit INITIUM sign on the brick wall at the office in Mountain View',
-  /* Show the bottom of the photo so the sign sits above the headline, not behind it. */
-  heroFocus: '50% 100%',
-  headline: 'Edge compute for mission-critical sensing.',
-  argument: [
-    'U.S. software capability has outpaced adversaries for a decade. Software requires hardware to run, and that hardware is now the weak link in the kill chain.',
-    'When communications are disrupted, satellite links saturated or a data center is hit, software capability becomes a function of the compute on hand. Initium builds that compute: on the operator, aboard the ship, in orbit.',
-  ],
-  contact: [
-    { name: 'Email', text: 'admin@initiumtechnologies.com', href: 'mailto:admin@initiumtechnologies.com' },
-    { name: 'Location', text: 'Mountain View, California' },
-  ],
-};
-
 export const careers = {
   meta: { title: 'Careers | Initium', description: 'Open roles at Initium Technologies.' },
   label: 'Work with us',
@@ -23,13 +6,6 @@ export const careers = {
   open: [
     { name: 'Perception engineering', text: 'Detection, tracking and inference that runs on the edge, on hardware the operator carries.' },
   ],
-  /* The last row: how to hear about the next role (opens an email to us with this subject). */
-  future: {
-    name: 'Future roles',
-    text: 'We welcome new hires periodically. Email us to join the newsletter and get an update when a new role appears.',
-    link: 'Join the newsletter',
-    subject: 'Newsletter',
-  },
 };
 
 export const events = {

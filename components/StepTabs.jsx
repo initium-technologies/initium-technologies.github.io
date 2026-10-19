@@ -79,7 +79,7 @@ export default function StepTabs({ steps, label }) {
             aria-labelledby={`${id}-tab-${i}`}
             inert={i !== active}
           >
-            <span className="step-tab__tag mono-label">{s.tag}</span>
+            <span className="step-tab__tag label">{s.tag}</span>
             <div className="step-tab__body">
               <h3 className="step-tab__title">{s.title}</h3>
               {s.text && <p className="step-tab__text">{s.text}</p>}

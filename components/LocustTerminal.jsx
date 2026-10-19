@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 /* The Locus Terminal on ORIN, after initiumterminal.com: a grey box with a slim title bar. Its heading types itself out
    when scrolled into view, then the access code and password fields appear, each echoing into an input box with a
-   block cursor, then the LOG IN button; a note sits under the box. Enter moves to the next field, then logs in.
+   block cursor, then the LOG IN button. Enter moves to the next field, then logs in.
    Theatre: no action, no fetch, no storage. Every attempt ends in INVALID DETAILS. */
 
 /* A duration token from app/tokens.css, in ms. */
@@ -155,7 +155,6 @@ export default function LocustTerminal({ terminal }) {
           </div>
         </div>
       </form>
-      <p className="terminal-section__note">{terminal.note}</p>
     </section>
   );
 }

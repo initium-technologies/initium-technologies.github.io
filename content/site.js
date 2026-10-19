@@ -16,7 +16,7 @@ export const menus = {
     label: 'Defense',
     title: 'Defense Products',
     summary:
-      'A suite of systems built around one principle: the compute that runs the mission sits with the operator, aboard the ship or in orbit, never in a data center that can be cut off or hit. Each product runs inference where the data is collected and sends on only what matters.',
+      'A suite of systems built to afford software capabilities to the warfighter in any environment, without latency, reachback, or reliance on vulnerable infrastructure.',
     categories: [
       { label: 'Land', products: [{ name: 'IRIS', href: '/defense/iris' }] },
       { label: 'Naval', products: [{ name: 'MANTIS', href: '/defense/mantis' }] },
@@ -26,8 +26,7 @@ export const menus = {
   civilian: {
     label: 'Civilian',
     title: 'Civilian Products',
-    summary:
-      'The same systems proven with U.S. Special Operations breach teams, now cleared for police response and for the facilities they protect. Provided to responding agencies at no cost.',
+    summary: 'The same platforms developed for U.S. Special Operations, reformatted for use in civilian security.',
     categories: [{ label: 'Police', products: [{ name: 'IRIS CIV', href: '/civilian/iris-civ' }] }],
   },
   /* Top-right drop-down; the same links make the footer's Company column. */
@@ -36,7 +35,6 @@ export const menus = {
     title: 'Company',
     summary: 'Initium Technologies builds edge compute for mission-critical sensing, from Mountain View, California.',
     links: [
-      { name: 'About', href: '/company' },
       { name: 'Open Roles', href: '/company/careers' },
       /* The partner site, same tab. */
       { name: 'Partner Portal', href: 'https://partner.initiumtechnologies.com/' },

@@ -7,7 +7,7 @@ import CivIcon from './CivIcons';
    beside it while the rest of the screen dims around it. Until the visitor touches a point, the hotspots play through
    on their own (once the section is on screen) so it is obvious they are interactive. On phones the card sits under
    the image. Reduced motion: no auto-play, no pulse. */
-export default function CivShot({ image, points }) {
+export default function CivShot({ image, points, hint }) {
   const [active, setActive] = useState(null);
   const [touched, setTouched] = useState(false);
   const [seen, setSeen] = useState(false);
@@ -37,10 +37,9 @@ export default function CivShot({ image, points }) {
 
   return (
     <div className="civ-shot-wrap">
-      <p className="civ-shot__hint mono-label" aria-hidden="true">
-        <span className="civ-shot__hint-dot" />
-        <span className="civ-shot__hint-hover">Hover a point to explore</span>
-        <span className="civ-shot__hint-tap">Tap a point to explore</span>
+      <p className="civ-shot__hint label" aria-hidden="true">
+        <span className="civ-shot__hint-hover">{hint.hover}</span>
+        <span className="civ-shot__hint-tap">{hint.tap}</span>
       </p>
       <figure
         ref={fig}
@@ -85,7 +84,7 @@ export default function CivShot({ image, points }) {
             <span>{p.text}</span>
           </>
         ) : (
-          <span className="civ-shot__below-empty">Tap a point on the screen.</span>
+          <span className="civ-shot__below-empty">{hint.empty}</span>
         )}
       </div>
     </div>

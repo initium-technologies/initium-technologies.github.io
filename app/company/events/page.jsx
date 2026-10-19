@@ -17,7 +17,7 @@ export default function EventsPage() {
           <div className="row" key={e.name}>
             <div className="row__name">
               <h3 className="h3">{e.name}</h3>
-              <span className="mono-label" style={{ display: 'block', marginTop: 'var(--space-3)' }}>{e.when} · {e.where}</span>
+              <span className="label" style={{ display: 'block', marginTop: 'var(--space-3)' }}>{e.when} · {e.where}</span>
             </div>
             <p className="row__text body">
               {e.text}

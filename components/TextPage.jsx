@@ -10,7 +10,7 @@ export default function TextPage({ label, headline, updated, children }) {
       </section>
       <div className="prose">
         <div className="prose__inner">
-          {updated && <span className="mono-label">Last updated · {updated}</span>}
+          {updated && <span className="label">Last updated · {updated}</span>}
           {children}
         </div>
       </div>

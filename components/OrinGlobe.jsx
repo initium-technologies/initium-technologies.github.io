@@ -501,7 +501,7 @@ export default function OrinGlobe({ fallbackVideo = null }) {
     <div ref={wrap} className={`orin-globe ${mode === 'ready' ? 'is-ready' : ''}`}>
       {mode === 'ready' && (
         <>
-          <div className="orin-globe__hud mono-label" aria-hidden="true">
+          <div className="orin-globe__hud label" aria-hidden="true">
             <span className="orin-globe__live">
               <span className="orin-globe__dot" />
               {speed === 1 ? 'Live' : `×${speed}`} · {hud.time} UTC
@@ -513,14 +513,14 @@ export default function OrinGlobe({ fallbackVideo = null }) {
           </div>
           <div className="orin-globe__speed" role="group" aria-label="Time speed">
             {SPEEDS.map((s) => (
-              <button key={s} type="button" className={`mono-label ${speed === s ? 'is-on' : ''}`} onClick={() => setSpeed(s)}>
+              <button key={s} type="button" className={`label ${speed === s ? 'is-on' : ''}`} onClick={() => setSpeed(s)}>
                 {s === 1 ? 'Live' : `×${s}`}
               </button>
             ))}
           </div>
-          <span className="orin-globe__credit mono-label">Orbits: CelesTrak · Earth: NASA</span>
+          <span className="orin-globe__credit label">Orbits: CelesTrak · Earth: NASA</span>
           {hover && (
-            <span className="orin-globe__tip mono-label" style={{ left: hover.x, top: hover.y }}>
+            <span className="orin-globe__tip label" style={{ left: hover.x, top: hover.y }}>
               <strong>{hover.name}</strong>
               <span>
                 {hover.cls} · {hover.alt.toLocaleString('en-US')} km
