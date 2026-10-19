@@ -112,7 +112,11 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   Don't run `npm run build` in this folder while `npm run dev` is running (they share .next and the preview breaks):
   build a copy elsewhere (rsync without node_modules/.next, symlink node_modules) to check a production build.
   No server features: no redirects/headers in next.config, no API routes, no runtime image optimisation.
-- Work happens on the `new-site` branch; `main` is the live site and is not touched until the new site is ready.
+- Work happens on the `new-site` branch. `main` is the live site (GitHub Pages serves its files as they are, at
+  initiumtechnologies.com): it holds only the built out/ of `new-site`, plus CNAME and .nojekyll (Next's _next/ folder
+  needs it). To publish: build a clean copy of the committed `new-site`, replace every file on `main` with out/, keep
+  CNAME and .nojekyll, commit "Deploy: …" and push `main` (a normal push, never a force push).
+- The old site's addresses (/products/, /products/iris/, /products/mantis/) are redirect pages in public/products/.
 
 ## Workflow
 - Build one component at a time; after each route run `npm run build`, then the screenshot script
