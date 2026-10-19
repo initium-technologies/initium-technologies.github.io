@@ -15,18 +15,21 @@
   --band-bg: #040302;
   /* A table row on the band, every other one: a minuscule step browner. */
   --band-row: #070504;
-  /* Grey panels (.grey: IRIS CIV steps 01, 03, the IRIS description): mid grey, a touch of brown, dark text. */
+  /* Grey panels (.grey: the IRIS and IRIS CIV descriptions): mid grey, a touch of brown, dark text. */
   --card-grey-bg: #8a8680;
   --card-grey-line: #00000059;
   --card-grey-ink: #000000;
   --card-grey-muted: #2b2824;
-  /* Light panels (.light: the IRIS concept cards, the IRIS CIV description): off-white, a touch of brown, dark text. */
-  --card-light-bg: #e7e4de;
+  /* Light panels (.light: the IRIS concept cards, IRIS CIV steps 01–03): tan, dark text (muted 5.2:1 on the tan, for AA). */
+  --card-light-bg: #bdad96;
   --card-light-line: #00000047;
   --card-light-ink: #000000;
-  --card-light-muted: #57534d;
-  /* Locus Terminal (ORIN): a grey box on the black page, a touch of brown. */
+  --card-light-muted: #3d3934;
+  /* Locus Terminal (ORIN): a grey box on the black page, a touch of brown; the LOG IN button mid grey with black text
+     (5.9:1; white would be 3.5:1). */
   --terminal-bg: #161311;
+  --terminal-button: #8b8880;
+  --terminal-button-ink: #000000;
   --terminal-field: #0c0a09;
   --terminal-line: #2e2e2e;
   --terminal-ink: #cfcfcf;
@@ -99,6 +102,12 @@
   --margin: 40px;
   /* IRIS CIV 60-second promise: the size of the three lines beside the 60 (the 60 is sized from it). */
   --civ-stat-text: clamp(22px, 2vw, 28px);
+  /* IRIS CIV step numbers (01–04), and how far in from its box Julius draws the 0 (its side bearing, a share of the
+     size), so the time under each number lines up with the figure itself. */
+  --step-num: clamp(64px, 7vw, 112px);
+  --step-num-bearing: 0.08;
+  /* IRIS CIV step bands: the share of the band (inside its left margin) the image takes on the right. */
+  --step-media-share: 0.35;
   /* IRIS concept-of-operations card: the tag column, wide enough for REFINEMENT (two-word tags wrap). */
   --step-tab-tag: 104px;
   /* IRIS spec table: every row the same height, the header row included. */

@@ -116,8 +116,6 @@ export const orin = {
   },
   /* The Locus Terminal under the hero, after initiumterminal.com. Shown in caps. */
   terminal: {
-    /* The slim bar across the top of the box. */
-    label: 'Initium',
     title: 'Log in to access',
     fields: [
       { id: 'access-code', label: 'Access code', masked: false },

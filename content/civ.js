@@ -17,29 +17,27 @@ export const civ = {
     lines: ['From the 911 call to a confirmed,', 'tracked assailant on every', 'responding officer’s screen.'],
   },
   flowLabel: 'Concept of operations',
-  /* The alert chain (StepCards). Step 04 has no text: its band holds the officer-view demo (seesImage, sees). */
+  /* The alert chain (StepCards). Step 04 has no image: the officer-view demo (seesImage, sees) sits under its band. */
   steps: [
     {
       tag: 'Call',
-      time: '0–5 seconds',
       title: '911 is called',
       text: 'A call lands with the emergency communications center. If the building is IRIS-enrolled, then the system starts up.',
     },
     {
       tag: 'Link',
-      time: '5–10 seconds',
       title: 'Officers receive the picture',
       text: 'The call is matched to the building, every dispatched officer receives an IRIS link in the call-out package, on their phone or MDT.',
     },
     {
       tag: 'Verify',
-      time: '10–60 seconds',
       title: 'A human verifies the threat',
       text: 'As units head inbound, Initium’s team checks the building’s live cameras and confirms the suspected threat.',
     },
     {
       tag: 'Arrive',
       title: 'The live picture is available',
+      text: 'See what IRIS puts on an officer’s phone the second they breach a building.',
     },
   ],
   /* Placeholder copy until the real description is written. */
@@ -54,8 +52,8 @@ export const civ = {
     src: '/media/iris-civ/officer-view.jpg',
     alt: 'IRIS CIV on an officer’s phone: a live floorplan of the ground floor over an aerial photo, people tracked in Room 4, rooms with no camera shaded grey',
   },
-  /* The line above the screen (hover on desktop, tap on phones), and the phone caption before a point is opened. */
-  seesHint: { hover: 'Hover over a point to explore', tap: 'Tap a point to explore', empty: 'Tap a point on the screen.' },
+  /* Phones: the caption under the screen before a point is opened. */
+  seesHint: { empty: 'Tap a point on the screen.' },
   sees: [
     { icon: 'layers', text: 'A live floorplan of every level', at: [30.6, 31.9] },
     { icon: 'target', text: 'Every person tracked room to room, the confirmed assailant marked', at: [51.4, 31.6] },

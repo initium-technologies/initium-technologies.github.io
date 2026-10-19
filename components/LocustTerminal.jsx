@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Mark } from './Icons';
 
-/* The Locus Terminal on ORIN, after initiumterminal.com: a grey box with a slim title bar. Its heading types itself out
+/* The Locus Terminal on ORIN, after initiumterminal.com: a grey box with a slim title bar (the <II> mark). Its heading types itself out
    when scrolled into view, then the access code and password fields appear, each echoing into an input box with a
    block cursor, then the LOG IN button. Enter moves to the next field, then logs in.
    Theatre: no action, no fetch, no storage. Every attempt ends in INVALID DETAILS. */
@@ -98,7 +99,7 @@ export default function LocustTerminal({ terminal }) {
         }}
       >
         <div className="term__bar" aria-hidden="true">
-          {terminal.label}
+          <Mark />
         </div>
         <div className="term__body">
           <h2 className="term__title">

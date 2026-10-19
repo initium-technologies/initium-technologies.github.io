@@ -21,8 +21,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Black and white on every page: background pure black (#000), text white, neutral greys for muted text and
   lines. No colour (no red/orange accent; the accent token is white), except two near-black browns: grey boxes
   (step cards and tabs, the Locus Terminal) carry a barely visible brown hue and no outline, and set-apart sections
-  (the IRIS concept tabs and card, key functions) sit on a brown band from edge to edge so dark it only shows on
-  close inspection (`.band`, `--band-bg`), starting just above the section label. Off-white panels (`.light`: the IRIS concept cards; `--card-light-*`) and mid-grey panels (`.grey`: IRIS CIV steps 01, 03, the IRIS and IRIS CIV descriptions;
+  (key functions) sit on a brown band from edge to edge so dark it only shows on
+  close inspection (`.band`, `--band-bg`), starting just above the section label. Tan panels (`.light`: the IRIS concept cards and IRIS CIV steps 01–03, #bdad96; `--card-light-*`) and mid-grey panels (`.grey`: the IRIS and IRIS CIV descriptions;
   `--card-grey-*`), both with a touch of brown, flip the text to dark. One theme, no per-page themes.
   Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
@@ -55,11 +55,11 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   Earth (public/media/orin/earth-day.jpg, earth-night.jpg) lit by the real Sun. Refresh the catalogue every few days:
   `node scripts/update-satellites.mjs` (CelesTrak: max one download per 2 hours). Falls back to the video without WebGL.
 - IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
-  CONCEPT OF OPERATIONS (a large white heading, `--major`; tabs and card on the brown band; components/StepTabs.jsx, after Anduril's Fury build-qualities block: tabs Camera Access · Initial Picture ·
-  Refinement · Assault (Julius, lowercase so every letter is the same size) with a line under the active one, over one off-white card at a time that slides sideways to the chosen tab
+  CONCEPT OF OPERATIONS (a large white heading, `--major`; tabs and card on black; components/StepTabs.jsx, after Anduril's Fury build-qualities block: tabs Camera Access · Initial Picture ·
+  Refinement · Assault (Julius, lowercase so every letter is the same size) with a line under the active one, over one tan card at a time that slides sideways to the chosen tab
   (scroll-snap, so it swipes too; arrow keys on the tabs); card: the tag in caps in the top-left corner, the title large in Julius (close to the left edge; no 01 / 04), the image
-  top right (public/media/iris/step-1…4.*), a large number bottom left; titles only), DESCRIPTION (mid-grey `.grey` panel; large lead, body set
-  in from the right, grey) and the spec table (the grey runs on down past it; the table sits in a black panel inset by
+  top right (public/media/iris/step-1…4.*), a large number bottom left; titles only), DESCRIPTION (mid-grey `.grey` panel; large lead, body under
+  it at the left margin, grey) and the spec table (the grey runs on down past it; the table sits in a black panel inset by
   the page margins, shaped like a folder: rounded corners (`--radius-panel`, the one exception to radius 0 besides
   inputs) and the caption in a tab rising from its top-left, the tab's foot curving out into the panel's edge; dark-page
   colours inside (`--box-rule`, `--box-line`); components/SpecTable.jsx: the caption IRIS
@@ -69,17 +69,20 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   minuscule step browner (`--band-row`); no row numbers; rows do not change on hover).
   All copy in `iris` in content/products.js.
 - IRIS CIV: same hero (subtitle "Interior Reconnaissance and Inference System", no "Civilian"), then one story:
-  60-second promise (on the brown `--band-bg`, equal space above and below; the 60 in Julius like the step numbers, exactly as tall as the three fixed lines beside it, cap top to baseline;
+  60-second promise (on black, equal space above and below, the concept of operations heading close under it; the 60 in Julius like the step numbers, exactly as tall as the three fixed lines beside it, cap top to baseline;
   the maths is in globals.css .civ-stat) · CONCEPT OF OPERATIONS (large white heading; components/StepCards.jsx: the 4 steps as full-width
-  bands touching edge to edge, after Anduril's build-qualities cards, alternating mid grey (01, 03: `--card-grey-*`, a
-  touch of brown, dark text) and black (02, 04): a large number at the top left (fixed, it does not move on scroll)
-  with its time under it (0–5, 5–10, 10–60 seconds; `time` in content/civ.js), the step title in Julius, its text,
+  bands touching edge to edge, after Anduril's build-qualities cards, tan (01–03: `--card-light-*`, the IRIS
+  concept card colour, dark text; on desktop the 3px section rule, dark on tan, between them from the left margin to the
+  image) and black (04): a large number at the top left (fixed, it does not move on scroll)
+  (no time under it: StepCards still takes an optional `time`, which starts where the 0 is drawn and, on desktop, sits
+  halfway between the foot of the number and the foot of the band), the step title in Julius (desktop: the tops of its letters level with the top of the number), its text,
   and the image filling the right part of the band to its top, bottom and the page's right edge, about a third of the
   width (public/media/iris-civ/step-1…3.*; plain black until then); bands 01–03 are as tall as the tallest (grid rows
-  1fr). Band 04 (The live picture is available) has no text: under its title, full width, the interactive officer screen
-  (StepCards `last`: components/CivShot.jsx, the "Hover over a point to explore" line, a real IRIS CIV screen
+  1fr). Band 04 (The live picture is available; text: See what IRIS puts on an officer’s phone the second they breach a building.) has no
+  image and is as tall as the others (desktop; its title and text centred across the page); straight under the band, centred on the page at the width of the bands'
+  text column, the interactive officer screen (StepCards `last`: components/CivShot.jsx, a real IRIS CIV screen
   `public/media/iris-civ/officer-view.jpg` with hover/tap hotspots that auto-play until touched; never publish the
-  app's top bar: it shows the server address); the band runs a little past the screen). DESCRIPTION follows directly on the mid-grey `.grey` panel (as IRIS's), no
+  app's top bar: it shows the server address), with black under it). DESCRIPTION follows directly on the mid-grey `.grey` panel (as IRIS's), no
   black between (placeholder
   lorem ipsum in `description` in content/civ.js). No pillars, use cases or closing statement. Icons are drawn in components/CivIcons.jsx (no icon library); copy in
   content/civ.js.
@@ -91,9 +94,9 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
 - The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a grey box (`--terminal-bg`, brown-tinted,
-  no outer border) centred under ORIN's hero: a slim title bar (INITIUM), the LOG IN TO
+  no outer border) centred under ORIN's hero: a slim title bar (the <II> mark), the LOG IN TO
   ACCESS heading in Julius, ACCESS CODE and PASSWORD as labelled input boxes (`--terminal-field`, 2px radius, block
-  cursor), the status line, a full-width white LOG IN button. Nothing under the box. No NODE / LINK lines, no green. The heading types itself out when scrolled into view, then the
+  cursor), the status line, a full-width LOG IN button (#8b8880, black text). Nothing under the box. No NODE / LINK lines, no green. The heading types itself out when scrolled into view, then the
   fields fade in (final frame with reduced motion). Enter moves to the next field, then logs in.
 - The Locus Terminal is theatre: no form action, no fetch, no storage, no analytics on its inputs,
   autocomplete="off". Every submit shows INVALID DETAILS.

@@ -37,10 +37,6 @@ export default function CivShot({ image, points, hint }) {
 
   return (
     <div className="civ-shot-wrap">
-      <p className="civ-shot__hint label" aria-hidden="true">
-        <span className="civ-shot__hint-hover">{hint.hover}</span>
-        <span className="civ-shot__hint-tap">{hint.tap}</span>
-      </p>
       <figure
         ref={fig}
         className={`civ-shot ${p ? 'has-active' : ''}`}
