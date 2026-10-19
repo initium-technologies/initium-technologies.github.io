@@ -44,7 +44,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   (`.grain`, dark pages) sits over everything; once scrolled, the nav bar gets translucent black + blur + a faint line.
 - Nav words: Inter 500, 15px, 0.08em, light grey (`--nav-ink`), white on hover/open.
 - Otherwise no gradients, shadows, glass, icon libraries, carousels (except the IRIS concept-of-operations tabs) or
-  page-transition effects. Radius 0 except inputs (2px) and the IRIS spec panel (`--radius-panel`).
+  page-transition effects. Radius 0 except inputs (2px), the IRIS spec panel (`--radius-panel`) and the home tiles (`--radius-tile`, 4px).
 - Every image and video slot is an empty <Placeholder> box (no text inside) until a real file is dropped into
   public/media/<page>/ (one folder per page, slots listed in public/media/README.md); the landing hero stays plain
   black until home/hero.mp4 exists. Tiles show only the product name.
@@ -91,7 +91,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - No About page (removed; /company has no page). Careers (/company/careers): one Open roles list (now just ML/Computer Vision
   Engineer), nothing after it.
 - Home tiles: ORIN tall on the left (the right half of the globe, coming in from the left edge, on pure black), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
-  bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit.
+  bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit. Tiles have no border and just-rounded corners (4px, `--radius-tile`; keyboard focus still shows the focus outline). The ORIN tile's black is lifted a hair
+  (`--orin-tile-bg`, #070707) so it just separates from the page.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.

@@ -207,7 +207,7 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ---------- product tile ---------- */
-.tile { position: relative; display: block; width: 100%; border: var(--border-1) solid var(--graphite); overflow: hidden; background: var(--placeholder); color: var(--ink-inverse); transition: border-color var(--duration-fast); }
+.tile { position: relative; display: block; width: 100%; overflow: hidden; border-radius: var(--radius-tile); background: var(--placeholder); color: var(--ink-inverse); }
 .tile__media { position: absolute; inset: 0; background: var(--placeholder); transition: transform var(--duration-panel) var(--ease-out-expo); }
 .tile__media .media { object-fit: cover; transform: scale(var(--zoom, 1)); transform-origin: var(--focus, 50% 50%); }
 .tile__text { position: absolute; left: var(--space-5); right: var(--space-5); bottom: var(--space-5); }
@@ -215,7 +215,9 @@ h1, h2, h3, p { margin: 0; }
 .tile__sub.is-flash { color: var(--accent); }
 .tile__arrow { position: absolute; right: var(--space-5); bottom: var(--space-5); opacity: 0; transition: opacity var(--duration-base); }
 .tile:hover .tile__media, .tile:focus-visible .tile__media { transform: scale(1.03); }
-.tile:hover, .tile:focus-visible { border-color: var(--ink-muted); }
+/* ORIN: the globe sits on pure black; `lighten` lifts only the black (to --orin-tile-bg), not the globe's lines. */
+.t-orin .tile__media { background: var(--orin-tile-bg); }
+.t-orin .tile__media .media { mix-blend-mode: lighten; }
 .tile:hover .tile__sub, .tile:focus-visible .tile__sub, .tile.is-touch .tile__sub { opacity: 0.85; }
 .tile:hover .tile__arrow, .tile:focus-visible .tile__arrow { opacity: 1; }
 

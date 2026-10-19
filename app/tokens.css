@@ -66,6 +66,8 @@
   --box-rule: #ffffff47;
   /* The IRIS spec panel: almost black, a step lighter than the footer (#000); every other row a step lighter again. */
   --spec-panel-bg: #0e0d0c;
+  /* The ORIN home tile: its picture's black lifted a hair above the page's black, so the tile just separates. */
+  --orin-tile-bg: #070707;
   --spec-panel-row: #141311;
   --box-line: #474747;
   --nav-ink: #b8b8b8;
@@ -101,6 +103,8 @@
   --radius-input: 2px;
   /* The IRIS spec panel and its tab. */
   --radius-panel: 12px;
+  /* Home page tiles: corners only just rounded. */
+  --radius-tile: 4px;
   --columns: 12;
   --content-max: 1440px;
   --gutter: 24px;
