@@ -40,25 +40,25 @@ export const civ = {
       text: 'See what IRIS puts on an officer’s phone the second they breach a building.',
     },
   ],
-  /* Placeholder copy until the real description is written. */
+  /* The description: a large lead, then the text under it on the left. */
   description: {
     label: 'Description',
-    lead: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
+    lead: 'IRIS Civ turns a facility’s existing security cameras into a single live floor plan that shows where every person in the building is, in real time. It connects to the cameras a facility already has, detects every person in view, follows each individual as they move from one camera to the next, and places them on a room-by-room plan of the building.',
+    text: 'This live picture is pushed to the responding law enforcement agency the moment an incident is detected, the officers who arrive have all the information before they enter.',
   },
-  /* A real IRIS CIV screen (demo map of our office; top bar with the server address cropped off). `at` = where each
+  /* A real IRIS CIV screen (demo map of our office; IRIS_UI.png; no top bar, so no server address). `at` = where each
      numbered point sits on the image, in % from the left and top. */
   seesImage: {
     src: '/media/iris-civ/officer-view.jpg',
-    alt: 'IRIS CIV on an officer’s phone: a live floorplan of the ground floor over an aerial photo, people tracked in Room 4, rooms with no camera shaded grey',
+    alt: 'IRIS CIV on an officer’s phone: a live floorplan of the ground floor over an aerial photo, the assailant marked red in Room 2, people tracked in Room 4, what the threat can see shaded yellow, rooms with no camera shaded grey',
   },
   /* Phones: the caption under the screen before a point is opened. */
   seesHint: { empty: 'Tap a point on the screen.' },
   sees: [
-    { icon: 'layers', text: 'A live floorplan of every level', at: [30.6, 31.9] },
-    { icon: 'target', text: 'Every person tracked room to room, the confirmed assailant marked', at: [51.4, 31.6] },
-    { icon: 'sight', text: 'What each threat can see, shaded on the map', at: [21.5, 81.2] },
-    { icon: 'people', text: 'Everyone still inside, and how many have not come out', at: [59.2, 40.8] },
-    { icon: 'eyeoff', text: 'Dead space with no camera, and where each person was last seen', at: [72.6, 46.5] },
+    { icon: 'layers', text: 'A live floorplan of every level', at: [23.6, 63.2] },
+    { icon: 'target', text: 'Every person tracked room to room, the confirmed assailant marked', at: [45.7, 16.2] },
+    { icon: 'sight', text: 'What each threat can see, shaded on the map', at: [51.4, 45.9] },
+    { icon: 'people', text: 'Everyone still inside, and how many have not come out', at: [60.0, 43.2] },
+    { icon: 'eyeoff', text: 'Dead space with no camera, and where each person was last seen', at: [62.9, 31.1] },
   ],
 };

@@ -3,7 +3,7 @@ import sys, os, asyncio
 from playwright.async_api import async_playwright
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3000"
-ROUTES = ["/", "/defense/iris", "/defense/mantis", "/defense/orin", "/civilian/iris-civ", "/company/careers", "/company/events", "/privacy-policy"]
+ROUTES = ["/", "/defense/iris", "/defense/mantis", "/defense/orin", "/civilian/iris-civ", "/company/careers", "/company/events", "/privacy-policy", "/terms-and-conditions"]
 OUT = os.path.join(os.path.dirname(__file__), "..", "shots")
 os.makedirs(OUT, exist_ok=True)
 

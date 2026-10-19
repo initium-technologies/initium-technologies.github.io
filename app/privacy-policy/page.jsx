@@ -1,18 +1,8 @@
-import TextPage from '@/components/TextPage';
+import LegalPage from '@/components/LegalPage';
 import { legal } from '@/content/company';
 
-const doc = legal.privacy;
-export const metadata = doc.meta;
+export const metadata = legal.privacy.meta;
 
 export default function Page() {
-  return (
-    <TextPage headline={doc.title} updated={doc.updated}>
-      {doc.sections.map((s) => (
-        <div key={s.h}>
-          <h2 className="h3">{s.h}</h2>
-          <p className="body">{s.p}</p>
-        </div>
-      ))}
-    </TextPage>
-  );
+  return <LegalPage doc={legal.privacy} />;
 }

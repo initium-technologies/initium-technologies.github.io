@@ -7,7 +7,7 @@ import SpecTable from './SpecTable';
 import { findMedia } from '@/lib/media';
 
 /* Hidden for now (Sanjeev, 2026-10-16): the key functions (IRIS, MANTIS). Set to true to bring them back; their copy
-   is still in content/products.js. ORIN's Locust Terminal always shows. */
+   is still in content/products.js. The Locus Terminal (ORIN, MANTIS) always shows. */
 const SHOW_DETAILS = false;
 
 /* Product page (IRIS, MANTIS, ORIN): the hero image fills the screen behind the name, then whichever of these the
@@ -24,6 +24,7 @@ export default function ProductPage({ product, backdrop = null }) {
         explainer={product.explainer}
         label={product.heroLabel}
         media={findMedia(`${product.slug}/hero`)}
+        crop={product.heroCrop}
         backdrop={backdrop}
         cover
       />

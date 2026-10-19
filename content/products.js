@@ -1,3 +1,15 @@
+/* The Locus Terminal login box under the hero (ORIN, MANTIS), after initiumterminal.com. Shown in caps. */
+const loginTerminal = {
+  title: 'Log in to access',
+  fields: [
+    { id: 'access-code', label: 'Access code', masked: false },
+    { id: 'password', label: 'Password', masked: true },
+  ],
+  enter: 'Log in',
+  verifying: 'Verifying',
+  invalid: 'Invalid details',
+};
+
 export const iris = {
   slug: 'iris',
   name: 'IRIS',
@@ -77,10 +89,11 @@ export const mantis = {
   slug: 'mantis',
   name: 'MANTIS',
   fullName: 'Maritime Autonomous Neural Triage and Inference System',
-  explainer: 'Shipboard compute that turns raw ISR feeds into intelligence before they leave the ship.',
-  /* Text under the full-screen hero (draft, from the key-function copy). */
-  intro:
-    'Every unmanned feed the ship receives is triaged on board. Detections, classified tracks, anomalies and annotated clips reach watchstanders and combat systems in seconds. Only the compressed product crosses the satellite link, and in EMCON or denied communications the ship keeps its full exploitation capability.',
+  /* The hero video is a MANTIS screen recording: cut its top 13.5% (the app's title bar, the 02 GEOLOCATION bar and the
+     FRAME CENTER box) so nothing in it meets the site's header; its bottom edge stays in frame. */
+  heroCrop: 0.135,
+  /* No text under the hero: the Locus Terminal login box instead, as on ORIN. */
+  terminal: loginTerminal,
   heroLabel: 'IMAGE/VIDEO · MANTIS HERO · 21:9',
   meta: {
     title: 'MANTIS — Shipboard edge compute for ISR | Initium',
@@ -114,15 +127,5 @@ export const orin = {
     title: 'ORIN | Initium',
     description: 'Orbital Relay Inference Network.',
   },
-  /* The Locus Terminal under the hero, after initiumterminal.com. Shown in caps. */
-  terminal: {
-    title: 'Log in to access',
-    fields: [
-      { id: 'access-code', label: 'Access code', masked: false },
-      { id: 'password', label: 'Password', masked: true },
-    ],
-    enter: 'Log in',
-    verifying: 'Verifying',
-    invalid: 'Invalid details',
-  },
+  terminal: loginTerminal,
 };

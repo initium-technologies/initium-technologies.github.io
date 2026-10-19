@@ -18,6 +18,8 @@
   /* Grey panels (.grey: the IRIS and IRIS CIV descriptions): mid grey, a touch of brown, dark text. */
   --card-grey-bg: #8a8680;
   --card-grey-line: #00000059;
+  /* IRIS CIV steps 01–03: the faint line between the grey bands. */
+  --step-sep: #00000026;
   --card-grey-ink: #000000;
   --card-grey-muted: #2b2824;
   /* Light panels (.light: the IRIS concept cards, IRIS CIV steps 01–03): tan, dark text (muted 5.2:1 on the tan, for AA). */
@@ -62,6 +64,9 @@
   /* The same lines inside a black box set on a light panel (the IRIS spec box on grey), where --rule and --graphite
      have flipped dark. */
   --box-rule: #ffffff47;
+  /* The IRIS spec panel: almost black, a step lighter than the footer (#000); every other row a step lighter again. */
+  --spec-panel-bg: #0e0d0c;
+  --spec-panel-row: #141311;
   --box-line: #474747;
   --nav-ink: #b8b8b8;
   --nav-ink-hover: #ffffff;

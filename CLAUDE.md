@@ -33,7 +33,9 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - Footer: INITIUM left, then DEFENSE · CIVILIAN · COMPANY · SOCIAL as four equal columns (`--footer-col`, so the gaps
   match) packed at the right edge, titles in
   bold Inter (built from the nav menus in content/site.js, so a product added to a menu appears in both); bottom-left
-  INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links (no copyright line); CONTACT under COMPANY, lined up
+  INITIUM INDUSTRIES, INC. then MADE IN AMERICA then the legal links, Privacy Policy and Terms and Conditions (/privacy-policy, /terms-and-conditions: the Termify texts from
+  Privacy_Policy.pdf and Terms_And_Conditions.pdf word for word in `legal` in content/company.js, components/LegalPage.jsx;
+  no copyright line; no modern slavery policy); CONTACT under COMPANY, lined up
   with it, the email on one line running across toward SOCIAL. No line along the top of the footer.
 - Scrollbar: themed, never the OS one: thin graphite thumb on black (`--scrollbar-*` tokens).
 - The Nav has no background at rest. The open panel and the bar share one colour (--nav-panel).
@@ -48,8 +50,9 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   black until home/hero.mp4 exists. Tiles show only the product name.
 - Product pages (IRIS, MANTIS, ORIN): full-screen hero image/video behind the name, the full name + one-liner under
   the name, black shades top and bottom for readability; then a short intro text (`intro` in content/products.js;
-  MANTIS). Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN keeps its Locus
-  Terminal. ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4). Preview /defense/orin/live/ (not linked, noindex)
+  MANTIS; its hero is the MANTIS backdrop video, public/media/mantis/hero.mp4, a screen recording: `heroCrop` in content/products.js
+  cuts its top (the app's title bars) off above the header, and the video is pinned to the bottom so its bottom edge shows). Key functions are hidden for now (`SHOW_DETAILS` in components/ProductPage.jsx); ORIN and MANTIS have the Locus
+  Terminal login box under the hero instead of any text. ORIN's hero is the ORIN Hero video (public/media/orin/hero.mp4). Preview /defense/orin/live/ (not linked, noindex)
   has the live 3D satellite globe instead (components/OrinGlobe.jsx + lib/sat.worker.js, three.js + satellite.js):
   every active satellite from public/data/satellites.tle, positions computed live (SGP4) in a worker; greyscale NASA
   Earth (public/media/orin/earth-day.jpg, earth-night.jpg) lit by the real Sun. Refresh the catalogue every few days:
@@ -62,17 +65,17 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   it at the left margin, grey) and the spec table (the grey runs on down past it; the table sits in a black panel inset by
   the page margins, shaped like a folder: rounded corners (`--radius-panel`, the one exception to radius 0 besides
   inputs) and the caption in a tab rising from its top-left, the tab's foot curving out into the panel's edge; dark-page
-  colours inside (`--box-rule`, `--box-line`); components/SpecTable.jsx: the caption IRIS
+  colours inside, the panel almost black but a step lighter than the footer (`--spec-panel-bg`, rows `--spec-panel-row`) (`--box-rule`, `--box-line`); components/SpecTable.jsx: the caption IRIS
   RUGGEDIZATION SPECS in the tab, larger white Julius caps, as its heading; the black margin is the same above the
   table (from the caption's baseline), at its sides and below it, no other label or count, then a compact ruled table, parameter, rating, detail,
   every row the same height (`--spec-row`) and the header in the same 12px caps as the parameters, every other row a
   minuscule step browner (`--band-row`); no row numbers; rows do not change on hover).
   All copy in `iris` in content/products.js.
-- IRIS CIV: same hero (subtitle "Interior Reconnaissance and Inference System", no "Civilian"), then one story:
+- IRIS CIV: same hero (the officers photo, public/media/iris-civ/hero.jpg; subtitle "Interior Reconnaissance and Inference System", no "Civilian"), then one story:
   60-second promise (on black, equal space above and below, the concept of operations heading close under it; the 60 in Julius like the step numbers, exactly as tall as the three fixed lines beside it, cap top to baseline;
   the maths is in globals.css .civ-stat) · CONCEPT OF OPERATIONS (large white heading; components/StepCards.jsx: the 4 steps as full-width
   bands touching edge to edge, after Anduril's build-qualities cards, mid grey (01–03: `--card-grey-*`, the
-  description colour, dark text; on desktop the 3px section rule, dark on grey, between them from the left margin to the
+  description colour, dark text; on desktop a faint 3px line (`--step-sep`) between them from the page's left edge to the
   image) and black (04): a large number at the top left (fixed, it does not move on scroll)
   (no time under it: StepCards still takes an optional `time`, which starts where the 0 is drawn and, on desktop, sits
   halfway between the foot of the number and the foot of the band), the step title in Julius (desktop: the tops of its letters level with the top of the number), its text,
@@ -83,18 +86,18 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   text column, the interactive officer screen (StepCards `last`: components/CivShot.jsx, a real IRIS CIV screen
   `public/media/iris-civ/officer-view.jpg` with hover/tap hotspots that auto-play until touched; never publish the
   app's top bar: it shows the server address), with black under it). DESCRIPTION follows directly on the mid-grey `.grey` panel (as IRIS's), no
-  black between (placeholder
-  lorem ipsum in `description` in content/civ.js). No pillars, use cases or closing statement. Icons are drawn in components/CivIcons.jsx (no icon library); copy in
+  black between (lead and text in `description` in content/civ.js, the text on the left under the lead). No pillars, use cases or closing statement. Icons are drawn in components/CivIcons.jsx (no icon library); copy in
   content/civ.js.
-- No About page (removed; /company has no page). Careers (/company/careers): one Open roles list (now just Perception
-  engineering), nothing after it.
+- No About page (removed; /company has no page). Careers (/company/careers): one Open roles list (now just ML/Computer Vision
+  Engineer), nothing after it.
 - Home tiles: ORIN tall on the left (the right half of the globe, coming in from the left edge, on pure black), IRIS then IRIS CIV on the right (7:5), MANTIS wide along the
   bottom (5:2). Tiles can zoom their image (`zoom`, `focus` in content/site.js); IRIS is zoomed and centred on the unit.
 - Drop-down panels are see-through black with a blur (--nav-panel), like the scrolled bar.
 - Product names in caps in labels and tiles; normal case in prose. American English in every word of copy.
 - Never add "AI" as a selling word; say inference, detection, tracking.
-- The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com) is a grey box (`--terminal-bg`, brown-tinted,
-  no outer border) centred under ORIN's hero: a slim title bar (the <II> mark), the LOG IN TO
+- The Locus Terminal (components/LocustTerminal.jsx, after initiumterminal.com; ORIN and MANTIS, one copy `loginTerminal` in
+  content/products.js) is a grey box (`--terminal-bg`, brown-tinted,
+  no outer border) centred under the ORIN and MANTIS heroes: a slim title bar (the <II> mark), the LOG IN TO
   ACCESS heading in Julius, ACCESS CODE and PASSWORD as labelled input boxes (`--terminal-field`, 2px radius, block
   cursor), the status line, a full-width LOG IN button (#8b8880, black text). Nothing under the box. No NODE / LINK lines, no green. The heading types itself out when scrolled into view, then the
   fields fade in (final frame with reduced motion). Enter moves to the next field, then logs in.
