@@ -22,8 +22,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   lines. No colour (no red/orange accent; the accent token is white), except two near-black browns: grey boxes
   (step cards and tabs, the Locus Terminal) carry a barely visible brown hue and no outline, and set-apart sections
   (key functions) sit on a brown band from edge to edge so dark it only shows on
-  close inspection (`.band`, `--band-bg`), starting just above the section label. Tan panels (`.light`: the IRIS concept cards and IRIS CIV steps 01–03, #bdad96; `--card-light-*`) and mid-grey panels (`.grey`: the IRIS and IRIS CIV descriptions;
-  `--card-grey-*`), both with a touch of brown, flip the text to dark. One theme, no per-page themes.
+  close inspection (`.band`, `--band-bg`), starting just above the section label. Mid-grey panels (`.grey`: the IRIS and IRIS CIV descriptions, the IRIS concept cards and IRIS CIV steps 01–03, all one colour;
+  `--card-grey-*`; tan `.light`, #bdad96, `--card-light-*`, is kept but unused), with a touch of brown, flip the text to dark. One theme, no per-page themes.
   Selected text = white highlight with black letters.
 - Nav: <II> mark top-left · DEFENSE and CIVILIAN centred on the page · COMPANY top-right. All three are drop-downs:
   Defense = IRIS · MANTIS · ORIN; Civilian = IRIS CIV; Company = Open Roles · Partner Portal. Rows show names only
@@ -56,7 +56,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   `node scripts/update-satellites.mjs` (CelesTrak: max one download per 2 hours). Falls back to the video without WebGL.
 - IRIS: no intro; under the hero (subtitle "A full interior picture for the operator, before engagement.") come
   CONCEPT OF OPERATIONS (a large white heading, `--major`; tabs and card on black; components/StepTabs.jsx, after Anduril's Fury build-qualities block: tabs Camera Access · Initial Picture ·
-  Refinement · Assault (Julius, lowercase so every letter is the same size) with a line under the active one, over one tan card at a time that slides sideways to the chosen tab
+  Refinement · Assault (Julius, lowercase so every letter is the same size) with a line under the active one, over one mid-grey card at a time that slides sideways to the chosen tab
   (scroll-snap, so it swipes too; arrow keys on the tabs); card: the tag in caps in the top-left corner, the title large in Julius (close to the left edge; no 01 / 04), the image
   top right (public/media/iris/step-1…4.*), a large number bottom left; titles only), DESCRIPTION (mid-grey `.grey` panel; large lead, body under
   it at the left margin, grey) and the spec table (the grey runs on down past it; the table sits in a black panel inset by
@@ -71,8 +71,8 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
 - IRIS CIV: same hero (subtitle "Interior Reconnaissance and Inference System", no "Civilian"), then one story:
   60-second promise (on black, equal space above and below, the concept of operations heading close under it; the 60 in Julius like the step numbers, exactly as tall as the three fixed lines beside it, cap top to baseline;
   the maths is in globals.css .civ-stat) · CONCEPT OF OPERATIONS (large white heading; components/StepCards.jsx: the 4 steps as full-width
-  bands touching edge to edge, after Anduril's build-qualities cards, tan (01–03: `--card-light-*`, the IRIS
-  concept card colour, dark text; on desktop the 3px section rule, dark on tan, between them from the left margin to the
+  bands touching edge to edge, after Anduril's build-qualities cards, mid grey (01–03: `--card-grey-*`, the
+  description colour, dark text; on desktop the 3px section rule, dark on grey, between them from the left margin to the
   image) and black (04): a large number at the top left (fixed, it does not move on scroll)
   (no time under it: StepCards still takes an optional `time`, which starts where the 0 is drawn and, on desktop, sits
   halfway between the foot of the number and the foot of the band), the step title in Julius (desktop: the tops of its letters level with the top of the number), its text,

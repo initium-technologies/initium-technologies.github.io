@@ -449,10 +449,10 @@ h1, h2, h3, p { margin: 0; }
 .product-section { padding: var(--space-9) var(--margin); }
 /* IRIS CIV: the concept of operations follows the 60 closely (both on black; the 60's own space is the gap). */
 .civ-stat + .product-section { padding-top: var(--space-2); }
-/* Panels with dark text; the colour tokens flip inside them. Tan (.light): the IRIS concept cards, IRIS CIV steps
-   01–03. Mid grey (.grey): the IRIS and IRIS CIV descriptions. */
-.light, .step-tab, .step-card:not(.step-card--dark) { --ink: var(--card-light-ink); --ink-muted: var(--card-light-muted); --rule: var(--card-light-line); --graphite: var(--card-light-line); background: var(--card-light-bg); color: var(--ink); }
-.grey { --ink: var(--card-grey-ink); --ink-muted: var(--card-grey-muted); --rule: var(--card-grey-line); --graphite: var(--card-grey-line); background: var(--card-grey-bg); color: var(--ink); }
+/* Panels with dark text; the colour tokens flip inside them. Tan (.light): none in use now. Mid grey (.grey): the IRIS
+   and IRIS CIV descriptions, the IRIS concept cards and IRIS CIV steps 01–03. */
+.light { --ink: var(--card-light-ink); --ink-muted: var(--card-light-muted); --rule: var(--card-light-line); --graphite: var(--card-light-line); background: var(--card-light-bg); color: var(--ink); }
+.grey, .step-tab, .step-card:not(.step-card--dark) { --ink: var(--card-grey-ink); --ink-muted: var(--card-grey-muted); --rule: var(--card-grey-line); --graphite: var(--card-grey-line); background: var(--card-grey-bg); color: var(--ink); }
 /* The concept-of-operations heading: larger and white, the section the page is built around. */
 .product-section__label.product-section__label--major { font-size: clamp(26px, 2.6vw, 40px); letter-spacing: 0.08em; color: var(--ink); }
 /* IRIS concept of operations: the tabs and card on black from edge to edge, from just above the tabs to just below the
@@ -463,7 +463,7 @@ h1, h2, h3, p { margin: 0; }
 .band { padding-top: var(--space-6); background: var(--band-bg); }
 .product-section__label { display: block; padding-bottom: var(--space-4); margin-bottom: var(--space-7); border-bottom: var(--border-1) solid var(--rule); font-size: 12px; letter-spacing: 0.18em; color: var(--ink-muted); }
 /* Step cards (StepCards: IRIS CIV how it works), after Anduril's build-qualities cards: full-width bands stacked edge
-   to edge with no gap, tan (01–03; 04, with the officer screen under it, black). A large white number at the top left,
+   to edge with no gap, mid grey like the descriptions (01–03; 04, with the officer screen under it, black). A large white number at the top left,
    the step title in Julius, its text, and the image filling the right part of the band to its top, bottom and the
    page's right edge (plain black, no outline, until the file exists). */
 /* Every card in a list is as tall as the tallest, so the bands match whatever the platform's fonts do. */
