@@ -8,3 +8,15 @@ shots
 # Original/master video files: convert to .mp4 for the site, never commit the originals
 *.mov
 *.MOV
+
+# Local secrets and keys (the site needs none; this keeps them out by default)
+.env
+.env.*
+*.pem
+
+# Editor and tool clutter
+.vscode
+.idea
+__pycache__
+.venv
+.vercel
