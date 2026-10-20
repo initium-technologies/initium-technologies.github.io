@@ -8,16 +8,6 @@ export const careers = {
   ],
 };
 
-export const events = {
-  meta: { title: 'Events | Initium', description: 'Hackathon.' },
-  label: 'Events',
-  headline: 'See it run.',
-  items: [
-    { name: 'Hackathon', when: 'Date TBC', where: 'Mountain View, California', text: 'A weekend building on IRIS with Initium engineers.' },
-  ],
-  cta: 'Register interest',
-};
-
 export const legal = {
   /* The texts of Privacy_Policy.pdf and Terms_And_Conditions.pdf (Termify), word for word. Each section: an optional
      heading and its blocks (`p`): a paragraph (a string) or a bulleted list ({ list: [...] }). */
