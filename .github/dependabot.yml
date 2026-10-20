@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # Site dependencies (Next.js, React, three.js, satellite.js): one grouped pull request a week.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      npm:
+        patterns: ["*"]
+  # The GitHub Actions used by the build and deploy workflow.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

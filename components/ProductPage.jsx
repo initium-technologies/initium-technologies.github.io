@@ -25,6 +25,7 @@ export default function ProductPage({ product, backdrop = null }) {
         label={product.heroLabel}
         media={findMedia(`${product.slug}/hero`)}
         crop={product.heroCrop}
+        focus={product.heroFocus}
         backdrop={backdrop}
         cover
       />

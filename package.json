@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build"
   },
   "dependencies": {
     "next": "15.5.28",
@@ -14,5 +12,8 @@
     "react-dom": "19.1.10",
     "satellite.js": "5.0.0",
     "three": "0.170.0"
+  },
+  "overrides": {
+    "postcss": "8.5.31"
   }
 }

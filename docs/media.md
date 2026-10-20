@@ -1,10 +1,10 @@
 # Images and videos
 
-One folder per page. Drop a file in with the name below and it appears on that page; no code change.
+One folder per page under `public/media/`. Drop a file in with the name below and it appears on that page; no code change.
 Until a file exists, its spot is an empty box (or plain black for the landing hero).
 
 - **Images:** `.jpg`, `.png`, `.webp` or `.avif`. About 2000 px on the long side is plenty.
-- **Videos:** `.mp4` (H.264) or `.webm`, muted and looping. Keep each under ~2 MB (1600×900, CRF 30).
+- **Videos:** `.mp4` (H.264) or `.webm`, muted and looping. Aim for about 2 MB and stay under 4 MB (1600 px wide, H.264 CRF 28–30, no audio track).
 - The name is what matters, not the extension: `hero.jpg` and `hero.mp4` both fill the `hero` slot (video wins if both exist).
 
 | Folder | File name | Where it shows | Shape |
@@ -26,6 +26,12 @@ Until a file exists, its spot is an empty box (or plain black for the landing he
 
 Examples: `home/iris-tile.jpg`, `iris/2.jpg`, `mantis/hero.mp4`.
 
-In use now: `orin/hero.mp4` (ORIN Hero video, 14 s), `iris-civ/officer-view.jpg` (IRIS CIV screen on the IRIS CIV page: `IRIS_UI.png`, 1912×1010, no top bar), `home/orin-tile.jpg` (right half of the constellation globe from `ORIN_constellation_5K.png`, centre on the left edge; the margins filled with the same star field, mirrored), `home/iris-tile.jpg`, `home/iris-civ-tile.jpg` (7:5 crop of `iris-civ/hero.jpg`), `home/mantis-tile.jpg` (5:2 crop of the old MQ-9 `mantis/hero.jpg`), `iris/hero.mp4` (IRIS MIL Hero Video, 30 s), `iris/step-1.png` … `iris/step-4.png` (Camera Access, Initial Picture, Refinement, Assault cards: IRIS interior-picture screens, `slide_picture_1…4.png` scaled to 1920×1080), `mantis/hero.mp4` (MANTIS backdrop video, `MANTIS_backdrop.mp4`; the page cuts its top 13.5%, the app's title bars, with `heroCrop`), `iris-civ/hero.jpg` (officers in daylight; the phone screen is the real IRIS CIV screen, mapped in perspective).
+## Rules for new files
+- Convert master videos to `.mp4` before adding them and never commit the originals (`.mov` is git-ignored).
+- Screenshots and screen recordings of our own software: crop to the application body before adding them. Never include
+  the window chrome, title bar or address bar.
+- Logos are separate, in `public/logo/`.
 
-Logos are separate, in `public/logo/`.
+Filled slots today: `home/orin-tile`, `home/iris-tile`, `home/iris-civ-tile`, `home/mantis-tile`, `iris/hero`,
+`iris/step-1…4`, `mantis/hero`, `orin/hero`, `orin/earth-day`, `orin/earth-night`, `iris-civ/hero`,
+`iris-civ/officer-view` (the officer screen in the IRIS CIV story).

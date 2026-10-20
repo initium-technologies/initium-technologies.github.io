@@ -1,9 +1,13 @@
-"""Screenshot every route at desktop and mobile widths into shots/. Usage: python3 scripts/shots.py [base_url]"""
+"""Screenshot every route at desktop and mobile widths into shots/.
+
+Needs Playwright:  pip install playwright && playwright install chromium
+Usage:             python3 scripts/shots.py [base_url]   (default http://localhost:3000, i.e. `npm run dev`)
+"""
 import sys, os, asyncio
 from playwright.async_api import async_playwright
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3000"
-ROUTES = ["/", "/defense/iris", "/defense/mantis", "/defense/orin", "/civilian/iris-civ", "/company/careers", "/company/events", "/privacy-policy", "/terms-and-conditions"]
+ROUTES = ["/", "/defense/iris", "/defense/mantis", "/defense/orin", "/civilian/iris-civ", "/company/careers", "/privacy-policy", "/terms-and-conditions"]
 OUT = os.path.join(os.path.dirname(__file__), "..", "shots")
 os.makedirs(OUT, exist_ok=True)
 
@@ -26,11 +30,11 @@ async def main():
             # nav open state on home (desktop only)
             if width == 1440:
                 await page.goto(BASE + "/", wait_until="networkidle")
-                await page.hover("text=For Defense")
+                await page.hover("text=Defense")
                 await page.wait_for_timeout(900)
                 await page.screenshot(path=os.path.join(OUT, f"home-nav-open-{tag}.png"), full_page=False)
                 await page.goto(BASE + "/defense/iris", wait_until="networkidle")
-                await page.hover("text=For Defense")
+                await page.hover("text=Defense")
                 await page.wait_for_timeout(900)
                 await page.screenshot(path=os.path.join(OUT, f"iris-nav-open-{tag}.png"), full_page=False)
                 # tile hover

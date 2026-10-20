@@ -126,7 +126,6 @@ export default function LocustTerminal({ terminal }) {
                     <input
                       className="term__input"
                       id={f.id}
-                      name={f.id}
                       type={f.masked ? 'password' : 'text'}
                       ref={(el) => {
                         inputs.current[i] = el;

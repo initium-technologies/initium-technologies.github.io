@@ -89,9 +89,8 @@ export const mantis = {
   slug: 'mantis',
   name: 'MANTIS',
   fullName: 'Maritime Autonomous Neural Triage and Inference System',
-  /* The hero video is a MANTIS screen recording: cut its top 13.5% (the app's title bar, the 02 GEOLOCATION bar and the
-     FRAME CENTER box) so nothing in it meets the site's header; its bottom edge stays in frame. */
-  heroCrop: 0.135,
+  /* Keep the video's bottom edge (the tracked-objects table) in frame on very wide screens. */
+  heroFocus: '50% 100%',
   /* No text under the hero: the Locus Terminal login box instead, as on ORIN. */
   terminal: loginTerminal,
   heroLabel: 'IMAGE/VIDEO · MANTIS HERO · 21:9',
