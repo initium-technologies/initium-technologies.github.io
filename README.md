@@ -1,7 +1,19 @@
-# Initium website
+<p align="center">
+  <img src="docs/banner.png" alt="Initium" width="100%">
+</p>
 
-The company website, [initiumtechnologies.com](https://initiumtechnologies.com). Next.js + React, plain CSS, no
-backend: `npm run build` turns the source into plain files, and GitHub Pages serves them.
+<p align="center">
+  <b>The public website of Initium Technologies: edge compute for mission-critical sensing.</b><br>
+  <a href="https://initiumtechnologies.com">initiumtechnologies.com</a>
+</p>
+
+---
+
+## Overview
+
+The site is built with Next.js and React, styled in plain CSS, and has no backend: `npm run build` turns the source
+into plain files, and GitHub Pages serves them. Four product pages (IRIS, MANTIS, ORIN, IRIS CIV), one careers page,
+two legal pages. Every word lives in `content/`, every picture and video in `public/media/`.
 
 ## Run it
 ```
