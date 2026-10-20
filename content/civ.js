@@ -46,8 +46,8 @@ export const civ = {
     lead: 'IRIS Civ turns a facility’s existing security cameras into a single live floor plan that shows where every person in the building is, in real time. It connects to the cameras a facility already has, detects every person in view, follows each individual as they move from one camera to the next, and places them on a room-by-room plan of the building.',
     text: 'This live picture is pushed to the responding law enforcement agency the moment an incident is detected, the officers who arrive have all the information before they enter.',
   },
-  /* A real IRIS CIV screen (demo map of our office; IRIS_UI.png; no top bar, so no server address). `at` = where each
-     numbered point sits on the image, in % from the left and top. */
+  /* The IRIS CIV screen on the officer's phone (demo data). `at` = where each numbered point sits on the image, in %
+     from the left and top. */
   seesImage: {
     src: '/media/iris-civ/officer-view.jpg',
     alt: 'IRIS CIV on an officer’s phone: a live floorplan of the ground floor over an aerial photo, the assailant marked red in Room 2, people tracked in Room 4, what the threat can see shaded yellow, rooms with no camera shaded grey',
