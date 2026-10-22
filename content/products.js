@@ -32,7 +32,7 @@ export const iris = {
       },
       {
         tag: 'Initial Picture',
-        title: 'IRIS builds an initial interior picture',
+        title: 'IRIS builds an initial interior picture, tracking every occupant of the structure',
       },
       {
         tag: 'Refinement',

@@ -81,7 +81,7 @@ Marketing site for Initium Industries (initiumtechnologies.com). Built from the 
   halfway between the foot of the number and the foot of the band), the step title in Julius (desktop: the tops of its letters level with the top of the number), its text,
   and the image filling the right part of the band to its top, bottom and the page's right edge, about a third of the
   width (public/media/iris-civ/step-1…3.*; plain black until then); bands 01–03 are as tall as the tallest (grid rows
-  1fr). Band 04 (The live picture is available; text: See what IRIS puts on an officer’s phone the second they breach a building.) has no
+  1fr). Band 04 (The live picture is available; text: See what IRIS puts on a first responder’s phone the minute they arrive at a building.) has no
   image and is as tall as the others (desktop; its title and text centred across the page); straight under the band, centred on the page at the width of the bands'
   text column, the interactive officer screen (StepCards `last`: components/CivShot.jsx, a real IRIS CIV screen
   `public/media/iris-civ/officer-view.jpg` with hover/tap hotspots that auto-play until touched; never publish the

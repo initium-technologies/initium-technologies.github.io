@@ -37,7 +37,7 @@ export const civ = {
     {
       tag: 'Arrive',
       title: 'The live picture is available',
-      text: 'See what IRIS puts on an officer’s phone the second they breach a building.',
+      text: 'See what IRIS puts on a first responder’s phone the minute they arrive at a building.',
     },
   ],
   /* The description: a large lead, then the text under it on the left. */
